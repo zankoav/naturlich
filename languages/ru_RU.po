@@ -1,0 +1,34 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Naturlith\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-26 13:42+0000\n"
+"PO-Revision-Date: 2018-01-26 13:43+0000\n"
+"Last-Translator: zanko <zankoav@mail.ru>\n"
+"Language-Team: Russian\n"
+"Language: ru-RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: inc/templates/content-index.php:1
+msgid "Hello"
+msgstr "Привет"
+
+#. Name of the theme
+msgid "Naturlith"
+msgstr ""
+
+#. Author of the theme
+msgid "Webmapps"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://webmapps.com/"
+msgstr ""
+
+msgid "Fucking menu"
+msgstr "Дурацкое меню"

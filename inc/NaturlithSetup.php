@@ -8,7 +8,6 @@
  */
 class NaturlithSetup extends BaseSetup
 {
-
     /**
      * @return array
      */
@@ -16,9 +15,9 @@ class NaturlithSetup extends BaseSetup
     {
         return array(
             'icons' => 'https://use.fontawesome.com/releases/v5.0.4/css/all.css',
-            'bootstrap4' => $this->theme_url . '/css/bootstrap4/bootstrap.css',
-            'main' => $this->theme_url . '/css/main.css',
-            'style' => $this->theme_url . '/style.css',
+            'bootstrap4' => $this->themeUrl . '/css/bootstrap4/bootstrap.css',
+            'main' => $this->themeUrl . '/css/main.css',
+            'style' => $this->themeUrl . '/style.css',
         );
     }
 
@@ -36,13 +35,31 @@ class NaturlithSetup extends BaseSetup
     public function footerScripts()
     {
         return array(
-            'bootstrap4' => $this->theme_url . '/js/bootstrap4/bootstrap.bundle.js',
-            'bundle' => $this->theme_url . '/js/bundle.js'
+            'bootstrap4' => $this->themeUrl . '/js/bootstrap4/bootstrap.bundle.js',
+            'bundle' => $this->themeUrl . '/js/bundle.js'
         );
     }
 
     public function isJqueryNeed()
     {
         return true;
+    }
+
+    /**
+     * @return string
+     */
+    public static function themeName()
+    {
+        return 'naturlith';
+    }
+
+    /**
+     * @return array
+     */
+    public function menus()
+    {
+        return array(
+            'main_menu' => __('Fucking menu', self::themeName())
+        );
     }
 }

@@ -8,12 +8,24 @@
  */
 abstract class BaseSetup
 {
-    public $theme_url;
+    public $themeUrl;
+    public $themeDir;
 
     public function __construct()
     {
-        $this->theme_url = get_template_directory_uri();
+        $this->themeUrl = get_template_directory_uri();
+        $this->themeDir = get_template_directory();
     }
+
+    /**
+     * @return string
+     */
+    public static abstract function themeName();
+
+    /**
+     * @return array
+     */
+    public abstract function menus();
 
     /**
      * @return array
@@ -35,7 +47,7 @@ abstract class BaseSetup
      */
     public function isJqueryNeed()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -49,6 +61,7 @@ abstract class BaseSetup
     public function setup()
     {
         $this->add_scripts();
+        $this->setup_theme();
     }
 
     private function add_scripts()
@@ -86,4 +99,23 @@ abstract class BaseSetup
             wp_enqueue_script('jquery');
         }
     }
+
+    private function setup_theme()
+    {
+        add_action('after_setup_theme', function () {
+            $this->setup_lang();
+            $this->setup_menu();
+        });
+    }
+
+    private function setup_lang()
+    {
+        load_theme_textdomain($this->themeName(), $this->themeDir . '/languages');
+    }
+
+    private function setup_menu()
+    {
+        register_nav_menus($this->menus());
+    }
+
 }

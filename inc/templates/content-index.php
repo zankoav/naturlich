@@ -1,4 +1,4 @@
-<h1>Hello world</h1>
+<h1><?php _e('Hello', NaturlithSetup::themeName());?></h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid animi commodi dolore
     dolores, enim excepturi expedita id in ipsa laborum libero maxime neque officiis omnis optio placeat sint soluta
     tenetur veniam! A consectetur delectus dicta ipsa molestiae odit quos ratione reiciendis similique? Cum cumque
