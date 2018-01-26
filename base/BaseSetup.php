@@ -103,8 +103,21 @@ abstract class BaseSetup
     private function setup_theme()
     {
         add_action('after_setup_theme', function () {
+
             $this->setup_lang();
             $this->setup_menu();
+
+            add_theme_support('custom-logo');
+
+            add_theme_support('post-thumbnails');
+
+            add_theme_support('html5', array(
+                'search-form',
+                'comment-form',
+                'comment-list',
+                'gallery',
+                'caption'
+            ));
         });
     }
 

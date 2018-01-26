@@ -1,0 +1,91 @@
+
+header {
+    padding: 1.5rem 0 1rem 0;
+    @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
+
+    .custom-logo {
+        width: 100%;
+        height: auto;
+    }
+
+    li {
+        padding: 0.7rem;
+        position: relative;
+        font-size: 0.8rem;
+
+        &:hover {
+
+            &.menu-item-has-children {
+                .sub-menu {
+                    display: block;
+                }
+            }
+        }
+
+        &.menu-item-has-children {
+
+            ul.sub-menu {
+                z-index: 10;
+                padding: 1rem 1.5rem;
+                display: none;
+                position: absolute;
+                border: 3px solid $light-gray;
+                background-color: white;
+                margin-top: 0.70rem;
+                @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
+
+                li {
+                    border-bottom: 1px solid $light-gray;
+                    padding: 0.5rem 0;
+
+                    a {
+                        white-space: nowrap;
+                        font-family: LatoLight, sans-serif;
+                        font-weight: 300;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+
+                &::before {
+                    content: '\f0d8';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    color: $light-gray;
+                    position: absolute;
+                    top: -1.5rem;
+                    left: 30px;
+                }
+            }
+
+            & > a {
+
+                &::after {
+                    content: '\f107';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 600;
+                    margin-left: 0.25rem;
+                }
+            }
+
+        }
+
+        a {
+            color: $dark-gray;
+            text-transform: uppercase;
+            font-family: LatoBlack, sans-serif;
+            font-style: normal;
+            @include transition-property(color);
+            @include transition-duration(200ms);
+
+            &:hover {
+                color: $primary;
+                text-decoration: none;
+            }
+        }
+
+    }
+}

@@ -14,7 +14,7 @@ class NaturlithSetup extends BaseSetup
     public function styles()
     {
         return array(
-            'icons' => 'https://use.fontawesome.com/releases/v5.0.4/css/all.css',
+            'icons' => $this->themeUrl . '/css/fontawesome/css/fontawesome-all.css',
             'bootstrap4' => $this->themeUrl . '/css/bootstrap4/bootstrap.css',
             'main' => $this->themeUrl . '/css/main.css',
             'style' => $this->themeUrl . '/style.css',
@@ -59,7 +59,7 @@ class NaturlithSetup extends BaseSetup
     public function menus()
     {
         return array(
-            'main_menu' => __('Fucking menu', self::themeName())
+            'main_menu' => __('Main menu', self::themeName())
         );
     }
 }
