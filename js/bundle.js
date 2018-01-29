@@ -66,15 +66,69 @@ var app =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _header = __webpack_require__(1);
 
 /**
  * Created by alexandrzanko on 1/23/18.
  */
-jQuery(document).ready(function ($) {
-  var a = 'Hello world';
-  console.log(a);
+(0, _header.header)();
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.header = header;
+
+function header() {
+  jQuery(document).ready(function ($) {
+    /**
+     *  Drop Down Menu
+     */
+    var dropDownActionName = 'scroll',
+        scrollTopY = 240;
+    $(window).on(dropDownActionName, function () {
+      if ($(window).scrollTop() > scrollTopY) {
+        $('#header-drop-down').fadeIn();
+      } else {
+        $('#header-drop-down').fadeOut();
+      }
+    });
+    $('.menu-button').click(function (event) {
+      $('#mobile-menu').fadeIn();
+      $('.mobile-menu-left').addClass('open');
+      event.preventDefault();
+    });
+    $('#mobile-menu').click(function (event) {
+      if (event.target.tagName.toLowerCase() === 'menu') {
+        closeMenu();
+      }
+    });
+    $('#back-button').click(function () {
+      closeMenu();
+    });
+    $('.mobile-menu-left .menu-item-has-children').click(function () {
+      $(this).children('.sub-menu').toggleClass('open');
+    });
+
+    function closeMenu() {
+      $('#mobile-menu').fadeOut();
+      $('.mobile-menu-left').removeClass('open');
+    }
+  });
+}
+
+;
 
 /***/ })
 /******/ ]);

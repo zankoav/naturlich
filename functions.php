@@ -9,4 +9,5 @@
 require_once 'base/BaseSetup.php';
 require_once 'inc/NaturlithSetup.php';
 
-(new NaturlithSetup())->setup();
+$naturlith = new NaturlithSetup();
+$naturlith->setup();
