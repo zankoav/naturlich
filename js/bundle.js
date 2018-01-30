@@ -96,7 +96,7 @@ function header() {
      *  Drop Down Menu
      */
     var dropDownActionName = 'scroll',
-        scrollTopY = 240;
+        scrollTopY = 300;
     var lastX = 0,
         lastCloseX = 1000;
     var startMove = false;
