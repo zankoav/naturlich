@@ -1,0 +1,36 @@
+footer {
+
+    &#footer-top {
+        background-color: $black;
+        li{
+            list-style-type: none;
+            h2{
+                color: white;
+                font-size: 1rem;
+                text-transform: uppercase;
+                &:after{
+                    content: '';
+                    margin: 15px 0;
+                    display: block;
+                    width: 40px;
+                    height: 3px;
+                    background-color: $dark-gray;
+                }
+            }
+            div{
+                color: $light-gray;
+                font-size: 0.9rem;
+
+                a {
+                    color: $primary;
+                }
+            }
+        }
+    }
+
+    &#footer-bottom {
+        background-color: $dark;
+        color: $light-gray;
+        font-size: 0.9rem;
+    }
+}
