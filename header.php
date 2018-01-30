@@ -97,7 +97,7 @@
                 <span class="fa-lg ml-3"><?php _e('Menu');?></span>
             </a>
         </div>
-        <div class="content-menu p-3">
+        <div class="content-menu px-3">
             <?php wp_nav_menu(array(
                 'theme_location' => 'main_menu',
                 'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',

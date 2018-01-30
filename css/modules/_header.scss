@@ -4,6 +4,10 @@
     }
 }
 
+body.open-menu {
+    overflow-y: hidden;
+}
+
 header {
     padding: 1.5rem 0 1rem 0;
     @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
@@ -32,7 +36,8 @@ header {
 
             &.menu-item-has-children {
                 .sub-menu {
-                    display: block;
+                    z-index: 10;
+                    opacity: 1;
                 }
             }
         }
@@ -40,14 +45,16 @@ header {
         &.menu-item-has-children {
 
             ul.sub-menu {
-                z-index: 10;
+                z-index: -10;
+                opacity: 0;
                 padding: 1rem 1.5rem;
-                display: none;
                 position: absolute;
                 border: 3px solid $light-gray;
                 background-color: white;
                 margin-top: 0.70rem;
                 @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
+                @include transition-property(opacity);
+                @include transition-duration(200ms);
 
                 li {
                     border-bottom: 1px solid $light-gray;
@@ -107,7 +114,7 @@ header {
 
 header#header-drop-down {
     display: none;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.99);
 }
 
 menu#mobile-menu {
@@ -144,8 +151,8 @@ menu#mobile-menu {
         position: absolute;
         background-color: $light;
         height: 100%;
-        left: -70%;
-        width: 70%;
+        left: -75%;
+        width: 75%;
         @include transition-property(left);
         @include transition-duration(400ms);
 
@@ -157,13 +164,14 @@ menu#mobile-menu {
             flex-direction: column;
 
             & > li {
-
+                position: relative;
                 border-bottom: 1px solid $light-gray;
                 padding: 15px 0;
                 text-transform: uppercase;
 
                 a {
                     color: $gray;
+                    padding: 15px 0;
                     font-size: 1rem;
                     &:hover {
                         text-decoration: none;
@@ -171,21 +179,23 @@ menu#mobile-menu {
                     }
                 }
 
-                &.menu-item-has-children::before {
-                    content: '\f107';
-                    color: $gray;
-                    text-align: right;
-                    width: 80px;
-                    font-family: 'Font Awesome 5 Free';
-                    font-weight: 600;
-                    float: right;
-                    margin-left: 0.25rem;
+                &.open {
+                    .sub-menu {
+                        max-height: 300px;
+                        margin-top: 10px;
+                        &::before {
+                            transform: rotate(180deg);
+                        }
+                    }
                 }
 
                 .sub-menu {
-                    display: none;
-                    margin-top: 10px;
+                    max-height: 0;
+                    overflow: hidden;
                     border-left: 1px solid $light-gray;
+                    @include transition-property(all);
+                    @include transition-duration(400ms);
+
                     & > li {
                         padding: 15px 0;
                         margin-left: 15px;
@@ -200,11 +210,21 @@ menu#mobile-menu {
                         }
 
                     }
-                    &.open {
-                        display: block;
+
+                    &::before {
+                        content: '\f107';
+                        color: $gray;
+                        padding: 15px 1rem;
+                        margin-right: -1rem;
+                        font-family: 'Font Awesome 5 Free';
+                        font-weight: 600;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        @include transition-property(all);
+                        @include transition-duration(300ms);
                     }
                 }
-
             }
         }
 

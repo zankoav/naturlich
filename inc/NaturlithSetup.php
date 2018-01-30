@@ -59,7 +59,32 @@ class NaturlithSetup extends BaseSetup
     public function menus()
     {
         return array(
-            'main_menu' => __('Main menu', self::themeName())
+            'main_menu' => $this->lang('Main menu')
         );
+    }
+
+    /**
+     * @return array
+     */
+    public function widgets()
+    {
+        return [
+            array(
+                'id' => 'footer-1',
+                'name' => $this->lang('Footer 1')
+            ),
+            array(
+                'id' => 'footer-2',
+                'name' => $this->lang('Footer 2')
+            ),
+            array(
+                'id' => 'footer-3',
+                'name' => $this->lang('Footer 3')
+            ),
+            array(
+                'id' => 'footer-4',
+                'name' => $this->lang('Footer 4')
+            )
+        ];
     }
 }
