@@ -1,5 +1,11 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea/misc.xml
-.idea/modules.xml
-.idea/naturlith.iml
-.idea/workspace.xml
+.idea/
+/js/node_modules/
+/js/bundle.js.map
+/js/bootstrap4/bootstrap.bundle.js.map
+/js/bootstrap4/bootstrap.bundle.min.js.map
+/css/bootstrap4/bootstrap.css.map
+/css/bootstrap4/bootstrap.min.css.map
+/css/main.css.map
+/css/.sass-cache/
+/css/fontawesome/

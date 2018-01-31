@@ -1,0 +1,255 @@
+.logged-in {
+    header.fixed-top {
+        margin-top: 30px;
+    }
+}
+
+body.open-menu {
+    overflow-y: hidden;
+}
+
+header {
+    padding: 1.5rem 0 1rem 0;
+    @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
+
+    .custom-logo {
+        width: 100%;
+        height: auto;
+    }
+
+    .location {
+        img {
+            width: 100%;
+        }
+    }
+
+    .fa-bars {
+        color: $primary;
+    }
+
+    li {
+        padding: 0.7rem;
+        position: relative;
+        font-size: 0.8rem;
+
+        &:hover {
+
+            &.menu-item-has-children {
+                .sub-menu {
+                    z-index: 10;
+                    opacity: 1;
+                    border: 3px solid $light-gray;
+                    padding: 1rem 1.5rem;
+                    margin-top: 0.70rem;
+                    max-height: inherit;
+                }
+            }
+        }
+
+        &.menu-item-has-children {
+
+            ul.sub-menu {
+                z-index: -100;
+                max-height: 0;
+                padding: 0;
+                margin: 0;
+                border: none;
+                opacity: 0;
+                overflow: hidden;
+                position: absolute;
+                background-color: white;
+                @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
+                @include transition-property(opacity);
+                @include transition-duration(200ms);
+
+                li {
+                    border-bottom: 1px solid $light-gray;
+                    padding: 0.5rem 0;
+
+                    a {
+                        white-space: nowrap;
+                        font-family: LatoLight, sans-serif;
+                        font-weight: 300;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+
+                &::before {
+                    content: '\f0d8';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    color: $light-gray;
+                    position: absolute;
+                    top: -1.5rem;
+                    left: 30px;
+                }
+            }
+
+            & > a {
+
+                &::after {
+                    content: '\f107';
+                    font-family: 'Font Awesome 5 Free';
+                    font-weight: 600;
+                    margin-left: 0.25rem;
+                }
+            }
+
+        }
+
+        a {
+            color: $dark-gray;
+            text-transform: uppercase;
+            font-family: LatoBlack, sans-serif;
+            font-style: normal;
+            @include transition-property(color);
+            @include transition-duration(200ms);
+            @include transition-timing-function(ease-out);
+
+            &:hover {
+                color: $primary;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+header#header-drop-down {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.99);
+}
+
+menu#mobile-menu {
+    display: none;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    .fa-chevron-left {
+        color: $primary;
+    }
+
+    .content-menu {
+        overflow-x: scroll;
+        height: 90%;
+    }
+
+    .menu-header {
+        @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
+
+        #back-button {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $gray;
+            display: flex;
+            justify-content: space-between;
+            i, span {
+                align-self: center;
+            }
+
+        }
+    }
+
+    .mobile-menu-left {
+        position: absolute;
+        background-color: $light;
+        height: 100%;
+        left: -75%;
+        width: 75%;
+        @include transition-property(left);
+        @include transition-duration(400ms);
+
+        &.open {
+            left: 0;
+        }
+
+        .nav {
+            flex-direction: column;
+
+            & > li {
+                position: relative;
+                border-bottom: 1px solid $light-gray;
+                padding: 15px 0;
+                text-transform: uppercase;
+
+                a {
+                    color: $gray;
+                    padding: 15px 0;
+                    font-size: 1rem;
+                    &:hover {
+                        text-decoration: none;
+                        color: $primary;
+                    }
+                }
+
+                &.open {
+                    .sub-menu {
+                        max-height: 400px;
+                        margin-top: 10px;
+                        &::before {
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                .sub-menu {
+                    max-height: 0;
+                    overflow: hidden;
+                    border-left: 1px solid $light-gray;
+                    @include transition-property(all);
+                    @include transition-duration(400ms);
+
+                    & > li {
+                        padding: 15px 0;
+                        margin-left: 15px;
+                        border-bottom: 1px solid $light-gray;
+
+                        a {
+                            font-size: 0.9rem;
+                        }
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                    }
+
+                    &::before {
+                        content: '\f107';
+                        color: $gray;
+                        padding: 15px 1rem;
+                        margin-right: -1rem;
+                        font-family: 'Font Awesome 5 Free';
+                        font-weight: 600;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        @include transition-property(all);
+                        @include transition-duration(300ms);
+                    }
+                }
+            }
+        }
+
+        .location-mobile {
+            height: 100px;
+            img {
+                width: 15%;
+                padding-right: 3%;
+            }
+
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .logged-in {
+        header.fixed-top, menu#mobile-menu {
+            margin-top: 46px;
+        }
+    }
+}
