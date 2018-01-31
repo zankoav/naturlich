@@ -66,7 +66,7 @@ abstract class BaseSetup
      */
     public function isJqueryLoadInFooter()
     {
-        return true;
+        return false;
     }
 
     public function setup()
@@ -122,6 +122,8 @@ abstract class BaseSetup
             add_theme_support('custom-logo');
 
             add_theme_support('post-thumbnails');
+
+            add_theme_support('title-tag');
 
             add_theme_support('html5', array(
                 'search-form',

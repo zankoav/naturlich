@@ -45,6 +45,7 @@ class NaturlithSetup extends BaseSetup
         return true;
     }
 
+
     /**
      * @return string
      */
