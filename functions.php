@@ -7,24 +7,42 @@
  */
 
 require_once 'base/BaseSetup.php';
+require_once 'base/BaseAdminPage.php';
+
 require_once 'inc/NaturlithSetup.php';
+require_once 'inc/NaturlithProductPage.php';
 
 $naturlith = new NaturlithSetup();
 $naturlith->setup();
 
-add_action('admin_menu', function () {
-    add_menu_page(
-        'Продукты',
-        'Продукты',
-        'manage_options',
-        'site-options',
-        'add_my_setting',
-        'dashicons-cart',
-        4
-    );
-});
+$productPage = new NaturlithProductPage();
+$productPage->setup();
 
-function add_my_setting()
-{
-    get_template_part('inc/templates/content', 'admin');
-}
+
+//function hello()
+//{
+//    return '<h1>Hello gg</h1>';
+//}
+//
+//add_shortcode('gg', 'hello');
+
+//function create_table()
+//{
+//    global $wpdb;
+//
+//    require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+//
+//    $table_name = $wpdb->get_blog_prefix() . 'naturkith_products';
+//    $charset_collate = "DEFAULT CHARACTER SET {$wpdb->charset} COLLATE {$wpdb->collate}";
+//
+//    $sql = "CREATE TABLE {$table_name} (
+//	id  bigint(20) unsigned NOT NULL auto_increment,
+//	product_name varchar(255) NOT NULL default '',
+//	PRIMARY KEY  (id)
+//	)
+//	{$charset_collate};";
+//
+//    dbDelta($sql);
+//}
+
+//create_table();
