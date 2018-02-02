@@ -13,6 +13,7 @@ abstract class BaseAdminPage
     public function __construct()
     {
         $this->themeUrl = get_template_directory_uri();
+        $this->addAjaxActions();
     }
 
     /**
@@ -43,17 +44,23 @@ abstract class BaseAdminPage
     /**
      * @return array
      */
-    public abstract function style();
+    public abstract function styles();
 
     /**
      * @return array
      */
-    public abstract function script();
+    public abstract function scripts();
 
     /**
      * @return void
      */
     public abstract function load();
+
+    /**
+     * add_action('wp_ajax_(action)', array($this, 'action_callback'));
+     * @return void
+     */
+    public abstract function addAjaxActions();
 
     public function setup()
     {
@@ -63,7 +70,7 @@ abstract class BaseAdminPage
                 $this->label(),
                 'manage_options',
                 $this->slug(),
-                array($this,'init'),
+                array($this, 'init'),
                 $this->icon(),
                 $this->order()
             );
@@ -72,31 +79,43 @@ abstract class BaseAdminPage
 
     private function addScripts()
     {
-        $this->loadStyle();
-        $this->loadScript();
+        $this->loadStyles();
+        $this->loadScripts();
+        wp_enqueue_media();
     }
 
-    private function loadStyle()
+    private function loadStyles()
     {
-        $style = $this->style();
-        if (!empty($style)){
-            wp_enqueue_style($style['id'], $style['url']);
+        $styles = $this->styles();
+        if (!empty($styles)) {
+            foreach ($styles as $key => $value) {
+                wp_enqueue_style($key, $value);
+            }
         }
     }
 
-    private function loadScript()
+    private function loadScripts()
     {
-        $script = $this->script();
-        if (!empty($script)){
-            wp_enqueue_script($script['id'], $script['url']);
+        $scripts = $this->scripts();
+        if (!empty($scripts)) {
+            foreach ($scripts as $key => $value) {
+                wp_enqueue_script($key, $value);
+            }
         }
     }
 
-    public function init(){
+    public function init()
+    {
         $this->addScripts();
         $this->load();
     }
 
-
+    public function getSlug($name)
+    {
+        return (new Slugifier())
+            ->setLowercase(true)
+            ->setTransliterate(true)
+            ->slugify($name);
+    }
 
 }
