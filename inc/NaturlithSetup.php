@@ -88,4 +88,14 @@ class NaturlithSetup extends BaseSetup
             )
         ];
     }
+
+    /**
+     * @return array
+     */
+    public function sections()
+    {
+        return array(
+            new NaturlithBannersSection()
+        );
+    }
 }

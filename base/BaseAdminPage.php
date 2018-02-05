@@ -6,7 +6,7 @@
  * Date: 2/1/18
  * Time: 6:36 PM
  */
-abstract class BaseAdminPage
+abstract class BaseAdminPage implements Setup
 {
     public $themeUrl;
 

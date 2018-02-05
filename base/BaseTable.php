@@ -6,7 +6,7 @@
  * Date: 2/2/18
  * Time: 3:16 PM
  */
-abstract class BaseTable
+abstract class BaseTable implements Setup
 {
     public $db;
     public $charsetCollate;
@@ -19,6 +19,8 @@ abstract class BaseTable
         $this->db = $wpdb;
         $this->charsetCollate = "DEFAULT CHARACTER SET {$this->db->charset} COLLATE {$this->db->collate}";
     }
+
+
 
     /**
      * @return string
@@ -36,7 +38,7 @@ abstract class BaseTable
         return $this->db->get_blog_prefix() . $this->name();
     }
 
-    public function create()
+    public function setup()
     {
         dbDelta($this->createSQL());
     }

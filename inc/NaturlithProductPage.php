@@ -90,7 +90,7 @@ class NaturlithProductPage extends BaseAdminPage
      */
     public function load()
     {
-        $this->tableHelper->create();
+        $this->tableHelper->setup();
         get_template_part('inc/templates/content', 'admin');
     }
 
