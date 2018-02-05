@@ -93,7 +93,7 @@ export function header() {
         function openMenu() {
             $("body").addClass('open-menu');
             $('#mobile-menu').fadeIn();
-            $('.mobile-menu-left').addClass('open');
+            $('#menu-mobile').addClass('open');
         }
     });
 };

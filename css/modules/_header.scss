@@ -104,7 +104,7 @@ header {
         a {
             color: $dark-gray;
             text-transform: uppercase;
-            font-family: LatoBlack, sans-serif;
+            font-family: LatoRegular;
             font-style: normal;
             @include transition-property(color);
             @include transition-duration(200ms);
