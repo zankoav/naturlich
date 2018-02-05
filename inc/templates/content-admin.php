@@ -68,11 +68,14 @@ $products = $productPage->getTableHelper()->selectAll();
                         <small class="form-text text-muted">
                             Choose image for product
                         </small>
-                        <div class="row my-2 mx-0">
-                            <div id="message-alert" class="col-8 mr-sm-auto alert alert-danger invisible rounded-0 mb-0" role="alert"></div>
-                            <button type="button" class="col-4 col-sm-auto create-product btn btn-success rounded-0">
+                        <div class="row my-2 mx-0 flex-nowrap">
+                            <div id="message-alert" class="col-8  alert alert-danger invisible rounded-0 mb-0" role="alert"></div>
+                            <button type="button" class="ml-sm-auto col-sm-auto create-product btn btn-success rounded-0">
                                 <i id="spinner" class="fas fa-sync fa-spin"></i>
                                 Create
+                            </button>
+                            <button id="close-product" type="button" class="col-sm-auto close-product btn btn-outline-info rounded-0 ml-2">
+                                Close
                             </button>
                         </div>
                         <div class="clearfix"></div>

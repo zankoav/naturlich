@@ -3,6 +3,9 @@
  */
 jQuery(document).ready(function ($) {
 
+    $('#close-product').click(function () {
+        $('#collapseExample').collapse('hide');
+    });
 
     $('.create-product').click(function () {
         var name = $.trim($("#product-name").val());
@@ -12,19 +15,19 @@ jQuery(document).ready(function ($) {
                 url: ajaxurl,
                 data: $('#add-product-form').serialize(),
                 dataType: 'json',
-                beforeSend: function(){
+                beforeSend: function () {
                     hideMessageAddProduct();
                     $('#spinner').css({
                         opacity: 0,
                         display: 'inline-block'
-                    }).animate({opacity:1},600);
+                    }).animate({opacity: 1}, 600);
                 },
                 success: function (data) {
                     $('#spinner').fadeOut();
                     showRequestAlert(data);
-                    if(data.status == 'success'){
+                    if (data.status == 'success') {
                         addProductOnScreen(data.product);
-
+                        $('#product-name').removeAttr('style');
                     }
                 },
                 error: function () {
@@ -32,7 +35,11 @@ jQuery(document).ready(function ($) {
                     showRequestAlert(null);
                 }
             });
-        }else{
+        } else {
+            $('#product-name').css({
+                'border-color': '#f5c6cb',
+                'background-color': '#f8d7da'
+            });
             showErrorAddProductAlert('Product name is require');
         }
     });
@@ -84,6 +91,7 @@ jQuery(document).ready(function ($) {
 
     function showErrorAddProductAlert(message) {
         showMessageAddProduct(message, false);
+
     }
 
     function showMessageAddProduct(message, isSuccess) {
@@ -95,13 +103,13 @@ jQuery(document).ready(function ($) {
         $('#message-alert').attr('class', 'col-8 mr-sm-auto alert alert-danger invisible rounded-0 mb-0');
     }
 
-    function addProductOnScreen(product){
-        if(product){
+    function addProductOnScreen(product) {
+        if (product) {
             $("#products-table-body").prepend(
                 '<tr>' +
-                    `<td>${product.name}</td>` +
-                    `<td>${product.description}</td>` +
-                    `<td><img src="${product.img_url}" width="100" height="75" alt=""></td>` +
+                `<td>${product.name}</td>` +
+                `<td>${product.description}</td>` +
+                `<td><img src="${product.img_url}" width="100" height="75" alt=""></td>` +
                 '</tr>'
             );
         }

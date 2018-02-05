@@ -72,6 +72,9 @@ var app =
  * Created by alexandrzanko on 2/1/18.
  */
 jQuery(document).ready(function ($) {
+  $('#close-product').click(function () {
+    $('#collapseExample').collapse('hide');
+  });
   $('.create-product').click(function () {
     var name = $.trim($("#product-name").val());
 
@@ -96,6 +99,7 @@ jQuery(document).ready(function ($) {
 
           if (data.status == 'success') {
             addProductOnScreen(data.product);
+            $('#product-name').removeAttr('style');
           }
         },
         error: function error() {
@@ -104,6 +108,10 @@ jQuery(document).ready(function ($) {
         }
       });
     } else {
+      $('#product-name').css({
+        'border-color': '#f5c6cb',
+        'background-color': '#f8d7da'
+      });
       showErrorAddProductAlert('Product name is require');
     }
   });
