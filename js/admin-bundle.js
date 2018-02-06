@@ -99,7 +99,9 @@ jQuery(document).ready(function ($) {
 
           if (data.status == 'success') {
             addProductOnScreen(data.product);
+            $('#add-product-form')[0].reset();
             $('#product-name').removeAttr('style');
+            clearImage();
           }
         },
         error: function error() {
@@ -135,11 +137,58 @@ jQuery(document).ready(function ($) {
    * если быть точным, то мы просто удаляем value у input type="hidden"
    */
 
-  $('.clear-image').click(function () {
+  $('.clear-image').click(clearImage);
+  $('.remove-product-button').click(function () {
+    var id = $(this).attr('data-id');
+    var name = $(this).attr('data-name');
+    $('#removeProduct .modal-body strong').html(name);
+    $('#removeProduct .confirm-remove-product').attr('data-remove-id', id);
+  });
+  $('.confirm-remove-product').click(function () {
+    var id = $(this).attr('data-remove-id');
+    var data = {
+      'action': 'remove_product',
+      'id': id
+    };
+    $.ajax({
+      type: 'POST',
+      url: ajaxurl,
+      data: data,
+      dataType: 'json',
+      beforeSend: function beforeSend() {
+        $('#spinner-remove').css({
+          opacity: 0,
+          display: 'inline-block'
+        }).animate({
+          opacity: 1
+        }, 600);
+      },
+      success: function success(data) {
+        removeSuccessful();
+        $("tr[data-id=".concat(data.id, "]")).fadeOut();
+      },
+      error: function error() {
+        removeSuccessful();
+      }
+    });
+  });
+
+  function removeSuccessful() {
+    $('#spinner-remove').fadeOut();
+    setTimeout(function () {
+      $('.confirm-remove-product span').html('Removed');
+      setTimeout(function () {
+        $('#removeProduct').modal('hide');
+        $('.confirm-remove-product span').html('Remove');
+      }, 600);
+    }, 300);
+  }
+
+  function clearImage() {
     var img = $('.product-image');
     img.attr('src', img.attr('data-src'));
     $('.input-product-image').attr('value', '');
-  });
+  }
 
   function showRequestAlert(data) {
     if (data) {

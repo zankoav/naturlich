@@ -97,6 +97,25 @@ class NaturlithProductPage extends BaseAdminPage
     public function addAjaxActions()
     {
         add_action('wp_ajax_add_product', array($this, 'addProductCallback'));
+        add_action('wp_ajax_remove_product', array($this, 'removeProductCallback'));
+
+    }
+
+    public function removeProductCallback()
+    {
+        $status = self::ERROR_CODE_SERVER;
+        $answer = array('status' => $status);
+        $id = $_POST['id'];
+        if (isset($_POST['action']) and $_POST['action'] == 'remove_product' and isset($id)) {
+            $answer['status'] = $this->tableHelper->delete([
+                'id' => $id
+            ]) ? self::SUCCESS : self::ERROR_CODE_SAME_NAME;
+        }
+        if ($answer['status'] == self::SUCCESS) {
+            $answer['id'] = $id;
+        }
+        echo json_encode($answer);
+        wp_die();
     }
 
     public function addProductCallback()
@@ -121,7 +140,7 @@ class NaturlithProductPage extends BaseAdminPage
                 'img_url' => $imgUrl
             ]) ? self::SUCCESS : self::ERROR_CODE_SAME_NAME;
 
-            if ($answer['status'] == self::SUCCESS){
+            if ($answer['status'] == self::SUCCESS) {
                 $answer['product'] = $product;
             }
         }

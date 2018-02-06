@@ -27,7 +27,9 @@ jQuery(document).ready(function ($) {
                     showRequestAlert(data);
                     if (data.status == 'success') {
                         addProductOnScreen(data.product);
+                        $('#add-product-form')[0].reset();
                         $('#product-name').removeAttr('style');
+                        clearImage();
                     }
                 },
                 error: function () {
@@ -60,11 +62,60 @@ jQuery(document).ready(function ($) {
      * удаляем значение произвольного поля
      * если быть точным, то мы просто удаляем value у input type="hidden"
      */
-    $('.clear-image').click(function () {
+    $('.clear-image').click(clearImage);
+
+    $('.remove-product-button').click(function () {
+        let id = $(this).attr('data-id');
+        let name = $(this).attr('data-name');
+        $('#removeProduct .modal-body strong').html(name);
+        $('#removeProduct .confirm-remove-product').attr('data-remove-id', id);
+    });
+
+
+    $('.confirm-remove-product').click(function () {
+        let id = $(this).attr('data-remove-id');
+        let data = {
+            'action': 'remove_product',
+            'id': id
+        };
+        $.ajax({
+            type: 'POST',
+            url: ajaxurl,
+            data: data,
+            dataType: 'json',
+            beforeSend: function () {
+                $('#spinner-remove').css({
+                    opacity: 0,
+                    display: 'inline-block'
+                }).animate({opacity: 1}, 600);
+            },
+            success: function (data) {
+                removeSuccessful();
+                $(`tr[data-id=${data.id}]`).fadeOut();
+            },
+            error: function () {
+                removeSuccessful();
+            }
+        });
+    });
+
+    function removeSuccessful() {
+        $('#spinner-remove').fadeOut();
+        setTimeout(function () {
+            $('.confirm-remove-product span').html('Removed');
+
+            setTimeout(function () {
+                $('#removeProduct').modal('hide');
+                $('.confirm-remove-product span').html('Remove');
+            }, 600);
+        }, 300);
+    }
+
+    function clearImage() {
         let img = $('.product-image');
         img.attr('src', img.attr('data-src'));
         $('.input-product-image').attr('value', '');
-    });
+    }
 
     function showRequestAlert(data) {
         if (data) {

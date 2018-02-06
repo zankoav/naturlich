@@ -69,12 +69,15 @@ $products = $productPage->getTableHelper()->selectAll();
                             Choose image for product
                         </small>
                         <div class="row my-2 mx-0 flex-nowrap">
-                            <div id="message-alert" class="col-8  alert alert-danger invisible rounded-0 mb-0" role="alert"></div>
-                            <button type="button" class="ml-sm-auto col-sm-auto create-product btn btn-success rounded-0">
+                            <div id="message-alert" class="col-8  alert alert-danger invisible rounded-0 mb-0"
+                                 role="alert"></div>
+                            <button type="button"
+                                    class="ml-sm-auto col-sm-auto create-product btn btn-success rounded-0">
                                 <i id="spinner" class="fas fa-sync fa-spin"></i>
                                 Create
                             </button>
-                            <button id="close-product" type="button" class="col-sm-auto close-product btn btn-outline-info rounded-0 ml-2">
+                            <button id="close-product" type="button"
+                                    class="col-sm-auto close-product btn btn-outline-info rounded-0 ml-2">
                                 Close
                             </button>
                         </div>
@@ -91,20 +94,57 @@ $products = $productPage->getTableHelper()->selectAll();
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Image</th>
+            <th scope="col">Edite</th>
+            <th scope="col">Remove</th>
         </tr>
         </thead>
         <tbody id="products-table-body">
         <?php foreach ($products as $product) { ?>
-            <tr>
+            <tr data-id="<?php echo $product['id']; ?>">
                 <td><?php echo $product['name']; ?></td>
                 <td><?php echo $product['description']; ?></td>
                 <td>
                     <img src="<?php echo $product['img_url']; ?>" width="100" height="75" alt="">
                 </td>
+                <td>
+                    <button class="btn btn-warning rounded-0 text-white"><i class="fas fa-edit"></i></button>
+                </td>
+                <td>
+                    <button class="btn btn-danger rounded-0 text-white remove-product-button"
+                            data-toggle="modal"
+                            data-target="#removeProduct"
+                            data-id="<?php echo $product['id']; ?>"
+                            data-name="<?php echo $product['name']; ?>">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
             </tr>
         <?php } ?>
         </tbody>
     </table>
+
+    <!-- Modal -->
+    <div class="modal fade" id="removeProduct" tabindex="-1" role="dialog" aria-labelledby="removeProductLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="removeProductLabel">Remove product</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to remove the product <strong></strong> ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger confirm-remove-product">                                <i id="spinner" class="fas fa-sync fa-spin"></i>
+                        <i id="spinner-remove" class="fas fa-sync fa-spin"></i>
+                        <span>Remove</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

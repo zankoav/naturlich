@@ -64,6 +64,17 @@ abstract class BaseTable implements Setup
     }
 
     /**
+     * @return mixed
+     */
+    public function selectWithLimit($limit)
+    {
+        return $this->db->get_results(
+            "SELECT * FROM {$this->fullName()} LIMIT {$limit};",
+            ARRAY_A
+        );
+    }
+
+    /**
      * @param $product array
      * @param $where array
      * @return false|int
