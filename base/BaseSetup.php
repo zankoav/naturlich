@@ -6,7 +6,7 @@
  * Date: 1/26/18
  * Time: 9:48 AM
  */
-abstract class BaseSetup
+abstract class BaseSetup implements Setup
 {
     public $themeUrl;
     public $themeDir;
@@ -32,6 +32,10 @@ abstract class BaseSetup
      */
     public abstract function widgets();
 
+    /**
+     * @return array
+     */
+    public abstract function sections();
 
     /**
      * @return array
@@ -74,6 +78,7 @@ abstract class BaseSetup
         $this->addScripts();
         $this->setupTheme();
         $this->setupWidget();
+        $this->customizer();
     }
 
     private function addScripts()
@@ -133,6 +138,14 @@ abstract class BaseSetup
                 'caption'
             ));
         });
+    }
+
+    public function customizer()
+    {
+        $sections = $this->sections();
+        foreach ($sections as $section) {
+            $section->setup();
+        }
     }
 
     private function setupLang()

@@ -6,7 +6,7 @@
  * Date: 2/2/18
  * Time: 3:16 PM
  */
-abstract class BaseTable
+abstract class BaseTable implements Setup
 {
     public $db;
     public $charsetCollate;
@@ -19,6 +19,7 @@ abstract class BaseTable
         $this->db = $wpdb;
         $this->charsetCollate = "DEFAULT CHARACTER SET {$this->db->charset} COLLATE {$this->db->collate}";
     }
+
 
     /**
      * @return string
@@ -36,7 +37,7 @@ abstract class BaseTable
         return $this->db->get_blog_prefix() . $this->name();
     }
 
-    public function create()
+    public function setup()
     {
         dbDelta($this->createSQL());
     }
@@ -57,6 +58,53 @@ abstract class BaseTable
     {
         return $this->db->get_results(
             "SELECT * FROM {$this->fullName()};",
+            ARRAY_A
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectAllReverse()
+    {
+        return $this->db->get_results(
+            "SELECT * FROM {$this->fullName()} ORDER BY `id` DESC;",
+            ARRAY_A
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectItemById($id)
+    {
+        //select TOP 5 from users order by user_id DESC
+        $id = (int)$id;
+        return $this->db->get_results(
+            $this->db->prepare("SELECT * FROM {$this->fullName()} WHERE id = %d", $id),
+            ARRAY_A
+        )[0];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectLastInsertedItem()
+    {
+        //select TOP 5 from users order by user_id DESC
+        return $this->db->get_results(
+            "SELECT * FROM {$this->fullName()} ORDER BY `id` DESC LIMIT 1;",
+            ARRAY_A
+        )[0];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectWithLimit($limit)
+    {
+        return $this->db->get_results(
+            "SELECT * FROM {$this->fullName()} LIMIT {$limit};",
             ARRAY_A
         );
     }
