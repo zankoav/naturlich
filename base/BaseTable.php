@@ -21,7 +21,6 @@ abstract class BaseTable implements Setup
     }
 
 
-
     /**
      * @return string
      */
@@ -61,6 +60,42 @@ abstract class BaseTable implements Setup
             "SELECT * FROM {$this->fullName()};",
             ARRAY_A
         );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectAllReverse()
+    {
+        return $this->db->get_results(
+            "SELECT * FROM {$this->fullName()} ORDER BY `id` DESC;",
+            ARRAY_A
+        );
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectItemById($id)
+    {
+        //select TOP 5 from users order by user_id DESC
+        $id = (int)$id;
+        return $this->db->get_results(
+            $this->db->prepare("SELECT * FROM {$this->fullName()} WHERE id = %d", $id),
+            ARRAY_A
+        )[0];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectLastInsertedItem()
+    {
+        //select TOP 5 from users order by user_id DESC
+        return $this->db->get_results(
+            "SELECT * FROM {$this->fullName()} ORDER BY `id` DESC LIMIT 1;",
+            ARRAY_A
+        )[0];
     }
 
     /**
