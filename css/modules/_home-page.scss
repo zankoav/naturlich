@@ -8,7 +8,7 @@
             text-shadow: 1px 1px 5px $dark-gray;
 
             h5 {
-                font-family: LatoBold;
+                font-family: LatoBlack, sans-serif;
                 font-size: 3rem;
                 text-transform: uppercase;
                 margin-bottom: 1.5rem;
@@ -24,11 +24,45 @@
 
     #advantages {
         background: linear-gradient(to top, $light-gray, white);
+
+        #advantage-items {
+
+            @include item-N(1);
+            @include item-N(2);
+            @include item-N(3);
+            @include item-N(4);
+            @include item-N(5);
+
+            & > .item {
+                opacity: 0;
+                transform: translate(-200px, 0px);
+                @include transition-property(all);
+                @include transition-delay(200ms);
+                @include transition-timing-function(easeInOutElastic);
+            }
+
+            &.animation {
+                & > div {
+                    opacity: 1.0;
+                    transform: translate(0, 0);
+                }
+            }
+
+        }
+
         .banner {
             z-index: 1;
             right: 0;
-            top:0;
+            top: 0;
             padding-right: 15px;
+            opacity: 0;
+            @include transition-property(opacity);
+            @include transition-delay(200ms);
+            @include transition-duration(2000ms);
+
+            &.animation {
+                opacity: 1;
+            }
         }
 
         .item {
@@ -54,8 +88,9 @@
 
     #products, #advantages {
         h1 {
+            font-family: LatoBlack, sans-serif;
             font-size: 3rem;
-            color: $gray;
+            color: $gray-300;
         }
     }
 
@@ -63,10 +98,10 @@
         background: $light-gray;
         .card {
             padding: 0.4rem;
-            .img-wrap{
+            .img-wrap {
                 overflow: hidden;
             }
-            &:hover{
+            &:hover {
                 text-decoration: none;
 
                 .card-footer div {
@@ -74,7 +109,7 @@
                     text-decoration: underline;
                 }
 
-                img{
+                img {
                     transform: scale(1.4) rotate(8deg);
                 }
             }
@@ -135,6 +170,11 @@
 
         .container {
             padding: 5rem 0;
+
+            h1 {
+                font-family: LatoBlack, sans-serif;
+                font-size: 3rem;
+            }
 
             .btn {
                 text-shadow: none;

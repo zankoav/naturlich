@@ -14,6 +14,7 @@ export function header() {
         var isCloseMenu = true;
 
         $(window).on(dropDownActionName, function () {
+
             if ($(window).scrollTop() > scrollTopY) {
                 $('#header-drop-down').fadeIn();
             } else {
