@@ -45,6 +45,10 @@ header {
 
         &:hover {
 
+            a{
+                border-bottom: 2px solid $primary;
+            }
+
             &.menu-item-has-children {
                 .sub-menu {
                     z-index: 10;
