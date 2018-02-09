@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './admin-app.js',
+    entry: './app.js',
     output: {
-        filename: 'admin-bundle.js',
+        filename: 'bundle.js',
         library: 'app'
     },
 

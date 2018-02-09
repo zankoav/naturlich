@@ -11,7 +11,7 @@
     hr {
         margin: 0;
     }
-    #spinner {
+    #spinner, #spinner-remove {
         display: none;
     }
     .collapse {
@@ -20,4 +20,24 @@
         }
     }
 
+    .modal {
+        top: 10%;
+    }
+
+    .loading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        position: absolute;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+    }
+
+    #edit-product-form{
+        position: relative;
+        z-index: 99;
+    }
 }

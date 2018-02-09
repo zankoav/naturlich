@@ -90,41 +90,89 @@ class NaturlithProductPage extends BaseAdminPage
      */
     public function load()
     {
-        $this->tableHelper->create();
+        $this->tableHelper->setup();
         get_template_part('inc/templates/content', 'admin');
     }
 
     public function addAjaxActions()
     {
-        add_action('wp_ajax_add_product', array($this, 'addProductCallback'));
+        add_action('wp_ajax_create_product', array($this, 'createProductCallback'));
+        add_action('wp_ajax_get_product_by_id', array($this, 'getProductByIdCallback'));
+        add_action('wp_ajax_edit_product', array($this, 'editProductCallback'));
+        add_action('wp_ajax_remove_product', array($this, 'removeProductCallback'));
     }
 
-    public function addProductCallback()
+    public function getProductByIdCallback()
+    {
+        $status = self::ERROR_CODE_SERVER;
+        $answer = array('status' => $status);
+        if (isset($_POST['action']) and $_POST['action'] == 'get_product_by_id' and $data = $_POST['data']) {
+            $id = $data['id'];
+            if (isset($id)) {
+                $answer['product'] = $this->tableHelper->selectItemById($id);
+            }
+        }
+        echo json_encode($answer);
+        wp_die();
+    }
+
+    public function editProductCallback()
     {
         $status = self::ERROR_CODE_SERVER;
         $answer = array('status' => $status);
 
-        if (isset($_POST['action']) and $_POST['action'] == 'add_product') {
-            $name = $_POST['name'];
-            $slug = $this->getSlug($name);
-            $description = $_POST['description'];
-            $imgUrl = $_POST['image'];
-            $product = [
-                'name' => $name,
-                'description' => $description,
-                'img_url' => $imgUrl
-            ];
-            $answer['status'] = $this->tableHelper->insert([
-                'slug' => $slug,
-                'name' => $name,
-                'description' => $description,
-                'img_url' => $imgUrl
-            ]) ? self::SUCCESS : self::ERROR_CODE_SAME_NAME;
+        if (isset($_POST['action']) and $_POST['action'] == 'edit_product' and $data = $_POST['data']) {
 
-            if ($answer['status'] == self::SUCCESS){
-                $answer['product'] = $product;
+            $id = $data['id'];
+            $data['slug'] = $this->getSlug($data['name']);
+
+            $answer['status'] = $this->tableHelper->update($data, ['id' => $id]) ?
+                self::SUCCESS :
+                self::ERROR_CODE_SAME_NAME;
+
+            if ($answer['status'] == self::SUCCESS) {
+                $answer["product"] = $this->tableHelper->selectItemById($id);
+            }
+
+        }
+        echo json_encode($answer);
+        wp_die();
+    }
+
+    public function createProductCallback()
+    {
+        $status = self::ERROR_CODE_SERVER;
+        $answer = array('status' => $status);
+
+        if (isset($_POST['action']) and $_POST['action'] == 'create_product' and $data = $_POST['data']) {
+            $data['slug'] = $this->getSlug($data['name']);
+            $answer['status'] = $this->tableHelper->insert($data) ? self::SUCCESS : self::ERROR_CODE_SAME_NAME;
+            if ($answer['status'] == self::SUCCESS) {
+                $answer['product'] = $this->tableHelper->selectLastInsertedItem();
             }
         }
+        echo json_encode($answer);
+        wp_die();
+    }
+
+    public function removeProductCallback()
+    {
+        $status = self::ERROR_CODE_SERVER;
+        $answer = array('status' => $status);
+        $data = $_POST['data'];
+        if (isset($_POST['action']) and $_POST['action'] == 'remove_product' and isset($data)) {
+            $id = $data['id'];
+            if (isset($id)) {
+                $answer['status'] = $this->tableHelper->delete([
+                    'id' => $id
+                ]) ? self::SUCCESS : self::ERROR_CODE_SAME_NAME;
+            }
+
+            if ($answer['status'] == self::SUCCESS) {
+                $answer['id'] = $id;
+            }
+        }
+
         echo json_encode($answer);
         wp_die();
     }
