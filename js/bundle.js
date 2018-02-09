@@ -73,9 +73,12 @@ var app =
 
 var _header = __webpack_require__(1);
 
+var _page = __webpack_require__(2);
+
 /**
  * Created by alexandrzanko on 1/23/18.
  */
+(0, _page.page)();
 (0, _header.header)();
 
 /***/ }),
@@ -180,6 +183,27 @@ function header() {
 }
 
 ;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.page = page;
+
+/**
+ * Created by alexandrzanko on 2/9/18.
+ */
+function page() {
+  jQuery(document).ready(function ($) {
+    $('.sow-form-field-textarea textarea').attr('rows', 8);
+  });
+}
 
 /***/ })
 /******/ ]);

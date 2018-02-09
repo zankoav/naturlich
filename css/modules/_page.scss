@@ -8,4 +8,108 @@
     .entry-content {
 
     }
+
+    #contacts-people {
+        background-color: $light;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        h3 {
+            font-size: 3rem;
+            color: $gray;
+            margin: 0 0 3rem 0;
+        }
+
+        #users {
+            font-size: 0.9rem;
+            p {
+                color: $gray;
+                font-family: LatoRegular, sans-serif;
+            }
+            img {
+                border-radius: 50%;
+                width: 100%;
+            }
+
+            h3 {
+                font-family: LatoBold, sans-serif;
+                text-align: left;
+                text-transform: uppercase;
+                font-size: 1rem;
+                color: $dark-gray;
+                margin: 1rem 0 0 0;
+            }
+
+            span {
+                line-height: 1.8;
+
+                &.phone {
+                    &::before {
+                        content: '\f095';
+                        font-weight: 900;
+                        margin-right: 0.5rem;
+                        font-family: "Font Awesome 5 Free";
+                        color: $primary;
+                        font-size: 1rem;
+                    }
+                }
+
+                &.email {
+                    &::before {
+                        content: '\f0e0';
+                        font-weight: 900;
+                        margin-right: 0.5rem;
+                        font-family: "Font Awesome 5 Free";
+                        color: $primary;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+
+        #form-contact{
+
+            h3 {
+                font-size: 1.6rem;
+                color: $gray;
+                text-transform: uppercase;
+                margin: 2rem 0 2rem 0;
+            }
+
+            label{
+                color: $dark-gray;
+            }
+
+            form {
+                .sow-form-field-text, .sow-form-field-email, .sow-submit-wrapper {
+                    width: 48%;
+                    margin-right: 4%;
+                    float: left;
+                }
+
+                .sow-form-field-textarea {
+                    width: 48%;
+                    float: right;
+                    margin-bottom: 0;
+                }
+            }
+
+            .widget_sow-contact-form {
+                position: relative;
+
+                .sow-submit-wrapper {
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+
+        }
+    }
+
+    #map {
+        h3 {
+            text-align: left;
+        }
+    }
 }
