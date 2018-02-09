@@ -54,7 +54,7 @@
         if (!empty($advantagesTitle)) { ?>
             <div class="container py-5 position-relative">
                 <h1 class="text-center mb-5 py-3"><?php echo $advantagesTitle; ?></h1>
-                <div class="row">
+                <div id="advantage-items" class="row">
                     <?php for ($i = 0; $i < 5; $i++) {
                         $itemTitle = get_theme_mod('naturlith_advantages_title_item_' . $i);
                         if (!empty($itemTitle)) { ?>

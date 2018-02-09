@@ -27,6 +27,12 @@
     -o-transition-duration: $duration;
     transition-duration: $duration;
 }
+@mixin transition-delay($delay) {
+    -webkit-transition-delay: $delay;
+    -moz-transition-delay: $delay;
+    -o-transition-delay: $delay;
+    transition-delay: $delay;
+}
 @mixin transition-timing-function($function) {
     -webkit-transition-timing-function: $function;
     -moz-transition-timing-function: $function;
@@ -36,5 +42,11 @@
 
 @mixin no-border-radius(){
     @include border-radius(0);
+}
+
+@mixin item-N($n) {
+    &>.item-#{$n} {
+        @include transition-duration(400ms*$n);
+    }
 }
 
