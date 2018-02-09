@@ -125,35 +125,6 @@ $products = $productPage->getTableHelper()->selectAllReverse();
         <?php } ?>
         </tbody>
     </table>
-    <form method="post">
-
-        <?php
-
-        if(isset($_POST)){
-            var_dump($_POST);
-        }else{
-            echo 'empty';
-        }
-
-        wp_editor('content', 'editor_id', array(
-            'wpautop' => 1,
-            'media_buttons' => 1,
-            'textarea_name' => 'zanko', //нужно указывать!
-            'textarea_rows' => 20,
-            'tabindex' => null,
-            'editor_css' => '',
-            'editor_class' => '',
-            'teeny' => 1,
-            'dfw' => 0,
-            'tinymce' => 1,
-            'quicktags' => 1,
-            'drag_drop_upload' => false
-        ));
-
-        submit_button('Сохранить контент', 'delete');
-
-        ?>
-    </form>
 
     <!-- Modal remove product -->
     <div class="modal fade" id="removeProduct" tabindex="-1" role="dialog" aria-labelledby="removeProductLabel"
