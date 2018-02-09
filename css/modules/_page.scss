@@ -19,8 +19,9 @@
         padding-bottom: 3rem;
 
         h3 {
+            font-family: LatoBlack, sans-serif;
             font-size: 3rem;
-            color: $gray;
+            color: $gray-300;
             margin: 0 0 3rem 0;
         }
 
@@ -79,7 +80,8 @@
         #form-contact {
 
             h3 {
-                font-size: 1.6rem;
+                font-family: LatoBold, sans-serif;
+                font-size: 1.5rem;
                 color: $gray;
                 text-transform: uppercase;
                 margin: 2rem 0 2rem 0;
