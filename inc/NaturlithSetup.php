@@ -95,10 +95,11 @@ class NaturlithSetup extends BaseSetup
     public function sections()
     {
         return array(
-            new NaturlithBannersSection(),
-            new NaturlithAdvantagesSection(),
-            new NaturlithConditionsSection(),
-            new NaturlithContactsSection()
+            new BannersSection(),
+            new AdvantagesSection(),
+            new ConditionsSection(),
+            new ProductsSection(),
+            new ContactsSection()
         );
     }
 }

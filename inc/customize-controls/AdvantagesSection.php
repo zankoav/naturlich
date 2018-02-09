@@ -3,51 +3,61 @@
 /**
  * Created by PhpStorm.
  * User: alexandrzanko
- * Date: 2/5/18
- * Time: 4:50 PM
+ * Date: 2/6/18
+ * Time: 11:01 AM
  */
-class NaturlithBannersSection extends BaseSection
+class AdvantagesSection extends BaseSection
 {
 
     public function id()
     {
-        return 'naturlith_banners_';
+        return 'naturlith_advantages_';
     }
 
     public function title()
     {
-        return 'Main Slider';
+        return 'Advantages Section';
     }
 
     public function description()
     {
-        return 'Slider on main page (1500x600)';
+        return 'Here you can  customize advantages section';
     }
 
     public function settingsControls($customizer)
     {
-        // First slide
-        $id = $this->id() . 'title_0';
+        $id = $this->id() . 'title';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First title',
+                'label' => 'Title',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'description_0';
+        // First item
+        $id = $this->id() . 'title_item_0';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'First item title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'subtitle_item_0';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'First description',
+                'label' => 'First item subtitle',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'slide_0';
+        $id = $this->id() . 'icon_item_0';
         $customizer->add_setting($id);
 
         $customizer->add_control(
@@ -55,35 +65,35 @@ class NaturlithBannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'First Slide',
+                    'label' => 'First item icon (200x200 PNG)',
                     'section' => $this->id(),
                     'settings' => $id
                 )
             )
         );
 
-        // Second slide
-        $id = $this->id() . 'title_1';
+        // Secound item
+        $id = $this->id() . 'title_item_1';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Second title',
+                'label' => 'Second item title',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'description_1';
+        $id = $this->id() . 'subtitle_item_1';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Second description',
+                'label' => 'Second item subtitle',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'slide_1';
+        $id = $this->id() . 'icon_item_1';
         $customizer->add_setting($id);
 
         $customizer->add_control(
@@ -91,35 +101,35 @@ class NaturlithBannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Second Slide',
+                    'label' => 'Second item icon (200x200 PNG)',
                     'section' => $this->id(),
                     'settings' => $id
                 )
             )
         );
 
-        // Tried slide
-        $id = $this->id() . 'title_2';
+        // Tried item
+        $id = $this->id() . 'title_item_2';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Tried title',
+                'label' => 'Tried item title',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'description_2';
+        $id = $this->id() . 'subtitle_item_2';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Tried description',
+                'label' => 'Tried item subtitle',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'slide_2';
+        $id = $this->id() . 'icon_item_2';
         $customizer->add_setting($id);
 
         $customizer->add_control(
@@ -127,35 +137,35 @@ class NaturlithBannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Tried Slide',
+                    'label' => 'Tried item icon (200x200 PNG)',
                     'section' => $this->id(),
                     'settings' => $id
                 )
             )
         );
 
-        // Fourth slide
-        $id = $this->id() . 'title_3';
+        // Fourth item
+        $id = $this->id() . 'title_item_3';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fourth title',
+                'label' => 'Fourth item title',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'description_3';
+        $id = $this->id() . 'subtitle_item_3';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Fourth description',
+                'label' => 'Fourth item subtitle',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'slide_3';
+        $id = $this->id() . 'icon_item_3';
         $customizer->add_setting($id);
 
         $customizer->add_control(
@@ -163,35 +173,35 @@ class NaturlithBannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Fourth Slide',
+                    'label' => 'Fourth item icon (200x200 PNG)',
                     'section' => $this->id(),
                     'settings' => $id
                 )
             )
         );
 
-        // Fifth slide
-        $id = $this->id() . 'title_4';
+        // Fifth item
+        $id = $this->id() . 'title_item_4';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fifth title',
+                'label' => 'Fifth item title',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'description_4';
+        $id = $this->id() . 'subtitle_item_4';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Fifth description',
+                'label' => 'Fifth item subtitle',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'slide_4';
+        $id = $this->id() . 'icon_item_4';
         $customizer->add_setting($id);
 
         $customizer->add_control(
@@ -199,10 +209,47 @@ class NaturlithBannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Fifth Slide',
+                    'label' => 'Fifth item icon (200x200 PNG)',
                     'section' => $this->id(),
                     'settings' => $id
                 )
+            )
+        );
+
+        // Right Image
+        $id = $this->id() . 'right_image';
+        $customizer->add_setting($id);
+
+        $customizer->add_control(
+            new WP_Customize_Image_Control(
+                $customizer,
+                $id,
+                array(
+                    'label' => 'Image right side (1000x1000 PNG)',
+                    'section' => $this->id(),
+                    'settings' => $id
+                )
+            )
+        );
+
+        // Button
+        $id = $this->id() . 'button_title';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Button title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'button_url';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'URL',
+                'section' => $this->id()
             )
         );
     }

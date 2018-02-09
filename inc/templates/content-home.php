@@ -53,7 +53,7 @@
         $advantagesTitle = get_theme_mod('naturlith_advantages_title');
         if (!empty($advantagesTitle)) { ?>
             <div class="container py-5">
-                <h1 class="text-center mb-4"><?php echo $advantagesTitle; ?></h1>
+                <h1 class="text-center mb-5"><?php echo $advantagesTitle; ?></h1>
                 <div class="row position-relative">
                     <?php for ($i = 0; $i < 5; $i++) {
                         $itemTitle = get_theme_mod('naturlith_advantages_title_item_' . $i);
@@ -91,59 +91,68 @@
             </div>
         <?php } ?>
     </div>
-    <div id="products">
-        <?php
-        global $productPage;
-        $products = $productPage->getTableHelper()->selectWithLimit(4);
+
+    <?php
+    $productTitle = get_theme_mod('naturlith_products_title');
+    $product1 = get_theme_mod('naturlith_products_product_0');
+    $product2 = get_theme_mod('naturlith_products_product_1');
+    $product3 = get_theme_mod('naturlith_products_product_2');
+    $product4 = get_theme_mod('naturlith_products_product_3');
+
+    global $productPage;
+    if (!(empty($product1) or empty($product2) or empty($product3) or empty($product4))) {
+        $products = $productPage->getTableHelper()->selectItemsByIds([$product1, $product2, $product3, $product4]);
         ?>
-        <div class="container">
-            <h1 class="text-center mb-4">Products</h1>
-            <div class="card-deck">
-                <?php
-                $indexOfProduct = 0;
-                foreach ($products as $product) { ?>
-                    <div class="card rounded-0 border-0 text-center <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
-                        <img class="card-img-top rounded-0"
-                             src="<?php echo $product["img_url"]; ?>"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title text-uppercase"><?php echo $product["name"]; ?></h5>
-                            <p class="card-text"><?php echo $product["description"]; ?></p>
-                        </div>
-                        <div class="card-footer p-0">
-                            <a href="<?php echo $product["slug"]; ?>" class="text-muted">More</a>
-                        </div>
-                    </div>
+        <div id="products">
+            <div class="container pb-3">
+                <h1 class="text-center mb-5"><?php echo $productTitle; ?></h1>
+                <div class="card-deck">
                     <?php
-                    $indexOfProduct++;
-                } ?>
-            </div>
-            <div class="card-deck d-flex d-lg-none mt-0 mt-sm-4">
-                <?php
-                $mobileIndexOfProducts = 0;
-                foreach ($products as $product) {
-                    if ($mobileIndexOfProducts < 2) {
-                        $mobileIndexOfProducts++;
-                        continue;
-                    }
-                    ?>
-                    <div class="card rounded-0 border-0 text-center">
-                        <img class="card-img-top rounded-0"
-                             src="<?php echo $product["img_url"]; ?>"
-                             alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title text-uppercase"><?php echo $product["name"]; ?></h5>
-                            <p class="card-text"><?php echo $product["description"]; ?></p>
+                    $indexOfProduct = 0;
+                    foreach ($products as $product) { ?>
+                        <div class="card rounded-0 border-0 text-center <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
+                            <img class="card-img-top rounded-0"
+                                 src="<?php echo $product["img_url"]; ?>"
+                                 alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase"><?php echo $product["name"]; ?></h5>
+                                <p class="card-text"><?php echo $product["description"]; ?></p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a href="<?php echo $product["slug"]; ?>" class="text-muted">More</a>
+                            </div>
                         </div>
-                        <div class="card-footer p-0">
-                            <a href="<?php echo $product["slug"]; ?>" class="text-muted">More</a>
+                        <?php
+                        $indexOfProduct++;
+                    } ?>
+                </div>
+                <div class="card-deck d-flex d-lg-none mt-0 mt-sm-4">
+                    <?php
+                    $mobileIndexOfProducts = 0;
+                    foreach ($products as $product) {
+                        if ($mobileIndexOfProducts < 2) {
+                            $mobileIndexOfProducts++;
+                            continue;
+                        }
+                        ?>
+                        <div class="card rounded-0 border-0 text-center">
+                            <img class="card-img-top rounded-0"
+                                 src="<?php echo $product["img_url"]; ?>"
+                                 alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase"><?php echo $product["name"]; ?></h5>
+                                <p class="card-text"><?php echo $product["description"]; ?></p>
+                            </div>
+                            <div class="card-footer p-0">
+                                <a href="<?php echo $product["slug"]; ?>" class="text-muted">More</a>
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
+                </div>
+                <a class="d-block p-5 text-uppercase text-center text-secondary" href="#"><?php echo get_theme_mod('naturlith_products_all');?></a>
             </div>
-            <a class="d-block p-4 text-uppercase text-center text-secondary" href="#">All products</a>
         </div>
-    </div>
+    <?php } ?>
     <div id="conditions"
          style="background-image: url(<?php echo get_theme_mod('naturlith_conditions_background_image'); ?>);">
         <?php
@@ -160,7 +169,7 @@
     </div>
     <div id="news">
         <div class="container">
-            <h2 class="text-center text-uppercase my-4 py-2">News</h2>
+            <h2 class="text-center text-uppercase mt-5 pb-4">News</h2>
             <div class="row">
                 <?php
                 $args = array('numberposts' => '4');
@@ -184,7 +193,7 @@
         <?php
         $contactTitle = get_theme_mod('naturlith_contact_title');
         if (!empty($contactTitle)) { ?>
-            <h2 class="text-center text-uppercase my-4 py-2"><?php echo $contactTitle; ?></h2>
+            <h2 class="text-center text-uppercase mt-5 pb-4"><?php echo $contactTitle; ?></h2>
             <?php
             echo get_theme_mod('naturlith_contact_script');
         } ?>

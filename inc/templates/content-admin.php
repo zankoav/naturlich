@@ -125,6 +125,35 @@ $products = $productPage->getTableHelper()->selectAllReverse();
         <?php } ?>
         </tbody>
     </table>
+    <form method="post">
+
+        <?php
+
+        if(isset($_POST)){
+            var_dump($_POST);
+        }else{
+            echo 'empty';
+        }
+
+        wp_editor('content', 'editor_id', array(
+            'wpautop' => 1,
+            'media_buttons' => 1,
+            'textarea_name' => 'zanko', //нужно указывать!
+            'textarea_rows' => 20,
+            'tabindex' => null,
+            'editor_css' => '',
+            'editor_class' => '',
+            'teeny' => 1,
+            'dfw' => 0,
+            'tinymce' => 1,
+            'quicktags' => 1,
+            'drag_drop_upload' => false
+        ));
+
+        submit_button('Сохранить контент', 'delete');
+
+        ?>
+    </form>
 
     <!-- Modal remove product -->
     <div class="modal fade" id="removeProduct" tabindex="-1" role="dialog" aria-labelledby="removeProductLabel"
@@ -155,7 +184,8 @@ $products = $productPage->getTableHelper()->selectAllReverse();
     </div>
 
     <!-- Modal edit product -->
-    <div id="editProduct" class="modal fade bd-remove-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    <div id="editProduct" class="modal fade bd-remove-modal-lg" tabindex="-1" role="dialog"
+         aria-labelledby="myLargeModalLabel"
          aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -195,10 +225,12 @@ $products = $productPage->getTableHelper()->selectAllReverse();
                             <label>Product image</label>
                             <div class="card-group">
                                 <div class="card rounded-0 p-0 m-0">
-                                    <img id="edit-product-image" class="card-img-top rounded-0" src="<?php echo $currentImage; ?>"
+                                    <img id="edit-product-image" class="card-img-top rounded-0"
+                                         src="<?php echo $currentImage; ?>"
                                          data-src="<?php echo $currentImage; ?>" alt="Card image cap">
                                     <div class="row p-0 m-0">
-                                        <button id="edit-load-image" type="button" class="col-9 btn btn-sm btn-info rounded-0 load-image">
+                                        <button id="edit-load-image" type="button"
+                                                class="col-9 btn btn-sm btn-info rounded-0 load-image">
                                             Load image
                                         </button>
                                         <button id="edit-clear-image" type="button"
@@ -206,7 +238,8 @@ $products = $productPage->getTableHelper()->selectAllReverse();
                                             <i class="fas fa-times text-white"></i>
                                         </button>
 
-                                        <input id="edit-product-image-url" type="hidden" class="input-product-image" name="img_url">
+                                        <input id="edit-product-image-url" type="hidden" class="input-product-image"
+                                               name="img_url">
                                         <input id="edit-product-id" type="hidden" class="input-product-image" name="id">
                                     </div>
                                 </div>

@@ -10,7 +10,7 @@
 <body <?php body_class(); ?>>
 <!--Header content here-->
 
-<header id="main-header" class="bg-white">
+<header id="main-header">
     <div class="container header-desktop">
         <div class="row d-none d-md-flex">
             <div class="col-md-3">

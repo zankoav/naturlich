@@ -6,7 +6,7 @@
  * Date: 2/6/18
  * Time: 11:01 AM
  */
-class NaturlithConditionsSection extends BaseSection
+class ConditionsSection extends BaseSection
 {
 
     public function id()

@@ -65,6 +65,17 @@ abstract class BaseTable implements Setup
     /**
      * @return mixed
      */
+    public function selectAllNamesAndId()
+    {
+        return $this->db->get_results(
+            "SELECT id, name FROM {$this->fullName()};",
+            ARRAY_A
+        );
+    }
+
+    /**
+     * @return mixed
+     */
     public function selectAllReverse()
     {
         return $this->db->get_results(
@@ -84,6 +95,25 @@ abstract class BaseTable implements Setup
             $this->db->prepare("SELECT * FROM {$this->fullName()} WHERE id = %d", $id),
             ARRAY_A
         )[0];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function selectItemsByIds($ids)
+    {
+        $idStr = implode(', ', $ids);
+        $different = array_count_values($ids);
+        $sql = "SELECT * FROM {$this->fullName()} WHERE id IN ({$idStr});";
+        $products = $this->db->get_results($sql, ARRAY_A);
+        $result = [];
+        foreach ($products as $product) {
+            $id = $product["id"];
+            for ($i = 0; $i < $different[$id]; $i++) {
+                $result[] = $product;
+            }
+        }
+        return $result;
     }
 
     /**

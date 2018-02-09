@@ -1,6 +1,7 @@
 
 #home-page {
     #carouselExampleIndicators {
+        margin-top: -70px;
         .carousel-caption {
             top: 30%;
             bottom: inherit;
@@ -115,7 +116,7 @@
             padding: 5rem 0;
 
             .btn {
-                text-shadow:none;
+                text-shadow: none;
                 color: $dark-gray;
                 background-color: $light-gray;
                 &:hover {
