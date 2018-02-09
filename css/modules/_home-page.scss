@@ -3,7 +3,7 @@
     #carouselExampleIndicators {
         margin-top: -70px;
         .carousel-caption {
-            top: 30%;
+            top: 40%;
             bottom: inherit;
             text-shadow: 1px 1px 5px $dark-gray;
 
@@ -27,6 +27,7 @@
         .banner {
             z-index: 1;
             right: 0;
+            top:0;
             padding-right: 15px;
         }
 
@@ -62,6 +63,25 @@
         background: $light-gray;
         .card {
             padding: 0.4rem;
+            .img-wrap{
+                overflow: hidden;
+            }
+            &:hover{
+                text-decoration: none;
+
+                .card-footer div {
+                    color: $primary;
+                    text-decoration: underline;
+                }
+
+                img{
+                    transform: scale(1.4) rotate(8deg);
+                }
+            }
+            img {
+                @include transition-property(all);
+                @include transition-duration(400ms);
+            }
 
             h5 {
                 font-family: LatoBold, sans-serif;
@@ -102,6 +122,7 @@
                     }
                 }
             }
+
         }
     }
 
@@ -168,7 +189,7 @@
             font-family: LatoBold, sans-serif;
         }
 
-        ymaps {
+        #gmap_canvas {
             -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
         }

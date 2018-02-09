@@ -1,6 +1,6 @@
 export function header() {
-
     jQuery(document).ready(function ($) {
+
         /**
          *  Drop Down Menu
          */
@@ -22,8 +22,8 @@ export function header() {
         });
 
         $('.menu-button').click(function (event) {
-            openMenu();
             event.preventDefault();
+            openMenu();
         });
 
         $('#mobile-menu').click(function (event) {
@@ -91,9 +91,9 @@ export function header() {
         }
 
         function openMenu() {
-            $("body").addClass('open-menu');
+            $('body').addClass('open-menu');
             $('#mobile-menu').fadeIn();
-            $('#menu-mobile').addClass('open');
+            $('.mobile-menu-left').addClass('open');
         }
     });
 };

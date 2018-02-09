@@ -3,7 +3,9 @@
     <div class="container py-4">
         <div class="row">
             <div class="col-sm-6 col-md-3 py-3">
-                <?php dynamic_sidebar( 'footer-1' ); ?>
+                <div class="bg-white w-75">
+                    <?php the_custom_logo(); ?>
+                </div>
             </div>
             <div class="col-sm-6 col-md-3 py-3">
                 <?php dynamic_sidebar( 'footer-2' ); ?>

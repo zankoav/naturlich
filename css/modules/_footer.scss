@@ -1,14 +1,22 @@
 footer {
 
+    .custom-logo-link {
+        img {
+            width: 100%;
+            padding: 10px;
+            height: auto;
+        }
+    }
+
     &#footer-top {
         background-color: $black;
-        li{
+        li {
             list-style-type: none;
-            h2{
+            h2 {
                 color: white;
                 font-size: 1rem;
                 text-transform: uppercase;
-                &:after{
+                &:after {
                     content: '';
                     margin: 15px 0;
                     display: block;
@@ -17,7 +25,7 @@ footer {
                     background-color: $dark-gray;
                 }
             }
-            div{
+            div {
                 color: $light-gray;
                 font-size: 0.9rem;
 

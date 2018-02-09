@@ -4,7 +4,8 @@
 import {header} from './moduls/header.js';
 import {page} from './moduls/page.js';
 
-page();
 header();
+page();
+
 
 

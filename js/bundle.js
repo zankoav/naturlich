@@ -78,8 +78,8 @@ var _page = __webpack_require__(2);
 /**
  * Created by alexandrzanko on 1/23/18.
  */
-(0, _page.page)();
 (0, _header.header)();
+(0, _page.page)();
 
 /***/ }),
 /* 1 */
@@ -112,8 +112,8 @@ function header() {
       }
     });
     $('.menu-button').click(function (event) {
-      openMenu();
       event.preventDefault();
+      openMenu();
     });
     $('#mobile-menu').click(function (event) {
       if (event.target.tagName.toLowerCase() === 'menu') {
@@ -175,9 +175,9 @@ function header() {
     }
 
     function openMenu() {
-      $("body").addClass('open-menu');
+      $('body').addClass('open-menu');
       $('#mobile-menu').fadeIn();
-      $('#menu-mobile').addClass('open');
+      $('.mobile-menu-left').addClass('open');
     }
   });
 }

@@ -52,9 +52,9 @@
         <?php
         $advantagesTitle = get_theme_mod('naturlith_advantages_title');
         if (!empty($advantagesTitle)) { ?>
-            <div class="container py-5">
-                <h1 class="text-center mb-5"><?php echo $advantagesTitle; ?></h1>
-                <div class="row position-relative">
+            <div class="container py-5 position-relative">
+                <h1 class="text-center mb-5 py-3"><?php echo $advantagesTitle; ?></h1>
+                <div class="row">
                     <?php for ($i = 0; $i < 5; $i++) {
                         $itemTitle = get_theme_mod('naturlith_advantages_title_item_' . $i);
                         if (!empty($itemTitle)) { ?>
@@ -73,11 +73,7 @@
                             </div>
                         <?php }
                     } ?>
-                    <img class="position-absolute h-100 banner d-none d-lg-block"
-                         src="<?php echo get_theme_mod('naturlith_advantages_right_image'); ?>" alt="">
-                </div>
-                <div class="row mt-3">
-                    <div class="col-12 col-lg-9">
+                    <div class="col-12 col-lg-9 mt-3">
                         <div class="row">
                             <div class="col-sm-2 col-md-1 d-none d-sm-block"></div>
                             <a class="btn bg-light text-secondary text-uppercase about rounded-0 border px-4 py-2"
@@ -88,6 +84,8 @@
                         </div>
                     </div>
                 </div>
+                <img class="position-absolute h-100 py-5 banner d-none d-lg-block"
+                     src="<?php echo get_theme_mod('naturlith_advantages_right_image'); ?>" alt="">
             </div>
         <?php } ?>
     </div>
@@ -105,23 +103,25 @@
         ?>
         <div id="products">
             <div class="container pb-3">
-                <h1 class="text-center mb-5"><?php echo $productTitle; ?></h1>
+                <h1 class="text-center mb-5 pt-5"><?php echo $productTitle; ?></h1>
                 <div class="card-deck">
                     <?php
                     $indexOfProduct = 0;
                     foreach ($products as $product) { ?>
-                        <div class="card rounded-0 border-0 text-center <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
-                            <img class="card-img-top rounded-0"
-                                 src="<?php echo $product["img_url"]; ?>"
-                                 alt="Card image cap">
+                        <a href="$" class="card rounded-0 border-0 text-center <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
+                            <div class="img-wrap">
+                                <img class="card-img-top rounded-0"
+                                     src="<?php echo $product["img_url"]; ?>"
+                                     alt="Card image cap">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title text-uppercase"><?php echo $product["name"]; ?></h5>
                                 <p class="card-text"><?php echo $product["description"]; ?></p>
                             </div>
                             <div class="card-footer p-0">
-                                <a href="<?php echo $product["slug"]; ?>" class="text-muted">More</a>
+                                <div class="text-muted">More</div>
                             </div>
-                        </div>
+                        </a>
                         <?php
                         $indexOfProduct++;
                     } ?>
@@ -149,7 +149,8 @@
                         </div>
                     <?php } ?>
                 </div>
-                <a class="d-block p-5 text-uppercase text-center text-secondary" href="#"><?php echo get_theme_mod('naturlith_products_all');?></a>
+                <a class="d-block p-5 text-uppercase text-center text-secondary"
+                   href="#"><?php echo get_theme_mod('naturlith_products_all'); ?></a>
             </div>
         </div>
     <?php } ?>
