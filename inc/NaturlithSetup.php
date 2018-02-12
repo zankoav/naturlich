@@ -60,7 +60,8 @@ class NaturlithSetup extends BaseSetup
     public function menus()
     {
         return array(
-            'main_menu' => $this->lang('Main menu')
+            'main_menu' => $this->lang('Main menu'),
+            'products_menu' => $this->lang('Products menu')
         );
     }
 
