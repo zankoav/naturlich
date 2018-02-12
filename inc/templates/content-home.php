@@ -91,32 +91,31 @@
     </div>
 
     <?php
-    $productTitle = get_theme_mod('naturlith_products_title');
-    $product1 = get_theme_mod('naturlith_products_product_0');
-    $product2 = get_theme_mod('naturlith_products_product_1');
-    $product3 = get_theme_mod('naturlith_products_product_2');
-    $product4 = get_theme_mod('naturlith_products_product_3');
+    $args = array('post_type' => 'naturlith_products', 'posts_per_page' => 4);
+    $the_query = new WP_Query($args);
+    ?>
 
-    global $productPage;
-    if (!(empty($product1) or empty($product2) or empty($product3) or empty($product4))) {
-        $products = $productPage->getTableHelper()->selectItemsByIds([$product1, $product2, $product3, $product4]);
-        ?>
+    <?php
+    $productTitle = get_theme_mod('naturlith_products_title');
+    if (!empty($productTitle) and $the_query->have_posts()) { ?>
         <div id="products">
             <div class="container pb-3">
                 <h1 class="text-center mb-5 pt-5"><?php echo $productTitle; ?></h1>
                 <div class="card-deck">
                     <?php
                     $indexOfProduct = 0;
-                    foreach ($products as $product) { ?>
-                        <a href="$" class="card rounded-0 border-0 text-center <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
+                    while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <a href="<?php the_permalink(); ?>" class="card rounded-0 border-0 text-center
+                    <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
                             <div class="img-wrap">
-                                <img class="card-img-top rounded-0"
-                                     src="<?php echo $product["img_url"]; ?>"
-                                     alt="Card image cap">
+                                <?php the_post_thumbnail('medium', array(
+                                    'class' => "card-img-top rounded-0 img-fluid",
+                                    'alt' => the_title('', '', 0)
+                                )); ?>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase"><?php echo $product["name"]; ?></h5>
-                                <p class="card-text"><?php echo $product["description"]; ?></p>
+                                <h5 class="card-title text-uppercase"><?php the_title(); ?></h5>
+                                <p class="card-text"><?php the_excerpt();?></p>
                             </div>
                             <div class="card-footer p-0">
                                 <div class="text-muted">More</div>
@@ -124,34 +123,39 @@
                         </a>
                         <?php
                         $indexOfProduct++;
-                    } ?>
+                    endwhile; ?>
                 </div>
                 <div class="card-deck d-flex d-lg-none mt-0 mt-sm-4">
                     <?php
                     $mobileIndexOfProducts = 0;
-                    foreach ($products as $product) {
+                    while ($the_query->have_posts()) : $the_query->the_post();
                         if ($mobileIndexOfProducts < 2) {
                             $mobileIndexOfProducts++;
                             continue;
                         }
                         ?>
-                        <div class="card rounded-0 border-0 text-center">
-                            <img class="card-img-top rounded-0"
-                                 src="<?php echo $product["img_url"]; ?>"
-                                 alt="Card image cap">
+                        <a href="<?php the_permalink(); ?>" class="card rounded-0 border-0 text-center">
+                            <div class="img-wrap">
+                                <?php the_post_thumbnail('medium', array(
+                                    'class' => "card-img-top rounded-0 img-fluid",
+                                    'alt' => the_title('', '', 0)
+                                )); ?>
+                            </div>
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase"><?php echo $product["name"]; ?></h5>
-                                <p class="card-text"><?php echo $product["description"]; ?></p>
+                                <h5 class="card-title text-uppercase"><?php the_title(); ?></h5>
+                                <p class="card-text"><?php the_excerpt();?></p>
                             </div>
                             <div class="card-footer p-0">
-                                <a href="<?php echo $product["slug"]; ?>" class="text-muted">More</a>
+                                <div class="text-muted">More</div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        </a>
+                    <?php endwhile; ?>
                 </div>
-                <a class="d-block p-5 text-uppercase text-center text-secondary"
-                   href="#"><?php echo get_theme_mod('naturlith_products_all'); ?></a>
             </div>
+            <a class="d-block p-5 text-uppercase text-center text-secondary"
+               href="#">
+                <?php echo get_theme_mod('naturlith_products_all'); ?></a>
+        </div>
         </div>
     <?php } ?>
     <div id="conditions"

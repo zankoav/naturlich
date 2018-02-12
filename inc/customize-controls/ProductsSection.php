@@ -38,15 +38,15 @@ class ProductsSection extends BaseSection
             )
         );
 
-        global
-        $productPage;
-        $products = $productPage->getTableHelper()->selectAllNamesAndId();
+//        global
+//        $productPage;
+//        $products = $productPage->getTableHelper()->selectAllNamesAndId();
 
         $choices = array('' => '--');
 
-        foreach ($products as $product) {
-            $choices[$product["id"]] = $product["name"];
-        }
+//        foreach ($products as $product) {
+//            $choices[$product["id"]] = $product["name"];
+//        }
 
 
         for ($i = 0; $i < self::COUNT_PRODUCT; $i++) {

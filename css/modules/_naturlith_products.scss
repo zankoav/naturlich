@@ -1,0 +1,95 @@
+.naturlith_products {
+    background-color: $light-gray;
+    color: $gray;
+    h1 {
+        font-size: 2rem;
+        color: $dark-gray;
+        font-family: LatoBold, sans-serif;
+    }
+    .price {
+        span{
+            font-size:1.1rem;
+            font-family: LatoBlack, sans-serif;
+            color: $primary;
+        }
+    }
+    #left-products-menu {
+        background-color: white;
+        border: 1px solid $gray-300;
+        padding: 0.5rem 1rem;
+        @include transition-property(opacity);
+        @include transition-duration(200ms);
+
+        li {
+            border-bottom: 1px solid $light-gray;
+            padding: 0.5rem 0;
+
+            a {
+                white-space: nowrap;
+                font-family: LatoRegular, sans-serif;
+                font-weight: 300;
+                color: $primary;
+            }
+
+            &.current-menu-item a{
+                font-family: LatoBlack, sans-serif;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+        .product {
+        a {
+            color: $gray;
+            &:hover {
+                text-decoration: none;
+                .card-footer div {
+                    color: $primary;
+                    text-decoration: underline;
+                }
+
+                img {
+                    transform: scale(1.4) rotate(8deg);
+                }
+            }
+
+            img {
+                @include transition-property(all);
+                @include transition-duration(400ms);
+            }
+
+            .img-wrap {
+                overflow: hidden;
+            }
+
+            .card-title{
+                color:$dark-gray;
+            }
+            .price{
+                font-size: 0.8rem;
+                span {
+                    font-size: 1rem;
+                    font-family: LatoBold, sans-serif;
+                    color: $primary;
+                }
+            }
+
+            .card-footer {
+                background-color: transparent;
+                border-top: none;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 33%;
+                    margin: 0 auto 0.3rem auto;
+                    height: 1px;
+                    background-color: $primary;
+                }
+            }
+
+        }
+    }
+}
