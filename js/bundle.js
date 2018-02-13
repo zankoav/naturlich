@@ -75,9 +75,12 @@ var _header = __webpack_require__(1);
 
 var _page = __webpack_require__(2);
 
+var _filter_of_products = __webpack_require__(3);
+
 /**
  * Created by alexandrzanko on 1/23/18.
  */
+(0, _filter_of_products.productsFilter)();
 (0, _header.header)();
 (0, _page.page)();
 
@@ -227,6 +230,34 @@ function page() {
           }
         }
       }
+    }
+  });
+}
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.productsFilter = productsFilter;
+
+/**
+ * Created by alexandrzanko on 2/13/18.
+ */
+function productsFilter() {
+  jQuery(document).ready(function ($) {
+    $('#product-filter').find('input[type="checkbox"]').click(send);
+    $('#product-filter').find('select').on('change', send);
+
+    function send() {
+      var query = '?' + $('#product-filter').serialize();
+      var base = window.location.protocol + '//' + window.location.host + window.location.pathname;
+      window.location.replace(base + query);
     }
   });
 }

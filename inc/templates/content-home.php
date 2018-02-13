@@ -114,8 +114,8 @@
                                 )); ?>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase"><?php the_title(); ?></h5>
-                                <p class="card-text"><?php the_excerpt();?></p>
+                                <h5 class="card-title text-uppercase"><?php echo get_post_meta(get_the_ID(), 'naturlith_mark', true); ?></h5>
+                                <p class="card-text"><?php the_title(); ?></p>
                             </div>
                             <div class="card-footer p-0">
                                 <div class="text-muted">More</div>
@@ -142,8 +142,8 @@
                                 )); ?>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title text-uppercase"><?php the_title(); ?></h5>
-                                <p class="card-text"><?php the_excerpt();?></p>
+                                <h5 class="card-title text-uppercase"><?php echo get_post_meta(get_the_ID(), 'naturlith_mark', true); ?></h5>
+                                <p class="card-text"><?php the_title(); ?></p>
                             </div>
                             <div class="card-footer p-0">
                                 <div class="text-muted">More</div>
@@ -153,7 +153,7 @@
                 </div>
             </div>
             <a class="d-block p-5 text-uppercase text-center text-secondary"
-               href="#">
+               href="<?php echo get_theme_mod('naturlith_products_all_url'); ?>" target="_blank">
                 <?php echo get_theme_mod('naturlith_products_all'); ?></a>
         </div>
         </div>

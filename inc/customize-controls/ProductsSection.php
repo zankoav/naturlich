@@ -38,37 +38,22 @@ class ProductsSection extends BaseSection
             )
         );
 
-//        global
-//        $productPage;
-//        $products = $productPage->getTableHelper()->selectAllNamesAndId();
-
-        $choices = array('' => '--');
-
-//        foreach ($products as $product) {
-//            $choices[$product["id"]] = $product["name"];
-//        }
-
-
-        for ($i = 0; $i < self::COUNT_PRODUCT; $i++) {
-            $id = "{$this->id()}product_{$i}";
-            $customizer->add_setting($id, ['default' => '--']);
-            $index = $i + 1;
-            $customizer->add_control($id,
-                array(
-                    'label' => "Product {$index}",
-                    'section' => $this->id(),
-                    'type' => 'select',
-                    'choices' => $choices
-                )
-            );
-        }
-
         $id = $this->id() . 'all';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
                 'label' => 'View all button title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'all_url';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'URL for all button',
                 'section' => $this->id()
             )
         );

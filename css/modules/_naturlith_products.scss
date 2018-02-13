@@ -13,6 +13,14 @@
             color: $primary;
         }
     }
+
+    .product-description{
+        strong {
+            font-family: LatoBold, sans-serif;
+            color: $dark-gray;
+        }
+    }
+
     #left-products-menu {
         background-color: white;
         border: 1px solid $gray-300;

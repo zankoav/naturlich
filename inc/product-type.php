@@ -18,7 +18,7 @@ function custom_post_type()
         'naturlith_products_category',
         'naturlith_products',
         array(
-            'label' => 'Categories',
+            'label' => 'Product Categories',
             'query_var' => true,
             'hierarchical' => true, // Если TRUE, таксономия будет аналогом рубрик (категорий). Если FALSE (по умолчанию), то таксономия станет аналогом меток (тегов).
             'rewrite' => array(
