@@ -11,7 +11,7 @@ function add_custom_meta_box()
 {
     add_meta_box(
         'custom_meta_box', // $id
-        'Default settings', // $title
+        'Product settings', // $title
         'show_custom_meta_box', // $callback
         'naturlith_products', // $page
         'normal', // $context
@@ -25,8 +25,14 @@ $prefix = 'naturlith_';
 $custom_meta_fields = array(
     array(
         'label' => 'Price',
-        'desc' => 'Price for the field.',
+        'desc' => 'Price for the product.',
         'id' => $prefix . 'price',
+        'type' => 'text'
+    ),
+    array(
+        'label' => 'Mark',
+        'desc' => 'Short mark for product.',
+        'id' => $prefix . 'mark',
         'type' => 'text'
     ),
 //    array(
@@ -41,32 +47,28 @@ $custom_meta_fields = array(
 //        'id' => $prefix . 'gray',
 //        'type' => 'checkbox'
 //    ),
-//    array(
-//        'label' => 'White',
-//        'desc' => 'White type.',
-//        'id' => $prefix . 'white',
-//        'type' => 'checkbox'
-//    ),
-//    array(
-//        'label' => 'Select Box',
-//        'desc' => 'A description for the field.',
-//        'id' => $prefix . 'select',
-//        'type' => 'select',
-//        'options' => array(
-//            'one' => array(
-//                'label' => 'Option One',
-//                'value' => 'one'
-//            ),
-//            'two' => array(
-//                'label' => 'Option Two',
-//                'value' => 'two'
-//            ),
-//            'three' => array(
-//                'label' => 'Option Three',
-//                'value' => 'three'
-//            )
-//        )
-//    )
+    array(
+        'label' => 'In stock',
+        'desc' => 'Check if product in stock',
+        'id' => $prefix . 'stock',
+        'type' => 'checkbox'
+    ),
+    array(
+        'label' => 'Cement type',
+        'desc' => 'Select cement type.',
+        'id' => $prefix . 'cement',
+        'type' => 'select',
+        'options' => array(
+            'one' => array(
+                'label' => 'Dark',
+                'value' => 'Dark'
+            ),
+            'two' => array(
+                'label' => 'Light',
+                'value' => 'Light'
+            )
+        )
+    )
 );
 
 // The Callback
