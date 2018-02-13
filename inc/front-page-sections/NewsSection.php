@@ -3,25 +3,25 @@
 /**
  * Created by PhpStorm.
  * User: alexandrzanko
- * Date: 2/6/18
- * Time: 11:01 AM
+ * Date: 2/13/18
+ * Time: 6:57 PM
  */
-class ContactsSection extends BaseSection
+class NewsSection extends BaseSection
 {
 
     public function id()
     {
-        return 'naturlith_contact_';
+        return 'naturlith_news_';
     }
 
     public function title()
     {
-        return 'Contact Section';
+        return 'News';
     }
 
     public function description()
     {
-        return 'Here you can customize contact section';
+        return 'Four news';
     }
 
     public function settingsControls($customizer)
@@ -35,15 +35,10 @@ class ContactsSection extends BaseSection
                 'section' => $this->id()
             )
         );
+    }
 
-        $id = $this->id() . 'script';
-        $customizer->add_setting($id);
-        $customizer->add_control($id,
-            array(
-                'type' => 'textarea',
-                'label' => 'Script yandex map',
-                'section' => $this->id()
-            )
-        );
+    public function panel()
+    {
+        return 'front_page';
     }
 }

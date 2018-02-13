@@ -206,4 +206,9 @@ class BannersSection extends BaseSection
             )
         );
     }
+
+    public function panel()
+    {
+        return 'front_page';
+    }
 }

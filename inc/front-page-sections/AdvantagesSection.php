@@ -16,7 +16,7 @@ class AdvantagesSection extends BaseSection
 
     public function title()
     {
-        return 'Advantages Section';
+        return 'Advantages';
     }
 
     public function description()
@@ -252,5 +252,10 @@ class AdvantagesSection extends BaseSection
                 'section' => $this->id()
             )
         );
+    }
+
+    public function panel()
+    {
+        return 'front_page';
     }
 }

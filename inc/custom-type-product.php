@@ -6,12 +6,7 @@
  * Time: 8:40 AM
  */
 
-
-/*
-* Creating a function to create our CPT
-*/
-
-function custom_post_type()
+function products_post_type()
 {
     // Регистрируем таксономию
     register_taxonomy(
@@ -69,7 +64,7 @@ function custom_post_type()
         'description' => __('Product news and reviews', 'naturlith'),
         'labels' => $labels,
         // Features this CPT supports in Post Editor
-        'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+        'supports' => array('title', 'thumbnail'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'taxonomies' => array('naturlith_products_category'),
         /* A hierarchical CPT is like Pages and can have
@@ -95,7 +90,7 @@ function custom_post_type()
 
 }
 
-function default_taxonomy_term($post_id, $post)
+function default_product_term($post_id, $post)
 {
     if ('publish' === $post->post_status) {
         $defaults = array(
@@ -111,6 +106,6 @@ function default_taxonomy_term($post_id, $post)
     }
 }
 
-add_action('save_post', 'default_taxonomy_term', 100, 2);
+add_action('save_post', 'default_product_term', 100, 2);
 
-add_action('init', 'custom_post_type', 0);
+add_action('init', 'products_post_type', 0);

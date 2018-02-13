@@ -17,6 +17,8 @@ abstract class BaseSection implements Setup
 
     public abstract function settingsControls($customizer);
 
+    public abstract function panel();
+
     public function setup()
     {
         add_action('customize_register', array($this, 'customizer'));
@@ -25,11 +27,25 @@ abstract class BaseSection implements Setup
     public function customizer($customizer)
     {
 
-        $customizer->add_section($this->id(),
+        $args = [
+            'title' => $this->title(),
+            'capability' => 'edit_theme_options',
+            'description' => $this->description()
+        ];
+
+        if ($this->panel() != null){
+            $args['panel'] = $this->panel();
+        }
+
+        $customizer->add_section($this->id(), $args);
+
+        $id = $this->id() . 'enable';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
             array(
-                'title' => $this->title(),
-                'capability' => 'edit_theme_options',
-                'description' => $this->description()
+                'type' => 'checkbox',
+                'label' => 'Enable section',
+                'section' => $this->id()
             )
         );
 

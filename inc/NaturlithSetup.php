@@ -13,12 +13,21 @@ class NaturlithSetup extends BaseSetup
      */
     public function styles()
     {
-        return array(
+        $styles = [
             'icons' => $this->themeUrl . '/css/fontawesome/css/fontawesome-all.css',
             'bootstrap4' => $this->themeUrl . '/css/bootstrap4/bootstrap.css',
-            'main' => $this->themeUrl . '/css/main.css',
-            'style' => $this->themeUrl . '/style.css',
-        );
+        ];
+
+        if (is_front_page()) {
+            $styles['front-page'] = $this->themeUrl . '/css/front-page.css';
+        }
+
+        if (!is_front_page()) {
+            $styles['main'] = $this->themeUrl . '/css/main.css';
+        }
+
+        $styles['style'] = $this->themeUrl . '/style.css';
+        return $styles;
     }
 
     /**
@@ -34,10 +43,17 @@ class NaturlithSetup extends BaseSetup
      */
     public function footerScripts()
     {
-        return array(
-            'bootstrap4' => $this->themeUrl . '/js/bootstrap4/bootstrap.bundle.js',
-            'bundle' => $this->themeUrl . '/js/bundle.js'
-        );
+        $scripts = ['bootstrap4' => $this->themeUrl . '/js/bootstrap4/bootstrap.bundle.js'];
+
+        if (is_front_page()) {
+            $scripts['fornt-page'] = $this->themeUrl . '/js/front-page/bundle.js';
+        }
+
+        if (!is_front_page()) {
+            $scripts['bundle'] = $this->themeUrl . '/js/bundle.js';
+        }
+
+        return $scripts;
     }
 
     public function isJqueryNeed()
@@ -94,9 +110,21 @@ class NaturlithSetup extends BaseSetup
         return array(
             new BannersSection(),
             new AdvantagesSection(),
-            new ConditionsSection(),
             new ProductsSection(),
+            new ConditionsSection(),
+            new NewsSection(),
             new ContactsSection()
+
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function panels()
+    {
+        return array(
+            new FrontPagePanel()
         );
     }
 }

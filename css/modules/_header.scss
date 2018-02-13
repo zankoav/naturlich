@@ -12,6 +12,10 @@ header {
     padding: 1.5rem 0 1rem 0;
     @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
 
+    #menu-top-menu > .current-menu-item a {
+        color: $primary;
+    }
+
     &#main-header {
         position: relative;
         z-index: 16;
@@ -45,7 +49,7 @@ header {
 
         &:hover {
 
-            &>a{
+            & > a {
                 border-bottom: 2px solid $primary;
             }
 
