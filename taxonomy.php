@@ -47,8 +47,23 @@ get_header(); ?>
                 <div class="col-12 col-md-9">
                     <div class="row">
                         <?php
+
+
                         // Start the loop.
                         while (have_posts()) : the_post();
+                            if (isset($inStock) and !empty($inStock)) {
+                                $stock = get_post_meta(get_the_ID(), 'naturlith_stock', true);
+                                if ($stock != $inStock) {
+                                    continue;
+                                }
+                            }
+
+                            if (isset($cementType) and !empty($cementType)) {
+                                $cement = get_post_meta(get_the_ID(), 'naturlith_cement', true);
+                                if ($cementType != $cement) {
+                                    continue;
+                                }
+                            }
                             // Include the page content template.
                             get_template_part('inc/templates/content', 'products');
                             // End the loop.

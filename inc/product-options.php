@@ -59,6 +59,10 @@ $custom_meta_fields = array(
         'id' => $prefix . 'cement',
         'type' => 'select',
         'options' => array(
+            'zero' => array(
+                'label' => '--',
+                'value' => ''
+            ),
             'one' => array(
                 'label' => 'Dark',
                 'value' => 'Dark'
