@@ -43,6 +43,7 @@ function contacts_post_type()
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
+        'show_in_nav_menus' => false,
         'menu_position' => 6,
         'menu_icon' => 'dashicons-universal-access',
         'can_export' => true,

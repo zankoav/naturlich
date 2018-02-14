@@ -1,20 +1,26 @@
-.naturlith_products {
+h1 {
+    font-size: 2rem;
+    color: $dark-gray;
+    font-family: LatoBold, sans-serif;
+}
+
+#products {
     background-color: $light-gray;
     color: $gray;
-    h1 {
-        font-size: 2rem;
+
+
+    h6 {
         color: $dark-gray;
-        font-family: LatoBold, sans-serif;
     }
     .price {
-        span{
-            font-size:1.1rem;
+        span {
+            font-size: 1.1rem;
             font-family: LatoBlack, sans-serif;
             color: $primary;
         }
     }
 
-    .product-description{
+    .product-description {
         strong {
             font-family: LatoBold, sans-serif;
             color: $dark-gray;
@@ -36,11 +42,11 @@
                 white-space: nowrap;
                 font-family: LatoRegular, sans-serif;
                 font-weight: 300;
-                color: $primary;
+                color: $dark-gray;
             }
 
-            &.current-menu-item a{
-                font-family: LatoBlack, sans-serif;
+            &.current-menu-item a {
+                color: $primary;
             }
 
             &:last-child {
@@ -48,8 +54,8 @@
             }
         }
     }
-        .product {
-        a {
+    .product {
+        .card {
             color: $gray;
             &:hover {
                 text-decoration: none;
@@ -57,13 +63,12 @@
                     color: $primary;
                     text-decoration: underline;
                 }
-
-                img {
-                    transform: scale(1.4) rotate(8deg);
-                }
             }
 
             img {
+                &:hover {
+                    transform: scale(1.4) rotate(8deg);
+                }
                 @include transition-property(all);
                 @include transition-duration(400ms);
             }
@@ -72,10 +77,10 @@
                 overflow: hidden;
             }
 
-            .card-title{
-                color:$dark-gray;
+            .card-title {
+                color: $dark-gray;
             }
-            .price{
+            .price {
                 font-size: 0.8rem;
                 span {
                     font-size: 1rem;
@@ -88,13 +93,18 @@
                 background-color: transparent;
                 border-top: none;
 
-                &::before {
-                    content: '';
-                    display: block;
-                    width: 33%;
-                    margin: 0 auto 0.3rem auto;
-                    height: 1px;
-                    background-color: $primary;
+                a {
+                    background-color: $gray;
+                    color: white;
+                    border-radius: 0;
+                    padding: 0.25rem 2rem;
+                    margin-bottom: 0.5rem;
+                    @include transition-property(all);
+                    @include transition-duration(300ms);
+
+                    &:hover {
+                        background-color: $primary;
+                    }
                 }
             }
 

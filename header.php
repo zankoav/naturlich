@@ -26,28 +26,42 @@
                 )); ?>
             </div>
             <div class="col-md-2 location">
-                <div class="row">
-                    <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
-                        <a href="#">
-                            <img src="<?php echo get_template_directory_uri() . '/img/dk.gif'; ?>" alt="">
-                        </a>
+                <?php if (get_theme_mod('naturlith_languages_enable')): ?>
+                    <div class="row">
+                        <?php if (get_theme_mod('naturlith_languages_dk_enable')): ?>
+
+                            <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
+                                <a href="<?php echo get_theme_mod('naturlith_languages_dk_url');?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/img/dk.gif'; ?>" alt="">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (get_theme_mod('naturlith_languages_en_enable')): ?>
+
+                            <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
+                                <a href="<?php echo get_theme_mod('naturlith_languages_en_url');?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/img/en.png'; ?>" alt="">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (get_theme_mod('naturlith_languages_de_enable')): ?>
+
+                            <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
+                                <a href="<?php echo get_theme_mod('naturlith_languages_de_url');?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/img/gr.gif'; ?>" alt="">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (get_theme_mod('naturlith_languages_it_enable')): ?>
+                            <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
+                                <a href="<?php echo get_theme_mod('naturlith_languages_it_url');?>">
+                                    <img src="<?php echo get_template_directory_uri() . '/img/it.jpg'; ?>" alt="">
+                                </a>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
-                    <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
-                        <a href="#">
-                            <img src="<?php echo get_template_directory_uri() . '/img/en.png'; ?>" alt="">
-                        </a>
-                    </div>
-                    <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
-                        <a href="#">
-                            <img src="<?php echo get_template_directory_uri() . '/img/gr.gif'; ?>" alt="">
-                        </a>
-                    </div>
-                    <div class="col-md-3 pr-1 pl-1 pb-2 pr-lg-1 pl-lg-3 pb-lg-2">
-                        <a href="#">
-                            <img src="<?php echo get_template_directory_uri() . '/img/it.jpg'; ?>" alt="">
-                        </a>
-                    </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
         <div class="row d-md-none">
@@ -94,7 +108,7 @@
         <div class="menu-header d-flex justify-content-between p-3 mb-2">
             <a id="back-button" href="#" class="w-100">
                 <i class="fas fa-chevron-left fa-2x"></i>
-                <span class="fa-lg ml-3"><?php _e('Menu');?></span>
+                <span class="fa-lg ml-3"><?php _e('Menu'); ?></span>
             </a>
         </div>
         <div class="content-menu px-3">
@@ -105,20 +119,30 @@
                 'menu_id' => '',
                 'depth' => 2
             )); ?>
-            <div class="location-mobile mt-3">
-                <a href="#">
-                    <img src="<?php echo get_template_directory_uri() . '/img/dk.gif'; ?>" alt="">
-                </a>
-                <a href="#">
-                    <img src="<?php echo get_template_directory_uri() . '/img/en.png'; ?>" alt="">
-                </a>
-                <a href="#">
-                    <img src="<?php echo get_template_directory_uri() . '/img/gr.gif'; ?>" alt="">
-                </a>
-                <a href="#">
-                    <img src="<?php echo get_template_directory_uri() . '/img/it.jpg'; ?>" alt="">
-                </a>
-            </div>
+            <?php if (get_theme_mod('naturlith_languages_enable')): ?>
+                <div class="location-mobile mt-3">
+                    <?php if (get_theme_mod('naturlith_languages_dk_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_dk_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/dk.gif'; ?>" alt="">
+                        </a>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('naturlith_languages_en_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_en_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/en.png'; ?>" alt="">
+                        </a>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('naturlith_languages_de_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_de_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/gr.gif'; ?>" alt="">
+                        </a>
+                    <?php endif; ?>
+                    <?php if (get_theme_mod('naturlith_languages_it_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_it_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/it.jpg'; ?>" alt="">
+                        </a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 

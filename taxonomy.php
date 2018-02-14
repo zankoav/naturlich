@@ -1,72 +1,67 @@
 <?php
-if (isset($_GET['instock'])) {
-    $inStock = $_GET['instock'];
-}
-
-if (isset($_GET['type'])) {
-    $cementType = $_GET['type'];
-}
-$options = $custom_meta_fields[3]["options"];
-
 get_header(); ?>
-
-    <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <section id="products">
         <div class="container py-5">
+            <div class="row justify-content-between mb-0">
+                <div class="col-auto align-self-center">
+                    <h1><?php echo single_cat_title('', 0); ?></h1>
+                </div>
+                <div class="col-3 align-self-center">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Sorted by: </label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <hr class="mb-5">
             <div class="row">
-
                 <div class="col-12 col-md-3">
+                    <h6 class="text-uppercase ml-3">Categories</h6>
                     <?php wp_nav_menu(array(
                         'theme_location' => 'products_menu',
                         'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'menu_class' => 'list-group',
+                        'menu_class' => 'list-group mb-4 mt-3',
                         'menu_id' => 'left-products-menu',
                         'depth' => 1
                     )); ?>
-
-                    <form id="product-filter" class="my-4 p-3 bg-white border rounded-0">
-                        <div class="form-check">
+                    <h6 class="text-uppercase ml-3">Filters</h6>
+                    <form id="product-filter" class="mb-4 mt-3 pl-3">
+                        <div class="form-check my-2">
                             <input class="form-check-input" type="checkbox" name="instock" value="on"
-                                   id="d1" <?php echo isset($inStock) ? "checked" : ''; ?>>
+                                   id="d1" checked>
                             <label class="form-check-label" for="d1">In stock</label>
                         </div>
-                        <div class="form-group my-2">
-                            <label class="form-check-label" for="d2">Cement type</label>
-                            <select id="d2" name="type" class="form-control">
-                                <?php foreach ($options as $option) {
-                                    if (isset($cementType) and $option["value"] == $cementType) { ?>
-                                        <option value="<?php echo $option["value"]; ?>"
-                                                selected><?php echo $option["label"]; ?></option>
-                                    <?php } else { ?>
-                                        <option value="<?php echo $option["value"]; ?>"><?php echo $option["label"]; ?></option>
-                                    <?php } ?>
-                                <?php } ?>
-                            </select>
+                        <div class="form-check my-2">
+                            <input class="form-check-input" type="checkbox" name="instock" value="on"
+                                   id="d1" checked>
+                            <label class="form-check-label" for="d1">In stock</label>
+                        </div>
+                        <div class="form-check my-2">
+                            <input class="form-check-input" type="checkbox" name="instock" value="on"
+                                   id="d1" checked>
+                            <label class="form-check-label" for="d1">In stock</label>
+                        </div>
+                        <div class="form-check my-2">
+                            <input class="form-check-input" type="checkbox" name="instock" value="on"
+                                   id="d1" checked>
+                            <label class="form-check-label" for="d1">In stock</label>
                         </div>
                     </form>
                 </div>
                 <div class="col-12 col-md-9">
                     <div class="row">
                         <?php
-
-
                         // Start the loop.
                         while (have_posts()) : the_post();
-                            if (isset($inStock) and !empty($inStock)) {
-                                $stock = get_post_meta(get_the_ID(), 'naturlith_stock', true);
-                                if ($stock != $inStock) {
-                                    continue;
-                                }
-                            }
-
-                            if (isset($cementType) and !empty($cementType)) {
-                                $cement = get_post_meta(get_the_ID(), 'naturlith_cement', true);
-                                if ($cementType != $cement) {
-                                    continue;
-                                }
-                            }
-                            // Include the page content template.
+//                          $cement = get_post_meta(get_the_ID(), 'naturlith_cement', true);
                             get_template_part('inc/templates/content', 'products');
-                            // End the loop.
                         endwhile;
                         wp_reset_postdata(); ?>
                     </div>

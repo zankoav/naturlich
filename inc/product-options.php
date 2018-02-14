@@ -21,57 +21,31 @@ function add_product_meta_box()
 add_action('add_meta_boxes', 'add_product_meta_box');
 // Field Array
 
-$prefix = 'naturlith_product';
+$prefix = 'naturlith_product_';
 $product_meta_fields = array(
-    array(
-        'label' => 'Price',
-        'desc' => 'Price for the product.',
-        'id' => $prefix . 'price',
-        'type' => 'text'
-    ),
     array(
         'label' => 'Mark',
         'desc' => 'Short mark for product.',
         'id' => $prefix . 'mark',
         'type' => 'text'
     ),
-//    array(
-//        'label' => 'Textarea',
-//        'desc' => 'A description for the field.',
-//        'id' => $prefix . 'textarea',
-//        'type' => 'textarea'
-//    ),
-//    array(
-//        'label' => 'Gray',
-//        'desc' => 'Gray type.',
-//        'id' => $prefix . 'gray',
-//        'type' => 'checkbox'
-//    ),
     array(
-        'label' => 'In stock',
-        'desc' => 'Check if product in stock',
-        'id' => $prefix . 'stock',
-        'type' => 'checkbox'
+        'label' => 'Description',
+        'desc' => 'Description product.',
+        'id' => $prefix . 'description',
+        'type' => 'textarea'
     ),
     array(
-        'label' => 'Cement type',
-        'desc' => 'Select cement type.',
-        'id' => $prefix . 'cement',
-        'type' => 'select',
-        'options' => array(
-            'zero' => array(
-                'label' => '--',
-                'value' => ''
-            ),
-            'one' => array(
-                'label' => 'Dark',
-                'value' => 'Dark'
-            ),
-            'two' => array(
-                'label' => 'Light',
-                'value' => 'Light'
-            )
-        )
+        'label' => 'Price $',
+        'desc' => 'Price for the product.',
+        'id' => $prefix . 'price',
+        'type' => 'text'
+    ),
+    array(
+        'label' => 'Show price',
+        'desc' => 'Check if need to show price',
+        'id' => $prefix . 'show_price',
+        'type' => 'checkbox'
     )
 );
 

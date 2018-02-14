@@ -20,9 +20,9 @@ class NaturlithSetup extends BaseSetup
 
         if (is_front_page()) {
             $styles['front-page'] = $this->themeUrl . '/css/front-page.css';
-        }
-
-        if (!is_front_page()) {
+        } else if (is_tax() or is_page('products')) {
+            $styles['products'] = $this->themeUrl . '/css/products.css';
+        } else {
             $styles['main'] = $this->themeUrl . '/css/main.css';
         }
 
@@ -47,9 +47,7 @@ class NaturlithSetup extends BaseSetup
 
         if (is_front_page()) {
             $scripts['fornt-page'] = $this->themeUrl . '/js/front-page/bundle.js';
-        }
-
-        if (!is_front_page()) {
+        } else {
             $scripts['bundle'] = $this->themeUrl . '/js/bundle.js';
         }
 
@@ -113,8 +111,8 @@ class NaturlithSetup extends BaseSetup
             new ProductsSection(),
             new ConditionsSection(),
             new NewsSection(),
-            new ContactsSection()
-
+            new ContactsSection(),
+            new LanguagesSection()
         );
     }
 
