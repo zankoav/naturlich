@@ -54,6 +54,15 @@ h1 {
             }
         }
     }
+
+    #product-filter{
+        color: $dark-gray;
+        font-family: LatoRegular, sans-serif;
+        .form-check-input:disabled ~ .form-check-label{
+            color: $gray;
+        }
+    }
+
     .product {
         .card {
             color: $gray;

@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './front-page/front-page.js',
+    entry: './taxonomy_and_page_products/taxonomy_and_page_products.js',
     output: {
-        filename: './front-page/bundle.js',
+        filename: './taxonomy_and_page_products/bundle.js',
         library: 'app'
     },
 

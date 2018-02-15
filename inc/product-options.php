@@ -39,7 +39,7 @@ $product_meta_fields = array(
         'label' => 'Price $',
         'desc' => 'Price for the product.',
         'id' => $prefix . 'price',
-        'type' => 'text'
+        'type' => 'number'
     ),
     array(
         'label' => 'Show price',
@@ -67,6 +67,10 @@ function show_product_meta_box()
             // text
             case 'text':
                 echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="30" /><br /><span class="description">' . $field['desc'] . '</span>';
+                break;
+            // number
+            case 'number':
+                echo '<input type="number" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="30" /><br /><span class="description">' . $field['desc'] . '</span>';
                 break;
             // textarea
             case 'textarea':

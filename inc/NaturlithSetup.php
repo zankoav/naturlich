@@ -47,6 +47,8 @@ class NaturlithSetup extends BaseSetup
 
         if (is_front_page()) {
             $scripts['fornt-page'] = $this->themeUrl . '/js/front-page/bundle.js';
+        }else if (is_tax() or is_page('products')) {
+            $scripts['taxonomy_and_products_page'] = $this->themeUrl . '/js/taxonomy_and_page_products/bundle.js';
         } else {
             $scripts['bundle'] = $this->themeUrl . '/js/bundle.js';
         }

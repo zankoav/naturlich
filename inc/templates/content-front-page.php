@@ -179,13 +179,48 @@
     <?php if (get_theme_mod('naturlith_news_enable')): ?>
         <div id="news">
             <div class="container">
-                <h2 class="text-center text-uppercase mt-5 pb-4"><?php echo get_theme_mod('naturlith_news_title')?></h2>
+                <h2 class="text-center text-uppercase mt-5 pb-4"><?php echo get_theme_mod('naturlith_news_title') ?></h2>
                 <div class="row">
+
+
                     <?php
-                    $args = array('numberposts' => '4');
-                    $recent_posts = wp_get_recent_posts($args);
-                    foreach ($recent_posts as $recent) { ?>
+
+                    $NUMBERS_OF_POSTS = 4;
+                    $posts = array();
+                    $ids = [];
+                    $args = array(
+                        'post_status' => 'publish',
+                        'numberposts' => 1
+                    );
+
+                    for ($i = 0; $i < $NUMBERS_OF_POSTS; $i++) {
+                        $id = get_theme_mod('naturlith_news_post_' . $i);
+                        if ($id != 0) {
+                            $ids[] = $id;
+                        }else{
+                            $ids[] = null;
+                        }
+                    }
+
+                    for ($i = 0; $i < $NUMBERS_OF_POSTS; $i++) {
+                        if (isset($ids[$i])) {
+                            $posts[] = get_post($ids[$i], 'ARRAY_A');
+                        } else {
+                            $args['exclude'] = $ids;
+                            $wp_resent_news = wp_get_recent_posts($args);
+                            $ids[] = $wp_resent_news[0]["ID"];
+                            $posts[] = $wp_resent_news[0];
+                        }
+                    }
+
+                    foreach ($posts as $recent) { ?>
                         <div class="col-12 col-sm-6 col-md-3">
+                            <div class="img-wrap mb-2">
+                                <img class="card-img-top rounded-0 img-fluid"
+                                     src="<?php echo get_the_post_thumbnail_url($recent["ID"], 'medium');
+                                     ?>"
+                                     alt="">
+                            </div>
                             <!--                        20 октября 2017, 12:16-->
                             <small><?php echo date('d F Y, H:i', strtotime($recent['post_date'])); ?></small>
                             <h4>
@@ -196,6 +231,8 @@
                     <?php }
                     wp_reset_query();
                     ?>
+
+
                 </div>
             </div>
         </div>
