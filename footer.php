@@ -1,19 +1,17 @@
 
 <footer id="footer-top">
-    <div class="container py-4">
+    <div class="container pt-5 pb-3">
         <div class="row">
-            <div class="col-sm-6 col-md-3 py-3">
-                <div class="bg-white w-75">
-                    <?php the_custom_logo(); ?>
-                </div>
+            <div class="col-sm-6 col-md-3">
+                <?php dynamic_sidebar( 'footer-1' ); ?>
             </div>
-            <div class="col-sm-6 col-md-3 py-3">
+            <div class="col-sm-6 col-md-3">
                 <?php dynamic_sidebar( 'footer-2' ); ?>
             </div>
-            <div class="col-sm-6 col-md-3 py-3">
+            <div class="col-sm-6 col-md-3">
                 <?php dynamic_sidebar( 'footer-3' ); ?>
             </div>
-            <div class="col-sm-6 col-md-3 py-3">
+            <div class="col-sm-6 col-md-3">
                 <?php dynamic_sidebar( 'footer-4' ); ?>
             </div>
         </div>

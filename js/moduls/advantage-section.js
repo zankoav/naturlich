@@ -19,6 +19,9 @@ export function advantage($) {
             if ((windowHeight + num > advantageTop + advantageHeight / 2) && show) { // if target element is visible on screen after DOM loaded
                 show = false;
                 $('#advantage-items').addClass('animation');
+
+                $('.btn-success').addClass('animation');
+
                 let count = $('#advantage-items .item').length;
                 $('#advantages .banner').addClass('animation');
                 for (let i = 0; i < count; i++) {

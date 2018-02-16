@@ -7,6 +7,8 @@
  */
 
 
+require_once 'zanko.php';
+
 
 require_once 'base/base.php';
 require_once 'inc/front-page-sections/sections.php';

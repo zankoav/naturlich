@@ -10,6 +10,14 @@ footer {
 
     &#footer-top {
         background-color: $black;
+
+        //.row > div {
+        //    &:first-child {
+        //        border-left: none;
+        //    }
+        //    border-left: 1px solid $light-gray;
+        //}
+
         li {
             list-style-type: none;
             h2 {
@@ -26,9 +34,19 @@ footer {
                 }
             }
             div {
-                color: $light-gray;
+                color: $gray-300;
                 font-size: 0.9rem;
+                line-height: 1.8;
 
+                #menu-left-products-menu{
+                    a {
+                        color: $primary;
+                        &:hover {
+                            color: $primary-hover;
+                            text-decoration: none;
+                        }
+                    }
+                }
                 a {
                     color: $primary;
                 }

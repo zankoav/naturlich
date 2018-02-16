@@ -88,6 +88,10 @@ class NaturlithSetup extends BaseSetup
     {
         return [
             array(
+                'id' => 'footer-1',
+                'name' => $this->lang('Footer 1')
+            ),
+            array(
                 'id' => 'footer-2',
                 'name' => $this->lang('Footer 2')
             ),

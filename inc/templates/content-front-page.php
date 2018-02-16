@@ -5,7 +5,7 @@
             <?php
             $ITEMS_COUNT = 5;
             ?>
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators d-none">
                 <?php
                 $isFirstLi = true;
                 for ($i = 0; $i < $ITEMS_COUNT; $i++) {
@@ -31,9 +31,14 @@
                         <img class="d-block w-100"
                              src="<?php echo get_theme_mod('naturlith_banners_slide_' . $i); ?>"
                              alt="Slide_<?php echo $i; ?>">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5><?php echo get_theme_mod('naturlith_banners_title_' . $i); ?></h5>
-                            <p><?php echo get_theme_mod('naturlith_banners_description_' . $i); ?></p>
+                        <div class="carousel-caption">
+                            <h1><?php echo get_theme_mod('naturlith_banners_title_' . $i); ?></h1>
+                            <h2 class="d-none d-md-block"><?php echo get_theme_mod('naturlith_banners_sub_title_' . $i); ?></h2>
+                            <p class="d-none d-lg-block"><?php echo get_theme_mod('naturlith_banners_description_' . $i); ?></p>
+                            <a href="<?php echo get_theme_mod('naturlith_banners_button_url_' . $i); ?>"
+                               class="btn btn-success mt-3 mt-lg-5">
+                                <?php echo get_theme_mod('naturlith_banners_button_title_' . $i); ?>
+                            </a>
                         </div>
                     </div>
                 <?php } ?>
@@ -54,40 +59,33 @@
         <?php
         $advantagesTitle = get_theme_mod('naturlith_advantages_title');
         if (!empty($advantagesTitle)) { ?>
-            <div class="container py-5 position-relative">
-                <h1 class="text-center mb-5 py-3"><?php echo $advantagesTitle; ?></h1>
-                <div id="advantage-items" class="row">
+            <div class="container pt-5 position-relative">
+                <h1 class="text-center"><?php echo $advantagesTitle; ?></h1>
+                <h2 class="text-center"><?php echo get_theme_mod('naturlith_advantages_sub_title'); ?></h2>
+                <div id="advantage-items" class="row mt-5">
                     <?php for ($i = 0; $i < 5; $i++) {
                         $itemTitle = get_theme_mod('naturlith_advantages_title_item_' . $i);
                         if (!empty($itemTitle)) { ?>
-                            <div class="col-12 col-lg-9 mb-4 item">
+                            <div class="col-12 col-lg-7 mb-4 item">
                                 <div class="row">
-                                    <div class="col-sm-2 col-md-1 align-self-center d-none d-sm-block">
+                                    <div class="col-sm-3 col-md-2 align-self-center d-none d-sm-block">
                                         <img class="w-100"
                                              src="<?php echo get_theme_mod('naturlith_advantages_icon_item_' . $i); ?>"
                                              alt="Icon must be here">
                                     </div>
-                                    <div class="col-sm-10 col-md-11 align-self-center">
-                                        <h5 class="text-uppercase"><?php echo $itemTitle; ?></h5>
-                                        <p><?php echo get_theme_mod('naturlith_advantages_subtitle_item_' . $i); ?></p>
+                                    <div class="col-sm-9 col-md-10 align-self-center">
+                                        <h5 class="text-uppercase w-75"><?php echo $itemTitle; ?></h5>
+                                        <p class="w-75"><?php echo get_theme_mod('naturlith_advantages_subtitle_item_' . $i); ?></p>
                                     </div>
                                 </div>
                             </div>
                         <?php }
                     } ?>
-                    <div class="col-12 col-lg-9 mt-3">
-                        <div class="row">
-                            <div class="col-sm-2 col-md-1 d-none d-sm-block"></div>
-                            <a class="btn bg-light text-secondary text-uppercase about rounded-0 border px-4 py-2"
-                               href="<?php echo get_theme_mod('naturlith_advantages_button_url'); ?>"
-                               target="_blank">
-                                <?php echo get_theme_mod('naturlith_advantages_button_title'); ?>
-                            </a>
-                        </div>
-                    </div>
                 </div>
-                <img class="position-absolute h-100 py-5 banner d-none d-lg-block"
+                <img class="position-absolute pt-5 banner d-none d-lg-block"
                      src="<?php echo get_theme_mod('naturlith_advantages_right_image'); ?>" alt="">
+                <a href="<?php echo get_theme_mod('naturlith_advantages_button_url_1'); ?>" class="btn btn-success d-none d-lg-block"><?php echo get_theme_mod('naturlith_advantages_button_title_1'); ?></a>
+                <a href="<?php echo get_theme_mod('naturlith_advantages_button_url_2'); ?>" class="btn btn-success d-none d-lg-block second"><?php echo get_theme_mod('naturlith_advantages_button_title_2'); ?></a>
             </div>
         <?php } ?>
     </div>
@@ -167,8 +165,8 @@
             if (!empty($conditionsTitle)) { ?>
                 <div class="container text-center text-white">
                     <h1 class="text-uppercase"><?php echo $conditionsTitle; ?></h1>
-                    <p class="py-3 w-75 mx-auto"><?php echo get_theme_mod('naturlith_conditions_subtitle'); ?></p>
-                    <a class="btn rounded-0" href="<?php echo get_theme_mod('naturlith_conditions_read_more_url'); ?>">
+                    <p class="pt-2 mb-5 w-75 mx-auto"><?php echo get_theme_mod('naturlith_conditions_subtitle'); ?></p>
+                    <a class="btn rounded-0 mt-3" href="<?php echo get_theme_mod('naturlith_conditions_read_more_url'); ?>">
                         <?php echo get_theme_mod('naturlith_conditions_read_more_title'); ?>
                     </a>
                 </div>
@@ -179,7 +177,7 @@
     <?php if (get_theme_mod('naturlith_news_enable')): ?>
         <div id="news">
             <div class="container">
-                <h2 class="text-center text-uppercase mt-5 pb-4"><?php echo get_theme_mod('naturlith_news_title') ?></h2>
+                <h2 class="text-center text-uppercase my-4"><?php echo get_theme_mod('naturlith_news_title') ?></h2>
                 <div class="row">
 
 
@@ -197,7 +195,7 @@
                         $id = get_theme_mod('naturlith_news_post_' . $i);
                         if ($id != 0) {
                             $ids[] = $id;
-                        }else{
+                        } else {
                             $ids[] = null;
                         }
                     }
