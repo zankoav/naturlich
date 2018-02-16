@@ -1,6 +1,7 @@
 <section id="home-page" <?php post_class(); ?> >
 
     <?php if (get_theme_mod('naturlith_banners_enable')): ?>
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <?php
             $ITEMS_COUNT = 5;
@@ -36,7 +37,7 @@
                             <h2 class="d-none d-md-block"><?php echo get_theme_mod('naturlith_banners_sub_title_' . $i); ?></h2>
                             <p class="d-none d-lg-block"><?php echo get_theme_mod('naturlith_banners_description_' . $i); ?></p>
                             <a href="<?php echo get_theme_mod('naturlith_banners_button_url_' . $i); ?>"
-                               class="btn btn-success mt-3 mt-lg-5">
+                               class="btn btn-success mt-3 mt-lg-4">
                                 <?php echo get_theme_mod('naturlith_banners_button_title_' . $i); ?>
                             </a>
                         </div>
@@ -84,8 +85,10 @@
                 </div>
                 <img class="position-absolute pt-5 banner d-none d-lg-block"
                      src="<?php echo get_theme_mod('naturlith_advantages_right_image'); ?>" alt="">
-                <a href="<?php echo get_theme_mod('naturlith_advantages_button_url_1'); ?>" class="btn btn-success d-none d-lg-block"><?php echo get_theme_mod('naturlith_advantages_button_title_1'); ?></a>
-                <a href="<?php echo get_theme_mod('naturlith_advantages_button_url_2'); ?>" class="btn btn-success d-none d-lg-block second"><?php echo get_theme_mod('naturlith_advantages_button_title_2'); ?></a>
+                <a href="<?php echo get_theme_mod('naturlith_advantages_button_url_1'); ?>"
+                   class="btn btn-success d-none d-lg-block"><?php echo get_theme_mod('naturlith_advantages_button_title_1'); ?></a>
+                <a href="<?php echo get_theme_mod('naturlith_advantages_button_url_2'); ?>"
+                   class="btn btn-success d-none d-lg-block second"><?php echo get_theme_mod('naturlith_advantages_button_title_2'); ?></a>
             </div>
         <?php } ?>
     </div>
@@ -103,7 +106,7 @@
                         <?php
                         $indexOfProduct = 0;
                         while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <a href="<?php the_permalink(); ?>" class="card rounded-0 border-0 text-center
+                            <div class="card rounded-0 border-0 text-center
                     <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
                                 <div class="img-wrap">
                                     <?php the_post_thumbnail('medium', array(
@@ -112,13 +115,15 @@
                                     )); ?>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-uppercase"><?php echo get_post_meta(get_the_ID(), 'naturlith_mark', true); ?></h5>
+                                    <h5 class="card-title text-uppercase mb-0"><?php echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?></h5>
+                                    <p class="card-text text-lowercase mb-0"><?php echo get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->name; ?></p>
+                                    <hr class="my-2">
                                     <p class="card-text"><?php the_title(); ?></p>
                                 </div>
                                 <div class="card-footer p-0">
-                                    <div class="text-muted">More</div>
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-success">View</a>
                                 </div>
-                            </a>
+                            </div>
                             <?php
                             $indexOfProduct++;
                         endwhile; ?>
@@ -132,7 +137,7 @@
                                 continue;
                             }
                             ?>
-                            <a href="<?php the_permalink(); ?>" class="card rounded-0 border-0 text-center">
+                            <div class="card rounded-0 border-0 text-center">
                                 <div class="img-wrap">
                                     <?php the_post_thumbnail('medium', array(
                                         'class' => "card-img-top rounded-0 img-fluid",
@@ -140,17 +145,21 @@
                                     )); ?>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title text-uppercase"><?php echo get_post_meta(get_the_ID(), 'naturlith_mark', true); ?></h5>
+                                    <h5 class="card-title text-uppercase mb-0"><?php echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?></h5>
+                                    <p class="card-text text-lowercase mb-0"><?php echo get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->taxonomy; ?></p>
+                                    <hr class="my-2">
                                     <p class="card-text"><?php the_title(); ?></p>
                                 </div>
                                 <div class="card-footer p-0">
-                                    <div class="text-muted">More</div>
+                                    <a href="<?php the_permalink(); ?>" class="btn btn-success">View</a>
                                 </div>
-                            </a>
+                            </div>
                         <?php endwhile; ?>
                     </div>
+
+
                 </div>
-                <a class="d-block p-5 text-uppercase text-center text-secondary"
+                <a class="d-block pt-3 pb-4 text-uppercase text-center text-secondary"
                    href="<?php echo get_theme_mod('naturlith_products_all_url'); ?>" target="_blank">
                     <?php echo get_theme_mod('naturlith_products_all'); ?></a>
             </div></div>
@@ -165,8 +174,10 @@
             if (!empty($conditionsTitle)) { ?>
                 <div class="container text-center text-white">
                     <h1 class="text-uppercase"><?php echo $conditionsTitle; ?></h1>
+
                     <p class="pt-2 mb-5 w-75 mx-auto"><?php echo get_theme_mod('naturlith_conditions_subtitle'); ?></p>
-                    <a class="btn rounded-0 mt-3" href="<?php echo get_theme_mod('naturlith_conditions_read_more_url'); ?>">
+                    <a class="btn rounded-0 mt-3"
+                       href="<?php echo get_theme_mod('naturlith_conditions_read_more_url'); ?>">
                         <?php echo get_theme_mod('naturlith_conditions_read_more_title'); ?>
                     </a>
                 </div>
@@ -247,5 +258,6 @@
             } ?>
         </div>
     <?php endif; ?>
+
 
 </section>
