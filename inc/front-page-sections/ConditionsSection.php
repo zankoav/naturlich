@@ -16,7 +16,7 @@ class ConditionsSection extends BaseSection
 
     public function title()
     {
-        return 'Conditions Section';
+        return 'Conditions';
     }
 
     public function description()
@@ -80,5 +80,10 @@ class ConditionsSection extends BaseSection
                 'section' => $this->id()
             )
         );
+    }
+
+    public function panel()
+    {
+        return 'front_page';
     }
 }

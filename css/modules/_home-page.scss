@@ -3,27 +3,47 @@
     #carouselExampleIndicators {
         margin-top: -70px;
         .carousel-caption {
-            top: 40%;
+            top: 33%;
             bottom: inherit;
             text-shadow: 1px 1px 5px $dark-gray;
 
-            h5 {
+            h1 {
                 font-family: LatoBlack, sans-serif;
-                font-size: 3rem;
+                font-size: 3.5rem;
                 text-transform: uppercase;
-                margin-bottom: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-family: LatoBold, sans-serif;
+                font-size: 1.8rem;
+                margin-bottom: 0.7rem;
             }
 
             p {
-                width: 80%;
+                width: 70%;
+                font-size: 1.1rem;
                 margin: 0 auto;
-                line-height: 1.5;
+                line-height: 1.7;
+            }
+
+            .btn-success {
+                text-transform: uppercase;
+                border-radius: 0;
+                border: none;
+                padding: 0.6rem 1.5rem;
+                background-color: $primary;
+                text-shadow: none;
+
+                &:hover {
+                    background-color: $primary-hover;
+                }
             }
         }
     }
 
     #advantages {
-        background: linear-gradient(to top, $light-gray, white);
+        background: linear-gradient(to top, $light, white);
 
         #advantage-items {
 
@@ -50,10 +70,68 @@
 
         }
 
+        .btn-success {
+            text-transform: uppercase;
+            border-radius: 0;
+            display: block;
+            border: none;
+            padding: 10px 20px;
+            background-color: $primary;
+            text-shadow: none;
+            position: absolute;
+            right: 15%;
+            opacity: 0;
+            top: 40%;
+            z-index: 1000;
+            @include transition-property(opacity);
+            @include transition-duration(1600ms);
+
+            &.animation {
+                opacity: 1;
+            }
+
+            &.second{
+                top: 88%;
+                right: 41%;
+
+                &::before{
+                    transform-origin: 0% 50%;
+                    top: 50%;
+                    left: 99%;
+                }
+            }
+
+            &:hover {
+                text-decoration: none;
+                background-color: $primary-hover;
+                &::before {
+                    background-color: $primary-hover;
+                }
+            }
+
+            &::before{
+                @include transition-property(background-color);
+                @include transition-duration(0.15s);
+                @include transition-timing-function(ease-in-out);
+                position: absolute;
+                top:50%;
+                right: 99%;
+                transform-origin: 100% 50%;
+                content: '';
+                display: block;
+                height: 2px;
+                background-color: $primary;
+                width: 100px;
+                transform:rotate(-30deg);
+            }
+        }
+
         .banner {
             z-index: 1;
             right: 0;
-            top: 0;
+            width: 60%;
+            height: auto;
+            top: 10%;
             padding-right: 15px;
             opacity: 0;
             @include transition-property(opacity);
@@ -67,6 +145,17 @@
 
         .item {
             z-index: 2;
+        }
+
+        h1{
+            margin-bottom:0;
+        }
+
+        h2{
+            color: $gray-300;
+            font-family: LatoBold, sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
         }
 
         h5 {
@@ -91,11 +180,12 @@
             font-family: LatoBlack, sans-serif;
             font-size: 3rem;
             color: $gray-300;
+            text-transform: uppercase;
         }
     }
 
     #products {
-        background: $light-gray;
+        background: $light;
         .card {
             padding: 0.4rem;
             .img-wrap {
@@ -169,21 +259,30 @@
         text-shadow: 1px 1px 5px $dark-gray;
 
         .container {
-            padding: 5rem 0;
+            padding: 6rem 0 3rem 0;
 
             h1 {
                 font-family: LatoBlack, sans-serif;
-                font-size: 3rem;
+                font-size: 3.5rem;
+            }
+
+            p {
+                width: 70%;
+                font-size: 1.1rem;
+                line-height: 1.7;
             }
 
             .btn {
+                text-transform: uppercase;
+                border-radius: 0;
+                border: none;
+                color: white;
+                padding: 0.6rem 1.5rem;
+                background-color: $primary;
                 text-shadow: none;
-                color: $dark-gray;
-                background-color: $light-gray;
+
                 &:hover {
-                    text-decoration: none;
-                    background-color: $dark-gray;
-                    color: $light-gray;
+                    background-color: $primary-hover;
                 }
             }
         }
@@ -198,12 +297,12 @@
         }
 
         h4 {
-            margin: 1rem 0;
+            margin: 0.8rem 0;
 
             a {
-                color: $dark-gray;
+                color: $primary;
                 &:hover {
-                    color: $primary;
+                    color: $primary-hover;
                     text-decoration: none;
                 }
             }
@@ -216,7 +315,7 @@
             content: '';
             display: block;
             height: 2px;
-            margin: 2rem 0;
+            margin-bottom: 2rem;
             background-color: $light-gray;
         }
     }

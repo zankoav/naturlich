@@ -37,6 +37,16 @@ class BannersSection extends BaseSection
             )
         );
 
+        $id = $this->id() . 'sub_title_0';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'First sub title',
+                'section' => $this->id()
+            )
+        );
+
         $id = $this->id() . 'description_0';
         $customizer->add_setting($id);
         $customizer->add_control($id,
@@ -62,6 +72,26 @@ class BannersSection extends BaseSection
             )
         );
 
+        $id = $this->id() . 'button_title_0';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'First button title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'button_url_0';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'First button url',
+                'section' => $this->id()
+            )
+        );
+
         // Second slide
         $id = $this->id() . 'title_1';
         $customizer->add_setting($id);
@@ -69,6 +99,16 @@ class BannersSection extends BaseSection
             array(
                 'type' => 'text',
                 'label' => 'Second title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'sub_title_1';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Second sub title',
                 'section' => $this->id()
             )
         );
@@ -98,6 +138,26 @@ class BannersSection extends BaseSection
             )
         );
 
+        $id = $this->id() . 'button_title_1';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Second button title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'button_url_1';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Second button url',
+                'section' => $this->id()
+            )
+        );
+
         // Tried slide
         $id = $this->id() . 'title_2';
         $customizer->add_setting($id);
@@ -105,6 +165,16 @@ class BannersSection extends BaseSection
             array(
                 'type' => 'text',
                 'label' => 'Tried title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'sub_title_2';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Tried sub title',
                 'section' => $this->id()
             )
         );
@@ -134,6 +204,26 @@ class BannersSection extends BaseSection
             )
         );
 
+        $id = $this->id() . 'button_title_2';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Tried button title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'button_url_2';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Tried button url',
+                'section' => $this->id()
+            )
+        );
+
         // Fourth slide
         $id = $this->id() . 'title_3';
         $customizer->add_setting($id);
@@ -141,6 +231,16 @@ class BannersSection extends BaseSection
             array(
                 'type' => 'text',
                 'label' => 'Fourth title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'sub_title_3';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Fourth sub title',
                 'section' => $this->id()
             )
         );
@@ -170,6 +270,26 @@ class BannersSection extends BaseSection
             )
         );
 
+        $id = $this->id() . 'button_title_3';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Fourth button title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'button_url_3';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Fourth button url',
+                'section' => $this->id()
+            )
+        );
+
         // Fifth slide
         $id = $this->id() . 'title_4';
         $customizer->add_setting($id);
@@ -177,6 +297,16 @@ class BannersSection extends BaseSection
             array(
                 'type' => 'text',
                 'label' => 'Fifth title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'sub_title_4';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Fifth sub title',
                 'section' => $this->id()
             )
         );
@@ -205,5 +335,30 @@ class BannersSection extends BaseSection
                 )
             )
         );
+
+        $id = $this->id() . 'button_title_4';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Fifth button title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'button_url_4';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Fifth button url',
+                'section' => $this->id()
+            )
+        );
+    }
+
+    public function panel()
+    {
+        return 'front_page';
     }
 }

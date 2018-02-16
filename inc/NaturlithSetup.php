@@ -13,12 +13,21 @@ class NaturlithSetup extends BaseSetup
      */
     public function styles()
     {
-        return array(
+        $styles = [
             'icons' => $this->themeUrl . '/css/fontawesome/css/fontawesome-all.css',
             'bootstrap4' => $this->themeUrl . '/css/bootstrap4/bootstrap.css',
-            'main' => $this->themeUrl . '/css/main.css',
-            'style' => $this->themeUrl . '/style.css',
-        );
+        ];
+
+        if (is_front_page()) {
+            $styles['front-page'] = $this->themeUrl . '/css/front-page.css';
+        } else if (is_tax() or is_page('products')) {
+            $styles['products'] = $this->themeUrl . '/css/products.css';
+        } else {
+            $styles['main'] = $this->themeUrl . '/css/main.css';
+        }
+
+        $styles['style'] = $this->themeUrl . '/style.css';
+        return $styles;
     }
 
     /**
@@ -34,10 +43,17 @@ class NaturlithSetup extends BaseSetup
      */
     public function footerScripts()
     {
-        return array(
-            'bootstrap4' => $this->themeUrl . '/js/bootstrap4/bootstrap.bundle.js',
-            'bundle' => $this->themeUrl . '/js/bundle.js'
-        );
+        $scripts = ['bootstrap4' => $this->themeUrl . '/js/bootstrap4/bootstrap.bundle.js'];
+
+        if (is_front_page()) {
+            $scripts['fornt-page'] = $this->themeUrl . '/js/front-page/bundle.js';
+        }else if (is_tax() or is_page('products')) {
+            $scripts['taxonomy_and_products_page'] = $this->themeUrl . '/js/taxonomy_and_page_products/bundle.js';
+        } else {
+            $scripts['bundle'] = $this->themeUrl . '/js/bundle.js';
+        }
+
+        return $scripts;
     }
 
     public function isJqueryNeed()
@@ -72,6 +88,10 @@ class NaturlithSetup extends BaseSetup
     {
         return [
             array(
+                'id' => 'footer-1',
+                'name' => $this->lang('Footer 1')
+            ),
+            array(
                 'id' => 'footer-2',
                 'name' => $this->lang('Footer 2')
             ),
@@ -94,9 +114,21 @@ class NaturlithSetup extends BaseSetup
         return array(
             new BannersSection(),
             new AdvantagesSection(),
-            new ConditionsSection(),
             new ProductsSection(),
-            new ContactsSection()
+            new ConditionsSection(),
+            new NewsSection(),
+            new ContactsSection(),
+            new LanguagesSection()
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function panels()
+    {
+        return array(
+            new FrontPagePanel()
         );
     }
 }

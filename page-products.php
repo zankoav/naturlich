@@ -10,16 +10,9 @@ $sorts = [
 ];
 
 
-$currentTermId = get_queried_object_id();
-
 $queryArgs = [
     'post_type' => 'naturlith_products',
-    'tax_query' => [
-        array(
-            'taxonomy' => 'naturlith_products_category',
-            'terms' => array($currentTermId)
-        )
-    ]
+    'tax_query' => []
 ];
 
 if ($sort) {
@@ -43,28 +36,12 @@ if ($sort) {
 
 }
 
-$productsQuery = new WP_Query($queryArgs);
-
-$allFilters = getAllFilters($productsQuery);
-
-function getAllFilters($wp_query){
-
-    $posts = $wp_query->get_posts();
-    $filters = [];
-    foreach ($posts as $post) {
-        $terms = wp_get_post_terms($post->ID, 'naturlith_products_filter');
-        foreach ($terms as $term) {
-            if (!in_array($term, $filters)) {
-                $filters[] = $term;
-            }
-        }
-    }
-
-    return $filters;
-}
-
-
 $filtersString = isset($_GET["filter"]) ? $_GET["filter"] : null;
+
+$allFilters = get_terms(array(
+    'taxonomy' => 'naturlith_products_filter',
+    'hide_empty' => true
+));
 
 $customFilters = array();
 
@@ -87,10 +64,12 @@ if (isset($filtersString)) {
 
 $productsQuery = new WP_Query($queryArgs);
 
+
 $incFilters = getIncludeFilters($productsQuery);
 
-function getIncludeFilters($wp_query){
 
+function getIncludeFilters($wp_query)
+{
     $posts = $wp_query->get_posts();
     $filters = [];
     foreach ($posts as $post) {
@@ -150,7 +129,7 @@ function getIncludeFilters($wp_query){
                                        value="on"
                                        id="<?php echo $filter->term_id; ?>"
                                     <?php echo in_array($filter, $customFilters) ? ' checked' : ''; ?>
-                                    <?php echo !in_array($filter->term_id, $incFilters) ? 'disabled' : '';?>
+                                    <?php echo !in_array($filter->term_id, $incFilters) ? 'disabled' : ''; ?>
                                 >
                                 <label class="form-check-label"
                                        for="<?php echo $filter->term_id; ?>">

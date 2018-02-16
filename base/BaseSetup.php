@@ -40,6 +40,11 @@ abstract class BaseSetup implements Setup
     /**
      * @return array
      */
+    public abstract function panels();
+
+    /**
+     * @return array
+     */
     public abstract function styles();
 
     /**
@@ -142,10 +147,16 @@ abstract class BaseSetup implements Setup
 
     public function customizer()
     {
+        $panels = $this->panels();
+        foreach ($panels as $panel) {
+            $panel->setup();
+        }
+
         $sections = $this->sections();
         foreach ($sections as $section) {
             $section->setup();
         }
+
     }
 
     private function setupLang()

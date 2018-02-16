@@ -17,8 +17,8 @@
     $stock = $stock == 'on' ? 'Yes' : 'No';
     ?>
     <div class="my-2">In stock : <strong><?php echo $stock; ?></strong></div>
-    <div class="my-2">Cement type: <strong><?php echo get_post_meta(get_the_ID(), 'naturlith_cement', true); ?></strong></div>
-
+    <div class="my-2">Cement type: <strong><?php echo get_post_meta(get_the_ID(), 'naturlith_cement', true); ?></strong>
+    </div>
 </div>
 
 <div class="col-12 entry-content mt-5">

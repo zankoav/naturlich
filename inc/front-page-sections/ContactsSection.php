@@ -16,7 +16,7 @@ class ContactsSection extends BaseSection
 
     public function title()
     {
-        return 'Contact Section';
+        return 'Contact';
     }
 
     public function description()
@@ -45,5 +45,10 @@ class ContactsSection extends BaseSection
                 'section' => $this->id()
             )
         );
+    }
+
+    public function panel()
+    {
+        return 'front_page';
     }
 }
