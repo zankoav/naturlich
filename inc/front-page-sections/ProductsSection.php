@@ -18,7 +18,7 @@ class ProductsSection extends BaseSection
 
     public function title()
     {
-        return 'Products section';
+        return 'Products';
     }
 
     public function description()
@@ -58,5 +58,10 @@ class ProductsSection extends BaseSection
             )
         );
 
+    }
+
+    public function panel()
+    {
+        return 'front_page';
     }
 }

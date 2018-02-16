@@ -16,7 +16,7 @@ class AdvantagesSection extends BaseSection
 
     public function title()
     {
-        return 'Advantages Section';
+        return 'Advantages';
     }
 
     public function description()
@@ -32,6 +32,16 @@ class AdvantagesSection extends BaseSection
             array(
                 'type' => 'text',
                 'label' => 'Title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'sub_title';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Sub Title',
                 'section' => $this->id()
             )
         );
@@ -232,25 +242,51 @@ class AdvantagesSection extends BaseSection
             )
         );
 
-        // Button
-        $id = $this->id() . 'button_title';
+        // Button 1
+        $id = $this->id() . 'button_title_1';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Button title',
+                'label' => 'First button title',
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'button_url';
+        $id = $this->id() . 'button_url_1';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'URL',
+                'label' => 'First button url',
                 'section' => $this->id()
             )
         );
+
+        // Button 2
+        $id = $this->id() . 'button_title_2';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Button second title',
+                'section' => $this->id()
+            )
+        );
+
+        $id = $this->id() . 'button_url_2';
+        $customizer->add_setting($id);
+        $customizer->add_control($id,
+            array(
+                'type' => 'text',
+                'label' => 'Button second url',
+                'section' => $this->id()
+            )
+        );
+    }
+
+    public function panel()
+    {
+        return 'front_page';
     }
 }

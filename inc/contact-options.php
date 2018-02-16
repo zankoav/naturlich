@@ -7,58 +7,46 @@
  */
 
 // Add the Meta Box
-function add_product_meta_box()
+function add_contact_meta_box()
 {
     add_meta_box(
-        'product_meta_box', // $id
-        'Product settings', // $title
-        'show_product_meta_box', // $callback
-        'naturlith_products', // $page
+        'contact_meta_box', // $id
+        'Contact settings', // $title
+        'show_contact_meta_box', // $callback
+        'naturlith_contacts', // $page
         'normal', // $context
         'high'); // $priority
 }
 
-add_action('add_meta_boxes', 'add_product_meta_box');
+add_action('add_meta_boxes', 'add_contact_meta_box');
 // Field Array
 
-$prefix = 'naturlith_product_';
-$product_meta_fields = array(
+$prefix = 'naturlith_contact';
+$contact_meta_fields = array(
     array(
-        'label' => 'Mark',
-        'desc' => 'Short mark for product.',
-        'id' => $prefix . 'mark',
+        'label' => 'Email',
+        'desc' => 'Email of contact',
+        'id' => $prefix . 'email',
         'type' => 'text'
     ),
     array(
-        'label' => 'Description',
-        'desc' => 'Description product.',
-        'id' => $prefix . 'description',
-        'type' => 'textarea'
-    ),
-    array(
-        'label' => 'Price $',
-        'desc' => 'Price for the product.',
-        'id' => $prefix . 'price',
-        'type' => 'number'
-    ),
-    array(
-        'label' => 'Show price',
-        'desc' => 'Check if need to show price',
-        'id' => $prefix . 'show_price',
-        'type' => 'checkbox'
+        'label' => 'Phone',
+        'desc' => 'Phone of contact',
+        'id' => $prefix . 'phone',
+        'type' => 'text'
     )
 );
 
 // The Callback
-function show_product_meta_box()
+function show_contact_meta_box()
 {
-    global $product_meta_fields, $post;
+    global $contact_meta_fields, $post;
 // Use nonce for verification
     echo '<input type="hidden" name="custom_meta_box_nonce" value="' . wp_create_nonce(basename(__FILE__)) . '" />';
 
     // Begin the field table and loop
     echo '<table class="form-table">';
-    foreach ($product_meta_fields as $field) {
+    foreach ($contact_meta_fields as $field) {
         // get value of this field if it exists for this post
         $meta = get_post_meta($post->ID, $field['id'], true);
         // begin a table row with
@@ -67,10 +55,6 @@ function show_product_meta_box()
             // text
             case 'text':
                 echo '<input type="text" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="30" /><br /><span class="description">' . $field['desc'] . '</span>';
-                break;
-            // number
-            case 'number':
-                echo '<input type="number" name="' . $field['id'] . '" id="' . $field['id'] . '" value="' . $meta . '" size="30" /><br /><span class="description">' . $field['desc'] . '</span>';
                 break;
             // textarea
             case 'textarea':
@@ -99,9 +83,9 @@ function show_product_meta_box()
 }
 
 // Save the Data
-function save_product_meta($post_id)
+function save_contact_meta($post_id)
 {
-    global $product_meta_fields;
+    global $contact_meta_fields;
 
     // verify nonce
     if (isset($_POST['custom_meta_box_nonce']) && !wp_verify_nonce($_POST['custom_meta_box_nonce'], basename(__FILE__)))
@@ -110,7 +94,7 @@ function save_product_meta($post_id)
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE)
         return $post_id;
     // check permissions
-    if (isset($_POST['post_type']) && 'naturlith_products' == $_POST['post_type']) {
+    if (isset($_POST['post_type']) && 'naturlith_contacts' == $_POST['post_type']) {
         if (!current_user_can('edit_page', $post_id))
             return $post_id;
     } elseif (!current_user_can('edit_post', $post_id)) {
@@ -118,7 +102,7 @@ function save_product_meta($post_id)
     }
 
     // loop through fields and save the data
-    foreach ($product_meta_fields as $field) {
+    foreach ($contact_meta_fields as $field) {
         $old = get_post_meta($post_id, $field['id'], true);
         if (isset($_POST[$field['id']])) {
             $new = $_POST[$field['id']];
@@ -132,4 +116,4 @@ function save_product_meta($post_id)
     } // end foreach
 }
 
-add_action('save_post', 'save_product_meta');
+add_action('save_post', 'save_contact_meta');

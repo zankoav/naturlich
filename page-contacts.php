@@ -1,7 +1,4 @@
 <?php
-/**
- * Template Name: Home Page
- */
 
 get_header();
 
@@ -9,7 +6,7 @@ get_header();
 while (have_posts()) : the_post();
 
     // Include the page content template.
-    get_template_part('inc/templates/content', 'home');
+    get_template_part('inc/templates/content', 'contacts');
 
     // End the loop.
 endwhile;

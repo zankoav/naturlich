@@ -6,12 +6,9 @@
  * Time: 8:40 AM
  */
 
+$pageSlugs = ['contacts', 'products'];
 
-/*
-* Creating a function to create our CPT
-*/
-
-function custom_post_type()
+function products_post_type()
 {
     // Регистрируем таксономию
     register_taxonomy(
@@ -23,6 +20,34 @@ function custom_post_type()
             'hierarchical' => true, // Если TRUE, таксономия будет аналогом рубрик (категорий). Если FALSE (по умолчанию), то таксономия станет аналогом меток (тегов).
             'rewrite' => array(
                 'slug' => 'products', // This controls the base slug that will display before each term
+            )
+        )
+    );
+
+    // Регистрируем таксономию
+    register_taxonomy(
+        'naturlith_products_filter',
+        'naturlith_products',
+        array(
+            'label' => 'Product filter',
+            'labels' => array(
+                'name' => 'Filters',
+                'singular_name' => 'Filter',
+                'all_items' => 'All Filters',
+                'view_item ' => 'View Filter',
+                'parent_item' => 'Parent Filter',
+                'parent_item_colon' => 'Parent Filter:',
+                'edit_item' => 'Edit Filter',
+                'update_item' => 'Update Filter',
+                'add_new_item' => 'Add New Filter',
+                'new_item_name' => 'New Filter Name',
+                'menu_name' => 'Filter',
+            ),
+            'show_in_nav_menus' => false, // равен аргументу public
+            'show_tagcloud' => false,
+            'hierarchical' => true, // Если TRUE, таксономия будет аналогом рубрик (категорий). Если FALSE (по умолчанию), то таксономия станет аналогом меток (тегов).
+            'rewrite' => array(
+                'slug' => 'filter', // This controls the base slug that will display before each term
             )
         )
     );
@@ -69,9 +94,9 @@ function custom_post_type()
         'description' => __('Product news and reviews', 'naturlith'),
         'labels' => $labels,
         // Features this CPT supports in Post Editor
-        'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+        'supports' => array('title', 'editor', 'thumbnail'),
         // You can associate this CPT with a taxonomy or custom taxonomy.
-        'taxonomies' => array('naturlith_products_category'),
+        'taxonomies' => array('naturlith_products_category', 'naturlith_products_filter'),
         /* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -95,7 +120,7 @@ function custom_post_type()
 
 }
 
-function default_taxonomy_term($post_id, $post)
+function default_product_term($post_id, $post)
 {
     if ('publish' === $post->post_status) {
         $defaults = array(
@@ -111,6 +136,58 @@ function default_taxonomy_term($post_id, $post)
     }
 }
 
-add_action('save_post', 'default_taxonomy_term', 100, 2);
+add_filter('page_row_actions', 'remove_row_actions_naturlith_products', 10, 2);
 
-add_action('init', 'custom_post_type', 0);
+function remove_row_actions_naturlith_products($actions, $page)
+{
+    global $pageSlugs;
+
+    if (get_post_type() == 'page' and in_array($page->post_name, $pageSlugs)) {
+        unset($actions['clone']);
+        unset($actions['inline hide-if-no-js']);
+        unset($actions['edit']);
+        unset($actions['view']);
+        unset($actions['trash']);
+    }
+    return $actions;
+}
+
+add_action('admin_head-post.php', 'hide_publishing_actions');
+add_action('admin_head-post-new.php', 'hide_publishing_actions');
+function hide_publishing_actions()
+{
+    $post_type = 'page';
+    global $pageSlugs;
+    global $post;
+    if ($post->post_type == $post_type and in_array($post->post_name, $pageSlugs)) {
+        remove_post_type_support('page', 'editor');
+        remove_meta_box('postimagediv', 'page', 'side');
+        remove_meta_box('pageparentdiv', 'page', 'side');
+        remove_meta_box('submitdiv', 'page', 'side');
+        remove_meta_box('slugdiv', 'page', 'normal');
+        remove_meta_box('postexcerpt', 'page', 'normal');
+        remove_meta_box('trackbacksdiv', 'page', 'normal');
+        remove_meta_box('postcustom', 'page', 'normal');
+        remove_meta_box('commentstatusdiv', 'page', 'normal');
+        remove_meta_box('commentsdiv', 'page', 'normal');
+        remove_meta_box('revisionsdiv', 'page', 'normal');
+        remove_meta_box('authordiv', 'page', 'normal');
+        remove_meta_box('sqpt-meta-tags', 'page', 'normal');
+
+
+    }
+}
+
+add_filter('get_user_option_screen_layout_page', function () {
+    $post_type = 'page';
+    global $pageSlugs;
+    global $post;
+    if ($post->post_type == $post_type and in_array($post->post_name, $pageSlugs)) {
+        return 1;
+    }
+    return 2;
+});
+
+add_action('save_post', 'default_product_term', 100, 2);
+
+add_action('init', 'products_post_type', 0);
