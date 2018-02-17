@@ -21,8 +21,14 @@ function add_contact_meta_box()
 add_action('add_meta_boxes', 'add_contact_meta_box');
 // Field Array
 
-$prefix = 'naturlith_contact';
+$prefix = 'naturlith_contact_';
 $contact_meta_fields = array(
+    array(
+        'label' => 'Role',
+        'desc' => 'Role of contact',
+        'id' => $prefix . 'role',
+        'type' => 'text'
+    ),
     array(
         'label' => 'Email',
         'desc' => 'Email of contact',

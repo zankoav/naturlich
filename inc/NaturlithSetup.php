@@ -22,6 +22,8 @@ class NaturlithSetup extends BaseSetup
             $styles['front-page'] = $this->themeUrl . '/css/front-page.css';
         } else if (is_tax() or is_page('products')) {
             $styles['products'] = $this->themeUrl . '/css/products.css';
+        } else if (is_page('contacts')) {
+            $styles['contacts_page'] = $this->themeUrl . '/css/contacts-page.css';
         } else {
             $styles['main'] = $this->themeUrl . '/css/main.css';
         }
@@ -49,6 +51,8 @@ class NaturlithSetup extends BaseSetup
             $scripts['fornt-page'] = $this->themeUrl . '/js/front-page/bundle.js';
         } else if (is_tax() or is_page('products')) {
             $scripts['taxonomy_and_products_page'] = $this->themeUrl . '/js/taxonomy_and_page_products/bundle.js';
+        } else if (is_page('contacts')) {
+            $scripts['contacts_page'] = $this->themeUrl . '/js/contacts-page/bundle.js';
         } else {
             $scripts['bundle'] = $this->themeUrl . '/js/bundle.js';
         }
@@ -87,6 +91,14 @@ class NaturlithSetup extends BaseSetup
     public function widgets()
     {
         return [
+            array(
+                'id' => 'contacts-page-left',
+                'name' => $this->lang('Contacts Page Left')
+            ),
+            array(
+                'id' => 'contacts-page-right',
+                'name' => $this->lang('Contacts Page Right')
+            ),
             array(
                 'id' => 'footer-1',
                 'name' => $this->lang('Footer 1')
