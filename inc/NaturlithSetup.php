@@ -24,6 +24,8 @@ class NaturlithSetup extends BaseSetup
             $styles['products'] = $this->themeUrl . '/css/products.css';
         } else if (is_page('contacts')) {
             $styles['contacts_page'] = $this->themeUrl . '/css/contacts-page.css';
+        } else if (is_singular( 'naturlith_products' )) {
+            $styles['single-naturlith_products'] = $this->themeUrl . '/css/single-product.css';
         } else {
             $styles['main'] = $this->themeUrl . '/css/main.css';
         }
@@ -91,6 +93,11 @@ class NaturlithSetup extends BaseSetup
     public function widgets()
     {
         return [
+
+            array(
+                'id' => 'product-left',
+                'name' => $this->lang('Product Page Left')
+            ),
             array(
                 'id' => 'contacts-page-left',
                 'name' => $this->lang('Contacts Page Left')
