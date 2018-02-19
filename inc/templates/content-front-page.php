@@ -104,7 +104,7 @@
                 <div class="container pb-3">
                     <h1 class="text-center mb-5 pt-5"><?php echo $productTitle; ?></h1>
 
-                    <div class="swiper-container-wrapper position-relative">
+                    <div class="swiper-container-wrapper position-relative invisible">
                         <!-- Slider main container -->
                         <div class="swiper-container">
                             <!-- Additional required wrapper -->
