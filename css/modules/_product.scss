@@ -1,0 +1,82 @@
+
+.type-naturlith_products {
+
+    li {
+        list-style-type: none;
+    }
+
+    background-color: $light-gray;
+    color: $dark-gray;
+
+    h1 {
+        font-family: LatoBold, sans-serif;
+        font-size: 1.5rem;
+    }
+
+    .product-description {
+        .category {
+            color: $gray;
+        }
+
+        .price {
+            color: $dark-gray;
+            span {
+                color: $primary;
+                font-family: LatoBlack, sans-serif;
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .list-group-item {
+        display: flex;
+        justify-content: space-between;
+        &:last-child {
+            border-bottom: none;
+
+        }
+
+        .fas:before {
+            line-height: 1.5;
+        }
+
+
+        .fa-times{
+            color: $gray;
+            margin-right: 4px;
+        }
+    }
+
+    .the-content{
+        color: $gray;
+    }
+
+    #left-products-menu {
+        background-color: white;
+        border: 1px solid $gray-300;
+        padding: 0.5rem 1rem;
+        @include transition-property(opacity);
+        @include transition-duration(200ms);
+
+        li {
+            border-bottom: 1px solid $light-gray;
+            padding: 0.5rem 0;
+
+            a {
+                white-space: nowrap;
+                font-family: LatoRegular, sans-serif;
+                font-weight: 300;
+                color: $dark-gray;
+            }
+
+            &.current-menu-item a {
+                color: $primary;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+}
