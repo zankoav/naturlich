@@ -12,6 +12,7 @@ $sorts = [
 
 $queryArgs = [
     'post_type' => 'naturlith_products',
+    'posts_per_page' => -1,
     'tax_query' => []
 ];
 
@@ -30,7 +31,7 @@ if ($sort) {
     $queryArgs['orderby'] = $sorts_items[0];
     $queryArgs['order'] = 'ASC';
 
-    if(isset($sorts_items[1])){
+    if (isset($sorts_items[1])) {
         $queryArgs['order'] = (bool)$sorts_items[1] ? 'DESC' : 'ASC';
     }
 
@@ -88,15 +89,13 @@ function getIncludeFilters($wp_query)
     <section id="products">
         <div class="container py-5">
             <div class="row justify-content-between mb-0">
-                <div class="col-auto align-self-center">
+                <div class="col-12 col-md-9 align-self-center mb-4 mb-md-0">
                     <h1><?php the_title(); ?></h1>
                 </div>
-                <div class="col-3 align-self-center">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <label class="input-group-text" for="sortSelect">Sorted by: </label>
-                        </div>
-                        <select class="custom-select" id="sortSelect">
+                <div class="col-12 col-md-3 align-self-center">
+                    <div class="input-group sorted">
+                        <label class="p-2" for="sortSelect">Sorted by: </label>
+                        <select class="custom-select rounded-0" id="sortSelect">
                             <?php foreach ($sorts as $key => $value) : ?>
                                 <option value="<?php echo $key; ?>"
                                     <?php echo ($sort and $sort == $key) ? 'selected' : ''; ?>>

@@ -9,6 +9,12 @@ h1 {
     color: $gray;
 
 
+    .sorted{
+        label {
+            line-height:1.4;
+        }
+    }
+
     h6 {
         color: $dark-gray;
     }
