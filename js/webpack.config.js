@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './app.js',
+    entry: './front-page/front-page.js',
     output: {
-        filename: './bundle.js',
+        filename: './front-page/bundle.js',
         library: 'app'
     },
 
@@ -12,7 +12,7 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules|bower_components)\/(?!(dom7|swiper)\/).*/,
                 use: {
                     loader: 'babel-loader',
                     options: {
