@@ -25,7 +25,7 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
         $emailTo = get_option('admin_email');
     }
 
-    $subject = '[PHP Snippets] From ' . $name;
+    $subject = 'Naturlith Contacts From ' . $name;
     $body = "Name: $name \n\nEmail: $email \n\nMessage: $message";
     $headers = 'From: ' . $name . ' <' . $emailTo . '>' . "\r\n" . 'Reply-To: ' . $email;
 
