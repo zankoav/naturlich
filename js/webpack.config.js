@@ -1,7 +1,7 @@
 module.exports = {
-    entry: './contacts-page/page.js',
+    entry: './app.js',
     output: {
-        filename: './contacts-page/bundle.js',
+        filename: './bundle.js',
         library: 'app'
     },
 
