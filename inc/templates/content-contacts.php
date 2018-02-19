@@ -25,8 +25,8 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
         $emailTo = get_option('admin_email');
     }
 
-    $subject = 'Naturlith Contacts From ' . $name;
-    $body = "Name: $name \n\nEmail: $email \n\nMessage: $message";
+    $subject = __('Naturlith Contacts From ', 'naturlith') . $name;
+    $body = __("Name: ", 'naturlith') . "$name \n\n" . __("Email:", 'naturlith') . " $email \n\n" . __("Message:", 'naturlith') . " $message";
     $headers = 'From: ' . $name . ' <' . $emailTo . '>' . "\r\n" . 'Reply-To: ' . $email;
 
     mail($emailTo, $subject, $body, $headers);
@@ -62,9 +62,9 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
             <?php endforeach; ?>
         </div>
 
-        <h3 class="text-uppercase text-center my-4">Send Message</h3>
+        <h3 class="text-uppercase text-center my-4"><?php echo __('Send Message', 'naturlith'); ?></h3>
         <?php if ($emailSent): ?>
-            <p class="text-center text-success">Message send successful</p>
+            <p class="text-center text-success"><?php echo __('Message send successful', 'naturlith'); ?></p>
         <?php endif; ?>
         <form id="contactForm" action="<?php the_permalink(); ?>" method="post" class="w-75 m-auto">
             <div class="form-row">
@@ -74,10 +74,10 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
                         <input type="text" class="form-control" id="validationName" placeholder="Name"
                                name="user_name">
                         <div class="valid-feedback">
-                            Name looks good!
+                            <?php echo __('Name looks good!', 'naturlith'); ?>
                         </div>
                         <div class="invalid-feedback">
-                            Invalid name!
+                            <?php echo __('Invalid name!', 'naturlith'); ?>
                         </div>
                     </div>
                     <div>
@@ -85,10 +85,10 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
                         <input type="text" class="form-control" id="validationEmail" placeholder="e-mail"
                                name="user_email">
                         <div class="valid-feedback">
-                            Email looks good!
+                            <?php echo __('Email looks good!', 'naturlith'); ?>
                         </div>
                         <div class="invalid-feedback">
-                            Invalid email!
+                            <?php echo __('Invalid email!', 'naturlith'); ?>
                         </div>
                     </div>
                 </div>
@@ -97,15 +97,16 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
                     <textarea class="form-control" id="validationMessage" name="user_message" rows="5"
                               placeholder="message"></textarea>
                     <div class="valid-feedback">
-                        Message is OK!
+                        <?php echo __('Message is OK!', 'naturlith'); ?>
                     </div>
                     <div class="invalid-feedback">
-                        Message must be more 10 characters!
+                        <?php echo __('Message must be more 10 characters!', 'naturlith'); ?>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <button id="send-button" class="btn btn-success rounded-0 px-4 mt-2" type="submit">Send</button>
+                <button id="send-button" class="btn btn-success rounded-0 px-4 mt-2"
+                        type="submit"><?php echo __('Send', 'naturlith'); ?></button>
             </div>
             <input type="hidden" value="user_sendsubmit" name="user_sendsubmit">
         </form>

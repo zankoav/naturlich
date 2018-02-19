@@ -16,12 +16,12 @@ class NewsSection extends BaseSection
 
     public function title()
     {
-        return 'News';
+        return __('News', 'naturlith');
     }
 
     public function description()
     {
-        return 'Four news';
+        return __('Four news', 'naturlith');
     }
 
     public function settingsControls($customizer)
@@ -31,14 +31,14 @@ class NewsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Title',
+                'label' => __('Title', 'naturlith'),
                 'section' => $this->id()
             )
         );
 
         $args = array('numberposts' => '-1');
         $posts = wp_get_recent_posts($args);
-        $postsOptions = ['0' => 'Choose post'];
+        $postsOptions = ['0' => __('Choose post', 'naturlith')];
 
         foreach ($posts as $post){
             $postsOptions[$post["ID"]] = $post["post_title"];
@@ -50,7 +50,7 @@ class NewsSection extends BaseSection
         );
         $customizer->add_control($id,
             array(
-                'label' => __('Post 1'),
+                'label' => __('Post 1', 'naturlith'),
                 'type' => 'select',
                 'choices' => $postsOptions,
                 'section' => $this->id()
@@ -63,7 +63,7 @@ class NewsSection extends BaseSection
         );
         $customizer->add_control($id,
             array(
-                'label' => __('Post 2'),
+                'label' => __('Post 2', 'naturlith'),
                 'type' => 'select',
                 'choices' => $postsOptions,
                 'section' => $this->id()
@@ -76,7 +76,7 @@ class NewsSection extends BaseSection
         );
         $customizer->add_control($id,
             array(
-                'label' => __('Post 3'),
+                'label' => __('Post 3', 'naturlith'),
                 'type' => 'select',
                 'choices' => $postsOptions,
                 'section' => $this->id()
@@ -89,7 +89,7 @@ class NewsSection extends BaseSection
         );
         $customizer->add_control($id,
             array(
-                'label' => __('Post 4'),
+                'label' => __('Post 4', 'naturlith'),
                 'type' => 'select',
                 'choices' => $postsOptions,
                 'section' => $this->id()

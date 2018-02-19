@@ -1,18 +1,692 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Naturlith\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-26 14:23+0000\n"
+"POT-Creation-Date: 2018-02-19 14:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
 "Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco - https://localise.biz/"
+"X-Generator: Loco https://localise.biz/"
+
+#. Name of the template
+msgid "Full Width Page"
+msgstr ""
+
+#. $id
+#: inc/product-options.php:14
+msgid "Product settings"
+msgstr ""
+
+#: inc/product-options.php:27
+msgid "Mark"
+msgstr ""
+
+#: inc/product-options.php:28
+msgid "Short mark for product."
+msgstr ""
+
+#: inc/product-options.php:33
+msgid "Description"
+msgstr ""
+
+#: inc/product-options.php:34
+msgid "Description product."
+msgstr ""
+
+#: inc/product-options.php:39
+msgid "Price $"
+msgstr ""
+
+#: inc/product-options.php:40
+msgid "Price for the product."
+msgstr ""
+
+#: inc/product-options.php:45
+msgid "Show price"
+msgstr ""
+
+#: inc/product-options.php:46
+msgid "Check if need to show price"
+msgstr ""
+
+#: inc/NaturlithProductPage.php:30 inc/NaturlithProductPage.php:38
+#: inc/custom-type-product.php:77
+#: inc/front-page-sections/ProductsSection.php:21
+msgid "Products"
+msgstr ""
+
+#: inc/custom-type-contacts.php:19
+msgctxt "Post Type General Name"
+msgid "Contacts"
+msgstr ""
+
+#: inc/custom-type-contacts.php:20
+msgctxt "Post Type Singular Name"
+msgid "Contact"
+msgstr ""
+
+#: inc/custom-type-contacts.php:21 inc/custom-type-contacts.php:37
+msgid "Contacts"
+msgstr ""
+
+#: inc/custom-type-contacts.php:22
+msgid "Parent Contact"
+msgstr ""
+
+#: inc/custom-type-contacts.php:23
+msgid "All Contacts"
+msgstr ""
+
+#: inc/custom-type-contacts.php:24
+msgid "View Contact"
+msgstr ""
+
+#: inc/custom-type-contacts.php:25
+msgid "Add New Contact"
+msgstr ""
+
+#: inc/custom-type-contacts.php:26 inc/custom-type-product.php:82
+msgid "Add New"
+msgstr ""
+
+#: inc/custom-type-contacts.php:27
+msgid "Edit Contact"
+msgstr ""
+
+#: inc/custom-type-contacts.php:28
+msgid "Update Contact"
+msgstr ""
+
+#: inc/custom-type-contacts.php:29
+msgid "Search Contact"
+msgstr ""
+
+#: inc/custom-type-contacts.php:30 inc/custom-type-product.php:86
+msgid "Not Found"
+msgstr ""
+
+#: inc/custom-type-contacts.php:31 inc/custom-type-product.php:87
+msgid "Not found in Trash"
+msgstr ""
+
+#: inc/custom-type-contacts.php:38
+msgid "Contact news and reviews"
+msgstr ""
+
+#: inc/custom-type-product.php:18
+msgid "Product Categories"
+msgstr ""
+
+#: inc/custom-type-product.php:32
+msgid "Product filter"
+msgstr ""
+
+#: inc/custom-type-product.php:34
+msgid "Filters"
+msgstr ""
+
+#: inc/custom-type-product.php:35 inc/custom-type-product.php:44
+msgid "Filter"
+msgstr ""
+
+#: inc/custom-type-product.php:36
+msgid "All Filters"
+msgstr ""
+
+#: inc/custom-type-product.php:37
+msgid "View Filter"
+msgstr ""
+
+#: inc/custom-type-product.php:38
+msgid "Parent Filter"
+msgstr ""
+
+#: inc/custom-type-product.php:39
+msgid "Parent Filter:"
+msgstr ""
+
+#: inc/custom-type-product.php:40
+msgid "Edit Filter"
+msgstr ""
+
+#: inc/custom-type-product.php:41
+msgid "Update Filter"
+msgstr ""
+
+#: inc/custom-type-product.php:42
+msgid "Add New Filter"
+msgstr ""
+
+#: inc/custom-type-product.php:43
+msgid "New Filter Name"
+msgstr ""
+
+#: inc/custom-type-product.php:75
+msgctxt "Post Type General Name"
+msgid "Products"
+msgstr ""
+
+#: inc/custom-type-product.php:76
+msgctxt "Post Type Singular Name"
+msgid "Product"
+msgstr ""
+
+#: inc/custom-type-product.php:78
+msgid "Parent Product"
+msgstr ""
+
+#: inc/custom-type-product.php:79
+msgid "All Products"
+msgstr ""
+
+#: inc/custom-type-product.php:80
+msgid "View Product"
+msgstr ""
+
+#: inc/custom-type-product.php:81
+msgid "Add New Product"
+msgstr ""
+
+#: inc/custom-type-product.php:83
+msgid "Edit Product"
+msgstr ""
+
+#: inc/custom-type-product.php:84
+msgid "Update Product"
+msgstr ""
+
+#: inc/custom-type-product.php:85
+msgid "Search Product"
+msgstr ""
+
+#: inc/custom-type-product.php:93
+msgid "products"
+msgstr ""
+
+#: inc/custom-type-product.php:94
+msgid "Product news and reviews"
+msgstr ""
+
+#. $id
+#: inc/contact-options.php:14
+msgid "Contact settings"
+msgstr ""
+
+#: inc/contact-options.php:27
+msgid "Role"
+msgstr ""
+
+#: inc/contact-options.php:28
+msgid "Role of contact"
+msgstr ""
+
+#: inc/contact-options.php:33
+msgid "Email"
+msgstr ""
+
+#: inc/contact-options.php:34
+msgid "Email of contact"
+msgstr ""
+
+#: inc/contact-options.php:39
+msgid "Phone"
+msgstr ""
+
+#: inc/contact-options.php:40
+msgid "Phone of contact"
+msgstr ""
+
+#: inc/NaturlithSetup.php:86
+msgid "Main menu"
+msgstr ""
+
+#: inc/NaturlithSetup.php:87
+msgid "Products menu"
+msgstr ""
+
+#: inc/NaturlithSetup.php:100
+msgid "Product Page Left"
+msgstr ""
+
+#: inc/NaturlithSetup.php:104
+msgid "Contacts Page Left"
+msgstr ""
+
+#: inc/NaturlithSetup.php:108
+msgid "Contacts Page Right"
+msgstr ""
+
+#: inc/NaturlithSetup.php:112
+msgid "Footer 1"
+msgstr ""
+
+#: inc/NaturlithSetup.php:116
+msgid "Footer 2"
+msgstr ""
+
+#: inc/NaturlithSetup.php:120
+msgid "Footer 3"
+msgstr ""
+
+#: inc/NaturlithSetup.php:124
+msgid "Footer 4"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:19
+msgid "Main Slider"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:24
+msgid "Slider on main page (1500x600)"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:35
+msgid "First title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:45
+msgid "First sub title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:55
+msgid "First description"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:68
+msgid "First Slide"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:80
+#: inc/front-page-sections/AdvantagesSection.php:251
+msgid "First button title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:90
+#: inc/front-page-sections/AdvantagesSection.php:261
+msgid "First button url"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:101
+msgid "Second title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:111
+msgid "Second sub title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:121
+msgid "Second description"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:134
+msgid "Second Slide"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:146
+msgid "Second button title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:156
+msgid "Second button url"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:167
+msgid "Tried title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:177
+msgid "Tried sub title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:187
+msgid "Tried description"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:200
+msgid "Tried Slide"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:212
+msgid "Tried button title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:222
+msgid "Tried button url"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:233
+msgid "Fourth title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:243
+msgid "Fourth sub title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:253
+msgid "Fourth description"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:266
+msgid "Fourth Slide"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:278
+msgid "Fourth button title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:288
+msgid "Fourth button url"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:299
+msgid "Fifth title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:309
+msgid "Fifth sub title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:319
+msgid "Fifth description"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:332
+msgid "Fifth Slide"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:344
+msgid "Fifth button title"
+msgstr ""
+
+#: inc/front-page-sections/BannersSection.php:354
+msgid "Fifth button url"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:19
+msgid "Advantages"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:24
+msgid "Here you can  customize advantages section"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:34
+#: inc/front-page-sections/ContactsSection.php:34
+#: inc/front-page-sections/NewsSection.php:34
+#: inc/front-page-sections/ProductsSection.php:36
+#: inc/front-page-sections/ConditionsSection.php:34
+msgid "Title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:44
+msgid "Sub Title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:55
+msgid "First item title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:65
+msgid "First item subtitle"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:78
+msgid "First item icon (200x200 PNG)"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:91
+msgid "Second item title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:101
+msgid "Second item subtitle"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:114
+msgid "Second item icon (200x200 PNG)"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:127
+msgid "Tried item title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:137
+msgid "Tried item subtitle"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:150
+msgid "Tried item icon (200x200 PNG)"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:163
+msgid "Fourth item title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:173
+msgid "Fourth item subtitle"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:186
+msgid "Fourth item icon (200x200 PNG)"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:199
+msgid "Fifth item title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:209
+msgid "Fifth item subtitle"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:222
+msgid "Fifth item icon (200x200 PNG)"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:238
+msgid "Image right side (1000x1000 PNG)"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:272
+msgid "Button second title"
+msgstr ""
+
+#: inc/front-page-sections/AdvantagesSection.php:282
+msgid "Button second url"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:19
+msgid "Languages"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:24
+msgid "Here you can hide local"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:34
+msgid "En url"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:43
+msgid "Enable En"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:53
+msgid "It url"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:63
+msgid "Enable It"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:73
+msgid "Dk url"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:83
+msgid "Enable Dk"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:93
+msgid "De url"
+msgstr ""
+
+#: inc/front-page-sections/LanguagesSection.php:103
+msgid "Enable De"
+msgstr ""
+
+#: inc/front-page-sections/ContactsSection.php:19
+msgid "Contact"
+msgstr ""
+
+#: inc/front-page-sections/ContactsSection.php:24
+msgid "Here you can customize contact section"
+msgstr ""
+
+#: inc/front-page-sections/ContactsSection.php:44
+msgid "Script yandex map"
+msgstr ""
+
+#: inc/front-page-sections/NewsSection.php:19
+msgid "News"
+msgstr ""
+
+#: inc/front-page-sections/NewsSection.php:24
+msgid "Four news"
+msgstr ""
+
+#: inc/front-page-sections/NewsSection.php:41
+msgid "Choose post"
+msgstr ""
+
+#: inc/front-page-sections/NewsSection.php:53
+msgid "Post 1"
+msgstr ""
+
+#: inc/front-page-sections/NewsSection.php:66
+msgid "Post 2"
+msgstr ""
+
+#: inc/front-page-sections/NewsSection.php:79
+msgid "Post 3"
+msgstr ""
+
+#: inc/front-page-sections/NewsSection.php:92
+msgid "Post 4"
+msgstr ""
+
+#: inc/front-page-sections/ProductsSection.php:26
+msgid "4 products on Main Page"
+msgstr ""
+
+#: inc/front-page-sections/ProductsSection.php:46
+msgid "View all button title"
+msgstr ""
+
+#: inc/front-page-sections/ProductsSection.php:56
+msgid "URL for all button"
+msgstr ""
+
+#: inc/front-page-sections/ConditionsSection.php:19
+msgid "Conditions"
+msgstr ""
+
+#: inc/front-page-sections/ConditionsSection.php:24
+msgid "Here you can customize conditions section"
+msgstr ""
+
+#: inc/front-page-sections/ConditionsSection.php:44
+msgid "Text"
+msgstr ""
+
+#: inc/front-page-sections/ConditionsSection.php:57
+msgid "Background image"
+msgstr ""
+
+#: inc/front-page-sections/ConditionsSection.php:69
+msgid "Read more title"
+msgstr ""
+
+#: inc/front-page-sections/ConditionsSection.php:79
+msgid "Read more URL"
+msgstr ""
+
+#: inc/front-page-sections/FrontPagePanel.php:24
+msgid "Front Page"
+msgstr ""
+
+#: inc/front-page-sections/FrontPagePanel.php:29
+msgid "You can change sections on Front Page"
+msgstr ""
+
+#: inc/templates/content-404.php:3
+msgid "Error, This page no exists!"
+msgstr ""
+
+#: inc/templates/content-contacts.php:28
+msgid "Naturlith Contacts From "
+msgstr ""
+
+#: inc/templates/content-contacts.php:29
+msgid "Name: "
+msgstr ""
+
+#: inc/templates/content-contacts.php:29
+msgid "Email:"
+msgstr ""
+
+#: inc/templates/content-contacts.php:29
+msgid "Message:"
+msgstr ""
+
+#: inc/templates/content-contacts.php:65
+msgid "Send Message"
+msgstr ""
+
+#: inc/templates/content-contacts.php:67
+msgid "Message send successful"
+msgstr ""
+
+#: inc/templates/content-contacts.php:77
+msgid "Name looks good!"
+msgstr ""
+
+#: inc/templates/content-contacts.php:80
+msgid "Invalid name!"
+msgstr ""
+
+#: inc/templates/content-contacts.php:88
+msgid "Email looks good!"
+msgstr ""
+
+#: inc/templates/content-contacts.php:91
+msgid "Invalid email!"
+msgstr ""
+
+#: inc/templates/content-contacts.php:100
+msgid "Message is OK!"
+msgstr ""
+
+#: inc/templates/content-contacts.php:103
+msgid "Message must be more 10 characters!"
+msgstr ""
+
+#: inc/templates/content-contacts.php:109
+msgid "Send"
+msgstr ""
+
+#: inc/templates/content-products.php:23
+msgid "More"
+msgstr ""
+
+#: inc/templates/content-front-page.php:129
+msgid "View"
+msgstr ""
 
 #. Name of the theme
 msgid "Naturlith"
@@ -24,7 +698,4 @@ msgstr ""
 
 #. Author URI of the theme
 msgid "http://webmapps.com/"
-msgstr ""
-
-msgid "Main menu"
 msgstr ""

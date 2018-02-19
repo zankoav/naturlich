@@ -16,12 +16,12 @@ class ConditionsSection extends BaseSection
 
     public function title()
     {
-        return 'Conditions';
+        return __('Conditions', 'naturlith');
     }
 
     public function description()
     {
-        return 'Here you can customize conditions section';
+        return __('Here you can customize conditions section', 'naturlith');
     }
 
     public function settingsControls($customizer)
@@ -31,7 +31,7 @@ class ConditionsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Title',
+                'label' => __('Title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -41,7 +41,7 @@ class ConditionsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Text',
+                'label' => __('Text', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -54,7 +54,7 @@ class ConditionsSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Background image',
+                    'label' => __('Background image', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -66,7 +66,7 @@ class ConditionsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Read more title',
+                'label' => __('Read more title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -76,7 +76,7 @@ class ConditionsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Read more URL',
+                'label' => __('Read more URL', 'naturlith'),
                 'section' => $this->id()
             )
         );

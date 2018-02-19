@@ -11,7 +11,7 @@ function add_product_meta_box()
 {
     add_meta_box(
         'product_meta_box', // $id
-        'Product settings', // $title
+        __('Product settings', 'naturlith'), // $title
         'show_product_meta_box', // $callback
         'naturlith_products', // $page
         'normal', // $context
@@ -24,26 +24,26 @@ add_action('add_meta_boxes', 'add_product_meta_box');
 $prefix = 'naturlith_product_';
 $product_meta_fields = array(
     array(
-        'label' => 'Mark',
-        'desc' => 'Short mark for product.',
+        'label' => __('Mark', 'naturlith'),
+        'desc' => __('Short mark for product.', 'naturlith'),
         'id' => $prefix . 'mark',
         'type' => 'text'
     ),
     array(
-        'label' => 'Description',
-        'desc' => 'Description product.',
+        'label' => __('Description', 'naturlith'),
+        'desc' => __('Description product.', 'naturlith'),
         'id' => $prefix . 'description',
         'type' => 'textarea'
     ),
     array(
-        'label' => 'Price $',
-        'desc' => 'Price for the product.',
+        'label' => __('Price $', 'naturlith'),
+        'desc' => __('Price for the product.', 'naturlith'),
         'id' => $prefix . 'price',
         'type' => 'number'
     ),
     array(
-        'label' => 'Show price',
-        'desc' => 'Check if need to show price',
+        'label' => __('Show price', 'naturlith'),
+        'desc' => __('Check if need to show price', 'naturlith'),
         'id' => $prefix . 'show_price',
         'type' => 'checkbox'
     )

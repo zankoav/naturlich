@@ -57,11 +57,6 @@ abstract class BaseSetup implements Setup
      */
     public abstract function footerScripts();
 
-    public function lang($str)
-    {
-        return __($str, $this::themeName());
-    }
-
     /**
      * @return boolean
      */

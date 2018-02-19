@@ -16,12 +16,12 @@ class BannersSection extends BaseSection
 
     public function title()
     {
-        return 'Main Slider';
+        return __('Main Slider', 'naturlith');
     }
 
     public function description()
     {
-        return 'Slider on main page (1500x600)';
+        return __('Slider on main page (1500x600)', 'naturlith');
     }
 
     public function settingsControls($customizer)
@@ -32,7 +32,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First title',
+                'label' => __('First title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -42,7 +42,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First sub title',
+                'label' => __('First sub title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -52,7 +52,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'First description',
+                'label' => __('First description', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -65,7 +65,7 @@ class BannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'First Slide',
+                    'label' => __('First Slide', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -77,7 +77,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First button title',
+                'label' => __('First button title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -87,7 +87,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First button url',
+                'label' => __('First button url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -98,7 +98,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Second title',
+                'label' => __('Second title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -108,7 +108,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Second sub title',
+                'label' => __('Second sub title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -118,7 +118,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Second description',
+                'label' => __('Second description', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -131,7 +131,7 @@ class BannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Second Slide',
+                    'label' => __('Second Slide', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -143,7 +143,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Second button title',
+                'label' => __('Second button title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -153,7 +153,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Second button url',
+                'label' => __('Second button url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -164,7 +164,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Tried title',
+                'label' => __('Tried title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -174,7 +174,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Tried sub title',
+                'label' => __('Tried sub title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -184,7 +184,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Tried description',
+                'label' => __('Tried description', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -197,7 +197,7 @@ class BannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Tried Slide',
+                    'label' => __('Tried Slide', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -209,7 +209,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Tried button title',
+                'label' => __('Tried button title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -219,7 +219,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Tried button url',
+                'label' => __('Tried button url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -230,7 +230,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fourth title',
+                'label' => __('Fourth title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -240,7 +240,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fourth sub title',
+                'label' => __('Fourth sub title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -250,7 +250,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Fourth description',
+                'label' => __('Fourth description', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -263,7 +263,7 @@ class BannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Fourth Slide',
+                    'label' => __('Fourth Slide', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -275,7 +275,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fourth button title',
+                'label' => __('Fourth button title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -285,7 +285,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fourth button url',
+                'label' => __('Fourth button url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -296,7 +296,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fifth title',
+                'label' => __('Fifth title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -306,7 +306,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fifth sub title',
+                'label' => __('Fifth sub title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -316,7 +316,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Fifth description',
+                'label' => __('Fifth description', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -329,7 +329,7 @@ class BannersSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Fifth Slide',
+                    'label' => __('Fifth Slide', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -341,7 +341,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fifth button title',
+                'label' => __('Fifth button title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -351,7 +351,7 @@ class BannersSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fifth button url',
+                'label' => __('Fifth button url', 'naturlith'),
                 'section' => $this->id()
             )
         );

@@ -21,11 +21,11 @@ class FrontPagePanel extends BasePanel
 
     public function title()
     {
-        return 'Front Page';
+        return __('Front Page', 'naturlith');
     }
 
     public function description()
     {
-        return 'You can change sections on Front Page';
+        return __('You can change sections on Front Page', 'naturlith');
     }
 }

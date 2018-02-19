@@ -27,7 +27,7 @@ class NaturlithProductPage extends BaseAdminPage
      */
     public function label()
     {
-        return 'Products';
+        return __('Products', 'naturlith');
     }
 
     /**
@@ -35,7 +35,7 @@ class NaturlithProductPage extends BaseAdminPage
      */
     public function title()
     {
-        return 'Products';
+        return __('Products', 'naturlith');
     }
 
     /**
