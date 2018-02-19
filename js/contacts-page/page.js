@@ -3,8 +3,10 @@
  */
 
 import {menu} from '../moduls/menu';
+import {contactForm} from '../moduls/ContactForm';
 
 jQuery(document).ready(function ($) {
     menu($);
+    contactForm($);
 });
 

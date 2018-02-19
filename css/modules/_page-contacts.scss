@@ -6,12 +6,18 @@
     h1 {
         font-family: LatoBlack, sans-serif;
         font-size: 3rem;
+        color: $gray-300;
     }
 
     h3 {
         font-family: LatoBold, sans-serif;
         font-size: 1.5rem;
         color: $gray;
+    }
+
+
+    .form-email{
+        margin-top: 3px;
     }
 
     .contact-item {

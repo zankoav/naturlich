@@ -7,11 +7,38 @@ $query_args = [
 ];
 $contacts_query = new WP_Query($query_args);
 $contacts = $contacts_query->get_posts();
+
+$emailSent = false;
+
+if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], $_POST['user_message']) and is_email(trim($_POST['user_email']))) {
+
+    $name = trim($_POST['user_name']);
+    $email = trim($_POST['user_email']);
+    $message = trim($_POST['user_message']);
+
+    if (function_exists('stripslashes')) {
+        $message = stripslashes($message);
+    }
+
+    $emailTo = get_option('tz_email');
+    if (!isset($emailTo) || ($emailTo == '')) {
+        $emailTo = get_option('admin_email');
+    }
+
+    $subject = '[PHP Snippets] From ' . $name;
+    $body = "Name: $name \n\nEmail: $email \n\nMessage: $message";
+    $headers = 'From: ' . $name . ' <' . $emailTo . '>' . "\r\n" . 'Reply-To: ' . $email;
+
+    mail($emailTo, $subject, $body, $headers);
+    $emailSent = true;
+
+}
+
 ?>
 
 <section id="main">
     <div class="container py-5">
-        <h1 class="text-center mb-5"><?php the_title(); ?></h1>
+        <h1 class="text-center mb-5 py-3"><?php the_title(); ?></h1>
         <div class="row">
             <?php foreach ($contacts as $contact) : ?>
                 <div class="contact-item col-12 col-md-6 col-lg-4 mb-5">
@@ -36,36 +63,54 @@ $contacts = $contacts_query->get_posts();
         </div>
 
         <h3 class="text-uppercase text-center my-4">Send Message</h3>
-        <p class="text-center text-success">Message send successful</p>
+        <?php if ($emailSent): ?>
+            <p class="text-center text-success">Message send successful</p>
+        <?php endif; ?>
         <form id="contactForm" action="<?php the_permalink(); ?>" method="post" class="w-75 m-auto">
             <div class="form-row">
-                <div class="col-md-6 pr-3 mb-3">
-                    <label for="validationServer01">name</label>
-                    <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Name"
-                           name="name"
-                           required>
-                    <div class="valid-feedback">
-                        Name looks good!
+                <div class="col-md-6 mb-3">
+                    <div>
+                        <label for="validationName">name</label>
+                        <input type="text" class="form-control" id="validationName" placeholder="Name"
+                               name="user_name">
+                        <div class="valid-feedback">
+                            Name looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Invalid name!
+                        </div>
                     </div>
-                    <label for="validationServer02" class="mt-3">e-mail</label>
-                    <input type="text" class="form-control is-valid" id="validationServer02" placeholder="e-mail"
-                           name="email" required>
-                    <div class="valid-feedback">
-                        Email looks good!
+                    <div>
+                        <label for="validationEmail" class="form-email">e-mail</label>
+                        <input type="text" class="form-control" id="validationEmail" placeholder="e-mail"
+                               name="user_email">
+                        <div class="valid-feedback">
+                            Email looks good!
+                        </div>
+                        <div class="invalid-feedback">
+                            Invalid email!
+                        </div>
                     </div>
-                    <button class="btn btn-success position-absolute" type="submit">Send</button>
                 </div>
-                <div class="col-md-6 pl-3 mb-3">
-                    <label for="validationServerUsername">message</label>
-                    <textarea class="form-control is-invalid" id="validationServerUsername" name="message" rows="8"
-                              placeholder="message" required></textarea>
+                <div class="col-md-6 pl-1 pl-md-4 mb-3">
+                    <label for="validationMessage">message</label>
+                    <textarea class="form-control" id="validationMessage" name="user_message" rows="5"
+                              placeholder="message"></textarea>
+                    <div class="valid-feedback">
+                        Message is OK!
+                    </div>
                     <div class="invalid-feedback">
-                        Please choose a username.
+                        Message must be more 10 characters!
                     </div>
                 </div>
             </div>
-            <input type="hidden" value="send-submit" name="send-submit">
+            <div class="text-center">
+                <button id="send-button" class="btn btn-success rounded-0 px-4 mt-2" type="submit">Send</button>
+            </div>
+            <input type="hidden" value="user_sendsubmit" name="user_sendsubmit">
         </form>
+
+
     </div>
 </section>
 
