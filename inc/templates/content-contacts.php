@@ -43,17 +43,17 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
             <?php foreach ($contacts as $contact) : ?>
                 <div class="contact-item col-12 col-md-6 col-lg-4 mb-5">
                     <div class="row">
-                        <div class="col-6 col-sm-5">
+                        <div class="col-6 col-sm-5 align-self-center">
                             <?php echo get_the_post_thumbnail($contact->ID, 'large', array("class" => "w-100 rounded-circle")); ?>
                         </div>
-                        <div class="col-6 col-sm-7 pl-0">
+                        <div class="col-6 col-sm-7 pl-0 align-self-center">
                             <h4 class="text-uppercase"><?php echo $contact->post_title; ?></h4>
                             <p class="my-2"><?php echo get_post_meta($contact->ID, 'naturlith_contact_role', true); ?></p>
                             <p class="phone mb-0">
                                 <i class="fas fa-phone mr-2"></i>
                                 <?php echo get_post_meta($contact->ID, 'naturlith_contact_phone', true); ?>
                             </p>
-                            <p class="email"><i class="fas fa-envelope mr-2"></i>
+                            <p class="email mb-0"><i class="fas fa-envelope mr-2"></i>
                                 <?php echo get_post_meta($contact->ID, 'naturlith_contact_email', true); ?>
                             </p>
                         </div>
