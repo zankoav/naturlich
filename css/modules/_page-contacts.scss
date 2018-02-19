@@ -1,0 +1,60 @@
+
+#main {
+    background-color: $light;
+    color: $gray;
+
+    h1 {
+        font-family: LatoBlack, sans-serif;
+        font-size: 3rem;
+        color: $gray-300;
+    }
+
+    h3 {
+        font-family: LatoBold, sans-serif;
+        font-size: 1.5rem;
+        color: $gray;
+    }
+
+
+    .form-email{
+        margin-top: 3px;
+    }
+
+    .contact-item {
+
+        img {
+            height: auto;
+        }
+        h4 {
+            font-family: LatoBold, sans-serif;
+            font-size: 1.2rem;
+            color: $dark-gray;
+        }
+
+        .role {
+            font-size: 0.9rem;
+        }
+
+        .phone, .email {
+            font-size: 0.9rem;
+            color: $dark-gray;
+        }
+
+        i {
+            color: $primary;
+        }
+    }
+}
+
+#bottom-widget {
+    li {
+        list-style-type: none;
+        h2 {
+            font-family: LatoBold, sans-serif;
+            text-transform: uppercase;
+            color: $dark-gray;
+            font-size: 1.2rem;
+        }
+
+    }
+}
