@@ -94,68 +94,111 @@
     </div>
 
     <?php if (get_theme_mod('naturlith_products_enable')):
-        $args = array('post_type' => 'naturlith_products', 'posts_per_page' => 4);
+        $args = array('post_type' => 'naturlith_products', 'posts_per_page' => -1);
         $the_query = new WP_Query($args);
         $productTitle = get_theme_mod('naturlith_products_title');
 
         if (!empty($productTitle) and $the_query->have_posts()): ?>
             <div id="products">
+
                 <div class="container pb-3">
                     <h1 class="text-center mb-5 pt-5"><?php echo $productTitle; ?></h1>
-                    <div class="card-deck">
-                        <?php
-                        $indexOfProduct = 0;
-                        while ($the_query->have_posts()) : $the_query->the_post(); ?>
-                            <div class="card rounded-0 border-0 text-center
-                    <?php echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?>">
-                                <div class="img-wrap">
-                                    <?php the_post_thumbnail('medium', array(
-                                        'class' => "card-img-top rounded-0 img-fluid",
-                                        'alt' => the_title('', '', 0)
-                                    )); ?>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title text-uppercase mb-0"><?php echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?></h5>
-                                    <p class="card-text text-lowercase mb-0"><?php echo get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->name; ?></p>
-                                    <hr class="my-2">
-                                    <p class="card-text"><?php the_title(); ?></p>
-                                </div>
-                                <div class="card-footer p-0">
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-success">View</a>
-                                </div>
+
+                    <div class="swiper-container-wrapper position-relative">
+                        <!-- Slider main container -->
+                        <div class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                                    <div class="swiper-slide">
+                                        <div class="img-wrap">
+                                            <?php the_post_thumbnail('medium', array(
+                                                'class' => "card-img-top rounded-0 img-fluid",
+                                                'alt' => the_title('', '', 0)
+                                            )); ?>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title text-uppercase mb-0"><?php echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?></h5>
+                                            <p class="card-text text-lowercase mb-0"><?php echo get_the_terms(get_the_ID(), 'naturlith_products_category')[0]->name; ?></p>
+                                            <hr class="my-2">
+                                            <p class="card-text"><?php the_title(); ?></p>
+                                        </div>
+                                        <div class="card-footer p-0">
+                                            <a href="<?php the_permalink(); ?>" class="btn btn-success">View</a>
+                                        </div>
+                                    </div>
+                                <?php endwhile;?>
                             </div>
-                            <?php
-                            $indexOfProduct++;
-                        endwhile; ?>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"><i class="fas fa-2x fa-chevron-left"></i>
+
+                        </div>
+                        <div class="swiper-button-next"><i class="fas fa-2x fa-chevron-right"></i>
+
+                        </div>
                     </div>
-                    <div class="card-deck d-flex d-lg-none mt-0 mt-sm-4">
-                        <?php
-                        $mobileIndexOfProducts = 0;
-                        while ($the_query->have_posts()) : $the_query->the_post();
-                            if ($mobileIndexOfProducts < 2) {
-                                $mobileIndexOfProducts++;
-                                continue;
-                            }
-                            ?>
-                            <div class="card rounded-0 border-0 text-center">
-                                <div class="img-wrap">
-                                    <?php the_post_thumbnail('medium', array(
-                                        'class' => "card-img-top rounded-0 img-fluid",
-                                        'alt' => the_title('', '', 0)
-                                    )); ?>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title text-uppercase mb-0"><?php echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?></h5>
-                                    <p class="card-text text-lowercase mb-0"><?php echo get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->taxonomy; ?></p>
-                                    <hr class="my-2">
-                                    <p class="card-text"><?php the_title(); ?></p>
-                                </div>
-                                <div class="card-footer p-0">
-                                    <a href="<?php the_permalink(); ?>" class="btn btn-success">View</a>
-                                </div>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
+
+
+
+<!--                    <div class="card-deck">-->
+<!--                        --><?php
+//                        $indexOfProduct = 0;
+//                        while ($the_query->have_posts()) : $the_query->the_post(); ?>
+<!--                            <div class="card rounded-0 border-0 text-center-->
+<!--                    --><?php //echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?><!--">-->
+<!--                                <div class="img-wrap">-->
+<!--                                    --><?php //the_post_thumbnail('medium', array(
+//                                        'class' => "card-img-top rounded-0 img-fluid",
+//                                        'alt' => the_title('', '', 0)
+//                                    )); ?>
+<!--                                </div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <h5 class="card-title text-uppercase mb-0">--><?php //echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?><!--</h5>-->
+<!--                                    <p class="card-text text-lowercase mb-0">--><?php //echo get_the_terms(get_the_ID(), 'naturlith_products_category')[0]->name; ?><!--</p>-->
+<!--                                    <hr class="my-2">-->
+<!--                                    <p class="card-text">--><?php //the_title(); ?><!--</p>-->
+<!--                                </div>-->
+<!--                                <div class="card-footer p-0">-->
+<!--                                    <a href="--><?php //the_permalink(); ?><!--" class="btn btn-success">View</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            --><?php
+//                            $indexOfProduct++;
+//                        endwhile; ?>
+<!--                    </div>-->
+<!--                    <div class="card-deck d-flex d-lg-none mt-0 mt-sm-4">-->
+<!--                        --><?php
+//                        $mobileIndexOfProducts = 0;
+//                        while ($the_query->have_posts()) : $the_query->the_post();
+//                            if ($mobileIndexOfProducts < 2) {
+//                                $mobileIndexOfProducts++;
+//                                continue;
+//                            }
+//                            ?>
+<!--                            <div class="card rounded-0 border-0 text-center">-->
+<!--                                <div class="img-wrap">-->
+<!--                                    --><?php //the_post_thumbnail('medium', array(
+//                                        'class' => "card-img-top rounded-0 img-fluid",
+//                                        'alt' => the_title('', '', 0)
+//                                    )); ?>
+<!--                                </div>-->
+<!--                                <div class="card-body">-->
+<!--                                    <h5 class="card-title text-uppercase mb-0">--><?php //echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?><!--</h5>-->
+<!--                                    <p class="card-text text-lowercase mb-0">--><?php //echo get_the_terms(get_the_ID(), 'naturlith_products_category')[0]->taxonomy; ?><!--</p>-->
+<!--                                    <hr class="my-2">-->
+<!--                                    <p class="card-text">--><?php //the_title(); ?><!--</p>-->
+<!--                                </div>-->
+<!--                                <div class="card-footer p-0">-->
+<!--                                    <a href="--><?php //the_permalink(); ?><!--" class="btn btn-success">View</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        --><?php //endwhile; ?>
+<!--                    </div>-->
 
 
                 </div>

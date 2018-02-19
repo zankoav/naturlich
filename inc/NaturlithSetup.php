@@ -19,6 +19,7 @@ class NaturlithSetup extends BaseSetup
         ];
 
         if (is_front_page()) {
+            $styles['swiper'] = 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css';
             $styles['front-page'] = $this->themeUrl . '/css/front-page.css';
         } else if (is_tax() or is_page('products')) {
             $styles['products'] = $this->themeUrl . '/css/products.css';
