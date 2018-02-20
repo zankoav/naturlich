@@ -1,14 +1,13 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Naturlith\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-19 14:59+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: 2018-02-20 06:35+0000\n"
+"Last-Translator: zanko <zankoav@mail.ru>\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,404 +16,489 @@ msgstr ""
 #. Name of the template
 msgid "Full Width Page"
 msgstr ""
+"Volle Breite Seite\n"
 
 #. $id
 #: inc/product-options.php:14
 msgid "Product settings"
 msgstr ""
+"Produkt-Einstellungen\n"
 
 #: inc/product-options.php:27
 msgid "Mark"
-msgstr ""
+msgstr "Mark"
 
 #: inc/product-options.php:28
 msgid "Short mark for product."
 msgstr ""
+"Kurz-Zeichen für Produkt.\n"
 
 #: inc/product-options.php:33
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 #: inc/product-options.php:34
 msgid "Description product."
 msgstr ""
+"Beschreibung Produkt.\n"
 
 #: inc/product-options.php:39
 msgid "Price $"
 msgstr ""
+"Preis $\n"
 
 #: inc/product-options.php:40
 msgid "Price for the product."
 msgstr ""
+"Der Preis für das Produkt.\n"
 
 #: inc/product-options.php:45
 msgid "Show price"
 msgstr ""
+"Karte Preis\n"
 
 #: inc/product-options.php:46
 msgid "Check if need to show price"
 msgstr ""
+"Überprüfen Sie, wenn erforderlich, um zu zeigen Preis\n"
 
 #: inc/NaturlithProductPage.php:30 inc/NaturlithProductPage.php:38
 #: inc/custom-type-product.php:77
 #: inc/front-page-sections/ProductsSection.php:21
 msgid "Products"
 msgstr ""
+"Produkte\n"
 
 #: inc/custom-type-contacts.php:19
 msgctxt "Post Type General Name"
 msgid "Contacts"
 msgstr ""
+"Kontakte\n"
 
 #: inc/custom-type-contacts.php:20
 msgctxt "Post Type Singular Name"
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: inc/custom-type-contacts.php:21 inc/custom-type-contacts.php:37
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakte"
 
 #: inc/custom-type-contacts.php:22
 msgid "Parent Contact"
 msgstr ""
+"Elternteil Kontakt\n"
 
 #: inc/custom-type-contacts.php:23
 msgid "All Contacts"
 msgstr ""
+"Alle Kontakte\n"
 
 #: inc/custom-type-contacts.php:24
 msgid "View Contact"
 msgstr ""
+"Kontakt Anzeigen\n"
 
 #: inc/custom-type-contacts.php:25
 msgid "Add New Contact"
 msgstr ""
+"Neuen Kontakt Hinzufügen\n"
 
 #: inc/custom-type-contacts.php:26 inc/custom-type-product.php:82
 msgid "Add New"
 msgstr ""
+"Fügen Sie Neue\n"
 
 #: inc/custom-type-contacts.php:27
 msgid "Edit Contact"
 msgstr ""
+"Kontakt Bearbeiten\n"
 
 #: inc/custom-type-contacts.php:28
 msgid "Update Contact"
 msgstr ""
+"Aktualisierung Der Kontaktdaten\n"
 
 #: inc/custom-type-contacts.php:29
 msgid "Search Contact"
 msgstr ""
+"Suche Kontakt\n"
 
 #: inc/custom-type-contacts.php:30 inc/custom-type-product.php:86
 msgid "Not Found"
 msgstr ""
+"Nicht Gefunden\n"
 
 #: inc/custom-type-contacts.php:31 inc/custom-type-product.php:87
 msgid "Not found in Trash"
 msgstr ""
+"Nicht im Mülleimer gefunden\n"
 
 #: inc/custom-type-contacts.php:38
 msgid "Contact news and reviews"
 msgstr ""
+"Kontakt news und Bewertungen\n"
 
 #: inc/custom-type-product.php:18
 msgid "Product Categories"
 msgstr ""
+"Produkt-Kategorien\n"
 
 #: inc/custom-type-product.php:32
 msgid "Product filter"
-msgstr ""
+msgstr "Produktfilter"
 
 #: inc/custom-type-product.php:34
 msgid "Filters"
 msgstr ""
+"Filter\n"
 
 #: inc/custom-type-product.php:35 inc/custom-type-product.php:44
 msgid "Filter"
 msgstr ""
+"Filter\n"
 
 #: inc/custom-type-product.php:36
 msgid "All Filters"
 msgstr ""
+"Alle Filter\n"
 
 #: inc/custom-type-product.php:37
 msgid "View Filter"
 msgstr ""
+"View Filter\n"
 
 #: inc/custom-type-product.php:38
 msgid "Parent Filter"
 msgstr ""
+"Übergeordnete Filter\n"
 
 #: inc/custom-type-product.php:39
 msgid "Parent Filter:"
 msgstr ""
+"Übergeordnete Filter:\n"
 
 #: inc/custom-type-product.php:40
 msgid "Edit Filter"
 msgstr ""
+"Filter Bearbeiten\n"
 
 #: inc/custom-type-product.php:41
 msgid "Update Filter"
 msgstr ""
+"Update-Filter\n"
 
 #: inc/custom-type-product.php:42
 msgid "Add New Filter"
 msgstr ""
+"Neuen Filter Hinzufügen\n"
 
 #: inc/custom-type-product.php:43
 msgid "New Filter Name"
 msgstr ""
+"Neue Filter-Name\n"
 
 #: inc/custom-type-product.php:75
 msgctxt "Post Type General Name"
 msgid "Products"
-msgstr ""
+msgstr "Produkte"
 
 #: inc/custom-type-product.php:76
 msgctxt "Post Type Singular Name"
 msgid "Product"
 msgstr ""
+"Produkt\n"
 
 #: inc/custom-type-product.php:78
 msgid "Parent Product"
 msgstr ""
+"Übergeordnete Produkt\n"
 
 #: inc/custom-type-product.php:79
 msgid "All Products"
 msgstr ""
+"Alle Produkte\n"
 
 #: inc/custom-type-product.php:80
 msgid "View Product"
 msgstr ""
+"Produkt Anzeigen\n"
 
 #: inc/custom-type-product.php:81
 msgid "Add New Product"
 msgstr ""
+"Hinzufügen Eines Neuen Product\n"
 
 #: inc/custom-type-product.php:83
 msgid "Edit Product"
 msgstr ""
+"Produkt Bearbeiten\n"
 
 #: inc/custom-type-product.php:84
 msgid "Update Product"
 msgstr ""
+"Update-Produkt\n"
 
 #: inc/custom-type-product.php:85
 msgid "Search Product"
-msgstr ""
+msgstr "Suche Produkt"
 
 #: inc/custom-type-product.php:93
 msgid "products"
-msgstr ""
+msgstr "Produkte"
 
 #: inc/custom-type-product.php:94
 msgid "Product news and reviews"
 msgstr ""
+"Produkt-news und reviews\n"
 
 #. $id
 #: inc/contact-options.php:14
 msgid "Contact settings"
 msgstr ""
+"Kontakt-Einstellungen\n"
 
 #: inc/contact-options.php:27
 msgid "Role"
-msgstr ""
+msgstr "Rolle"
 
 #: inc/contact-options.php:28
 msgid "Role of contact"
 msgstr ""
+"Rolle Kontakt\n"
 
 #: inc/contact-options.php:33
 msgid "Email"
 msgstr ""
+"E-Mail\n"
 
 #: inc/contact-options.php:34
 msgid "Email of contact"
 msgstr ""
+"E-Mail-Kontakt\n"
 
 #: inc/contact-options.php:39
 msgid "Phone"
 msgstr ""
+"Telefon\n"
 
 #: inc/contact-options.php:40
 msgid "Phone of contact"
 msgstr ""
+"Telefon Kontakt\n"
 
 #: inc/NaturlithSetup.php:86
 msgid "Main menu"
-msgstr ""
+msgstr "Hauptmenü"
 
 #: inc/NaturlithSetup.php:87
 msgid "Products menu"
 msgstr ""
+"Produkte-Menü\n"
 
 #: inc/NaturlithSetup.php:100
 msgid "Product Page Left"
 msgstr ""
+"Produkt-Seite Links\n"
 
 #: inc/NaturlithSetup.php:104
 msgid "Contacts Page Left"
 msgstr ""
+"Kontakte Seite Links\n"
 
 #: inc/NaturlithSetup.php:108
 msgid "Contacts Page Right"
 msgstr ""
+"Kontakte Seite Recht\n"
 
 #: inc/NaturlithSetup.php:112
 msgid "Footer 1"
-msgstr ""
+msgstr "Fußzeile 1"
 
 #: inc/NaturlithSetup.php:116
 msgid "Footer 2"
-msgstr ""
+msgstr "Fußzeile 2"
 
 #: inc/NaturlithSetup.php:120
 msgid "Footer 3"
-msgstr ""
+msgstr "Fußzeile 3"
 
 #: inc/NaturlithSetup.php:124
 msgid "Footer 4"
 msgstr ""
+"Fußzeile 4\n"
 
 #: inc/front-page-sections/BannersSection.php:19
 msgid "Main Slider"
 msgstr ""
+"Haupt-Schieberegler\n"
 
 #: inc/front-page-sections/BannersSection.php:24
 msgid "Slider on main page (1500x600)"
 msgstr ""
+"Regler auf der main-Seite (1500x600)\n"
 
 #: inc/front-page-sections/BannersSection.php:35
 msgid "First title"
 msgstr ""
+"Ersten Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:45
 msgid "First sub title"
 msgstr ""
+"Erste sub-Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:55
 msgid "First description"
 msgstr ""
+"Erste Beschreibung\n"
 
 #: inc/front-page-sections/BannersSection.php:68
 msgid "First Slide"
 msgstr ""
+"Erste Folie\n"
 
 #: inc/front-page-sections/BannersSection.php:80
 #: inc/front-page-sections/AdvantagesSection.php:251
 msgid "First button title"
 msgstr ""
+"Erste Schaltfläche Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:90
 #: inc/front-page-sections/AdvantagesSection.php:261
 msgid "First button url"
 msgstr ""
+"Erste Schaltfläche url\n"
 
 #: inc/front-page-sections/BannersSection.php:101
 msgid "Second title"
 msgstr ""
+"Den zweiten Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:111
 msgid "Second sub title"
 msgstr ""
+"Zweite sub-Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:121
 msgid "Second description"
 msgstr ""
+"Zweite Beschreibung\n"
 
 #: inc/front-page-sections/BannersSection.php:134
 msgid "Second Slide"
 msgstr ""
+"Zweite Folie\n"
 
 #: inc/front-page-sections/BannersSection.php:146
 msgid "Second button title"
 msgstr ""
+"Zweite Schaltfläche Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:156
 msgid "Second button url"
 msgstr ""
+"Der zweite button url\n"
 
 #: inc/front-page-sections/BannersSection.php:167
 msgid "Tried title"
 msgstr ""
+"Versucht Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:177
 msgid "Tried sub title"
 msgstr ""
+"Versuchte sub-Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:187
 msgid "Tried description"
 msgstr ""
+"Versuchte Beschreibung\n"
 
 #: inc/front-page-sections/BannersSection.php:200
 msgid "Tried Slide"
 msgstr ""
+"Versuchte Folie\n"
 
 #: inc/front-page-sections/BannersSection.php:212
 msgid "Tried button title"
 msgstr ""
+"Versucht Schaltfläche Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:222
 msgid "Tried button url"
 msgstr ""
+"Versucht Schaltfläche url\n"
 
 #: inc/front-page-sections/BannersSection.php:233
 msgid "Fourth title"
 msgstr ""
+"Vierten Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:243
 msgid "Fourth sub title"
 msgstr ""
+"Vierten sub-Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:253
 msgid "Fourth description"
 msgstr ""
+"Vierte Beschreibung\n"
 
 #: inc/front-page-sections/BannersSection.php:266
 msgid "Fourth Slide"
 msgstr ""
+"Vierte Folie\n"
 
 #: inc/front-page-sections/BannersSection.php:278
 msgid "Fourth button title"
 msgstr ""
+"Vierte Schaltfläche Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:288
 msgid "Fourth button url"
 msgstr ""
+"Vierte Schaltfläche von url\n"
 
 #: inc/front-page-sections/BannersSection.php:299
 msgid "Fifth title"
 msgstr ""
+"Den fünften Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:309
 msgid "Fifth sub title"
 msgstr ""
+"Fünfte sub-Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:319
 msgid "Fifth description"
 msgstr ""
+"Fünfte Beschreibung\n"
 
 #: inc/front-page-sections/BannersSection.php:332
 msgid "Fifth Slide"
 msgstr ""
+"Fünfte Folie\n"
 
 #: inc/front-page-sections/BannersSection.php:344
 msgid "Fifth button title"
 msgstr ""
+"Fünfte Schaltfläche Titel\n"
 
 #: inc/front-page-sections/BannersSection.php:354
 msgid "Fifth button url"
 msgstr ""
+"Fünfte Schaltfläche url\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:19
 msgid "Advantages"
 msgstr ""
+"Vorteile\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:24
 msgid "Here you can  customize advantages section"
 msgstr ""
+"Hier können Sie anpassen, Vorteile Abschnitt\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:34
 #: inc/front-page-sections/ContactsSection.php:34
@@ -422,280 +506,326 @@ msgstr ""
 #: inc/front-page-sections/ProductsSection.php:36
 #: inc/front-page-sections/ConditionsSection.php:34
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: inc/front-page-sections/AdvantagesSection.php:44
 msgid "Sub Title"
 msgstr ""
+"Sub-Titel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:55
 msgid "First item title"
 msgstr ""
+"Ersten Titel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:65
 msgid "First item subtitle"
 msgstr ""
+"Erste Element Untertitel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:78
 msgid "First item icon (200x200 PNG)"
 msgstr ""
+"Erste Element (200x200 PNG)\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:91
 msgid "Second item title"
 msgstr ""
+"Zweiten Titel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:101
 msgid "Second item subtitle"
 msgstr ""
+"Zweiter Punkt Untertitel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:114
 msgid "Second item icon (200x200 PNG)"
 msgstr ""
+"Zweiten Element (200x200 PNG)\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:127
 msgid "Tried item title"
 msgstr ""
+"Versucht Titel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:137
 msgid "Tried item subtitle"
 msgstr ""
+"Versuchte Element Untertitel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:150
 msgid "Tried item icon (200x200 PNG)"
 msgstr ""
+"Versuchte Element-Symbol (200x200 PNG)\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:163
 msgid "Fourth item title"
 msgstr ""
+"Vierten Titel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:173
 msgid "Fourth item subtitle"
 msgstr ""
+"Vierter Punkt Untertitel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:186
 msgid "Fourth item icon (200x200 PNG)"
 msgstr ""
+"Vierter Punkt-Symbol (200x200 PNG)\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:199
 msgid "Fifth item title"
 msgstr ""
+"Fünfte Element Titel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:209
 msgid "Fifth item subtitle"
 msgstr ""
+"Fünfte Element Untertitel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:222
 msgid "Fifth item icon (200x200 PNG)"
 msgstr ""
+"Fünfte Element-Symbol (200x200 PNG)\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:238
 msgid "Image right side (1000x1000 PNG)"
 msgstr ""
+"Bild Rechte Seite (1000x1000 PNG)\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:272
 msgid "Button second title"
 msgstr ""
+"Knopf zweiten Titel\n"
 
 #: inc/front-page-sections/AdvantagesSection.php:282
 msgid "Button second url"
 msgstr ""
+"Taste zweite url\n"
 
 #: inc/front-page-sections/LanguagesSection.php:19
 msgid "Languages"
-msgstr ""
+msgstr "Sprachen"
 
 #: inc/front-page-sections/LanguagesSection.php:24
 msgid "Here you can hide local"
 msgstr ""
+"Hier können Sie verstecken, lokale\n"
 
 #: inc/front-page-sections/LanguagesSection.php:34
 msgid "En url"
-msgstr ""
+msgstr "En url"
 
 #: inc/front-page-sections/LanguagesSection.php:43
 msgid "Enable En"
-msgstr ""
+msgstr "Aktivieren En"
 
 #: inc/front-page-sections/LanguagesSection.php:53
 msgid "It url"
-msgstr ""
+msgstr "It url"
 
 #: inc/front-page-sections/LanguagesSection.php:63
 msgid "Enable It"
-msgstr ""
+msgstr "Aktivieren It"
 
 #: inc/front-page-sections/LanguagesSection.php:73
 msgid "Dk url"
-msgstr ""
+msgstr "Dk url"
 
 #: inc/front-page-sections/LanguagesSection.php:83
 msgid "Enable Dk"
-msgstr ""
+msgstr "Aktivieren Dk"
 
 #: inc/front-page-sections/LanguagesSection.php:93
 msgid "De url"
-msgstr ""
+msgstr "De url"
 
 #: inc/front-page-sections/LanguagesSection.php:103
 msgid "Enable De"
-msgstr ""
+msgstr "Aktivieren De"
 
 #: inc/front-page-sections/ContactsSection.php:19
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: inc/front-page-sections/ContactsSection.php:24
 msgid "Here you can customize contact section"
 msgstr ""
+"Hier können Sie anpassen, Kontaktieren Abschnitt\n"
 
 #: inc/front-page-sections/ContactsSection.php:44
 msgid "Script yandex map"
 msgstr ""
+"Skript yandex Karte,\n"
 
 #: inc/front-page-sections/NewsSection.php:19
 msgid "News"
-msgstr ""
+msgstr "News"
 
 #: inc/front-page-sections/NewsSection.php:24
 msgid "Four news"
 msgstr ""
+"Vier news\n"
 
 #: inc/front-page-sections/NewsSection.php:41
 msgid "Choose post"
 msgstr ""
+"Wählen Sie buchen\n"
 
 #: inc/front-page-sections/NewsSection.php:53
 msgid "Post 1"
-msgstr ""
+msgstr "Post 1"
 
 #: inc/front-page-sections/NewsSection.php:66
 msgid "Post 2"
-msgstr ""
+msgstr "Post 2"
 
 #: inc/front-page-sections/NewsSection.php:79
 msgid "Post 3"
 msgstr ""
+"Post 3\n"
 
 #: inc/front-page-sections/NewsSection.php:92
 msgid "Post 4"
 msgstr ""
+"Post 4\n"
 
 #: inc/front-page-sections/ProductsSection.php:26
 msgid "4 products on Main Page"
 msgstr ""
+"4 Produkte auf der Hauptseite\n"
 
 #: inc/front-page-sections/ProductsSection.php:46
 msgid "View all button title"
 msgstr ""
+"Schaltfläche \"alles anzeigen\" - Titel\n"
 
 #: inc/front-page-sections/ProductsSection.php:56
 msgid "URL for all button"
 msgstr ""
+"URL für Schaltfläche alle\n"
 
 #: inc/front-page-sections/ConditionsSection.php:19
 msgid "Conditions"
 msgstr ""
+"Bedingungen\n"
 
 #: inc/front-page-sections/ConditionsSection.php:24
 msgid "Here you can customize conditions section"
 msgstr ""
+"Hier können Sie anpassen, Bedingungen Abschnitt\n"
 
 #: inc/front-page-sections/ConditionsSection.php:44
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: inc/front-page-sections/ConditionsSection.php:57
 msgid "Background image"
-msgstr ""
+msgstr "Hintergrundbild"
 
 #: inc/front-page-sections/ConditionsSection.php:69
 msgid "Read more title"
 msgstr ""
+"Lesen Sie mehr Titel\n"
 
 #: inc/front-page-sections/ConditionsSection.php:79
 msgid "Read more URL"
 msgstr ""
+"Lesen Sie mehr URL\n"
 
 #: inc/front-page-sections/FrontPagePanel.php:24
 msgid "Front Page"
-msgstr ""
+msgstr "Titelseite"
 
 #: inc/front-page-sections/FrontPagePanel.php:29
 msgid "You can change sections on Front Page"
-msgstr ""
+msgstr "Sie können Bearbeiten Sie die Abschnitte auf der ersten Seite"
 
 #: inc/templates/content-404.php:3
 msgid "Error, This page no exists!"
 msgstr ""
+"Fehler, Diese Seite nicht existiert!\n"
 
 #: inc/templates/content-contacts.php:28
 msgid "Naturlith Contacts From "
 msgstr ""
+"Naturlith Kontakte Aus\n"
 
 #: inc/templates/content-contacts.php:29
 msgid "Name: "
 msgstr ""
+"Name:\n"
 
 #: inc/templates/content-contacts.php:29
 msgid "Email:"
 msgstr ""
+"E-Mail:\n"
 
 #: inc/templates/content-contacts.php:29
 msgid "Message:"
-msgstr ""
+msgstr "Meldung"
 
 #: inc/templates/content-contacts.php:65
 msgid "Send Message"
 msgstr ""
+"Nachricht Senden\n"
 
 #: inc/templates/content-contacts.php:67
 msgid "Message send successful"
 msgstr ""
+"Nachricht senden erfolgreich\n"
 
 #: inc/templates/content-contacts.php:77
 msgid "Name looks good!"
 msgstr ""
+"Der Name sieht gut aus!\n"
 
 #: inc/templates/content-contacts.php:80
 msgid "Invalid name!"
 msgstr ""
+"Ungültiger name!\n"
 
 #: inc/templates/content-contacts.php:88
 msgid "Email looks good!"
 msgstr ""
+"E-Mail sieht gut aus!\n"
 
 #: inc/templates/content-contacts.php:91
 msgid "Invalid email!"
 msgstr ""
+"Ungültige E-Mail!\n"
 
 #: inc/templates/content-contacts.php:100
 msgid "Message is OK!"
 msgstr ""
+"Nachricht ist OK!\n"
 
 #: inc/templates/content-contacts.php:103
 msgid "Message must be more 10 characters!"
 msgstr ""
+"Nachricht muss mehr als 10 Zeichen!\n"
 
 #: inc/templates/content-contacts.php:109
 msgid "Send"
 msgstr ""
+"Senden\n"
 
 #: inc/templates/content-products.php:23
 msgid "More"
-msgstr ""
+msgstr "Mehr"
 
 #: inc/templates/content-front-page.php:129
 msgid "View"
-msgstr ""
+msgstr "Ansicht"
 
 #. Name of the theme
 msgid "Naturlith"
-msgstr ""
+msgstr "Naturlith"
 
 #. Author of the theme
 msgid "Webmapps"
-msgstr ""
+msgstr "Webmapps"
 
 #. Author URI of the theme
 msgid "http://webmapps.com/"
-msgstr ""
+msgstr "http://webmapps.com/"

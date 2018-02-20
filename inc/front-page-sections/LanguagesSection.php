@@ -16,12 +16,12 @@ class LanguagesSection extends BaseSection
 
     public function title()
     {
-        return 'Languages';
+        return __('Languages', 'naturlith');
     }
 
     public function description()
     {
-        return 'Here you can hide local';
+        return __('Here you can hide local', 'naturlith');
     }
 
     public function settingsControls($customizer)
@@ -31,7 +31,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'En url',
+                'label' => __('En url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -40,7 +40,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'checkbox',
-                'label' => 'Enable En',
+                'label' => __('Enable En', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -50,7 +50,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'It url',
+                'label' => __('It url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -60,7 +60,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'checkbox',
-                'label' => 'Enable It',
+                'label' => __('Enable It', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -70,7 +70,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Dk url',
+                'label' => __('Dk url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -80,7 +80,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'checkbox',
-                'label' => 'Enable Dk',
+                'label' => __('Enable Dk', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -90,7 +90,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'De url',
+                'label' => __('De url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -100,7 +100,7 @@ class LanguagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'checkbox',
-                'label' => 'Enable De',
+                'label' => __('Enable De', 'naturlith'),
                 'section' => $this->id()
             )
         );

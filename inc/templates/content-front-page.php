@@ -125,10 +125,11 @@
                                             <p class="card-text"><?php the_title(); ?></p>
                                         </div>
                                         <div class="card-footer p-0">
-                                            <a href="<?php the_permalink(); ?>" class="btn btn-success">View</a>
+                                            <a href="<?php the_permalink(); ?>"
+                                               class="btn btn-success"><?php echo __('View', 'naturlith') ?></a>
                                         </div>
                                     </div>
-                                <?php endwhile;?>
+                                <?php endwhile; ?>
                             </div>
                             <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
@@ -136,71 +137,10 @@
                         </div>
                         <!-- If we need navigation buttons -->
                         <div class="swiper-button-prev"><i class="fas fa-2x fa-chevron-left"></i>
-
                         </div>
                         <div class="swiper-button-next"><i class="fas fa-2x fa-chevron-right"></i>
-
                         </div>
                     </div>
-
-
-
-<!--                    <div class="card-deck">-->
-<!--                        --><?php
-//                        $indexOfProduct = 0;
-//                        while ($the_query->have_posts()) : $the_query->the_post(); ?>
-<!--                            <div class="card rounded-0 border-0 text-center-->
-<!--                    --><?php //echo $indexOfProduct > 1 ? 'd-none d-lg-flex' : ''; ?><!--">-->
-<!--                                <div class="img-wrap">-->
-<!--                                    --><?php //the_post_thumbnail('medium', array(
-//                                        'class' => "card-img-top rounded-0 img-fluid",
-//                                        'alt' => the_title('', '', 0)
-//                                    )); ?>
-<!--                                </div>-->
-<!--                                <div class="card-body">-->
-<!--                                    <h5 class="card-title text-uppercase mb-0">--><?php //echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?><!--</h5>-->
-<!--                                    <p class="card-text text-lowercase mb-0">--><?php //echo get_the_terms(get_the_ID(), 'naturlith_products_category')[0]->name; ?><!--</p>-->
-<!--                                    <hr class="my-2">-->
-<!--                                    <p class="card-text">--><?php //the_title(); ?><!--</p>-->
-<!--                                </div>-->
-<!--                                <div class="card-footer p-0">-->
-<!--                                    <a href="--><?php //the_permalink(); ?><!--" class="btn btn-success">View</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            --><?php
-//                            $indexOfProduct++;
-//                        endwhile; ?>
-<!--                    </div>-->
-<!--                    <div class="card-deck d-flex d-lg-none mt-0 mt-sm-4">-->
-<!--                        --><?php
-//                        $mobileIndexOfProducts = 0;
-//                        while ($the_query->have_posts()) : $the_query->the_post();
-//                            if ($mobileIndexOfProducts < 2) {
-//                                $mobileIndexOfProducts++;
-//                                continue;
-//                            }
-//                            ?>
-<!--                            <div class="card rounded-0 border-0 text-center">-->
-<!--                                <div class="img-wrap">-->
-<!--                                    --><?php //the_post_thumbnail('medium', array(
-//                                        'class' => "card-img-top rounded-0 img-fluid",
-//                                        'alt' => the_title('', '', 0)
-//                                    )); ?>
-<!--                                </div>-->
-<!--                                <div class="card-body">-->
-<!--                                    <h5 class="card-title text-uppercase mb-0">--><?php //echo get_post_meta(get_the_ID(), 'naturlith_product_mark', true); ?><!--</h5>-->
-<!--                                    <p class="card-text text-lowercase mb-0">--><?php //echo get_the_terms(get_the_ID(), 'naturlith_products_category')[0]->taxonomy; ?><!--</p>-->
-<!--                                    <hr class="my-2">-->
-<!--                                    <p class="card-text">--><?php //the_title(); ?><!--</p>-->
-<!--                                </div>-->
-<!--                                <div class="card-footer p-0">-->
-<!--                                    <a href="--><?php //the_permalink(); ?><!--" class="btn btn-success">View</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        --><?php //endwhile; ?>
-<!--                    </div>-->
-
-
                 </div>
                 <a class="d-block pt-3 pb-4 text-uppercase text-center text-secondary"
                    href="<?php echo get_theme_mod('naturlith_products_all_url'); ?>" target="_blank">
@@ -234,9 +174,7 @@
                 <h2 class="text-center text-uppercase my-4"><?php echo get_theme_mod('naturlith_news_title') ?></h2>
                 <div class="row">
 
-
                     <?php
-
                     $NUMBERS_OF_POSTS = 4;
                     $posts = array();
                     $ids = [];
@@ -283,13 +221,10 @@
                     <?php }
                     wp_reset_query();
                     ?>
-
-
                 </div>
             </div>
         </div>
     <?php endif; ?>
-
     <?php if (get_theme_mod('naturlith_contact_enable')): ?>
         <div id="contacts">
             <?php
@@ -301,6 +236,4 @@
             } ?>
         </div>
     <?php endif; ?>
-
-
 </section>

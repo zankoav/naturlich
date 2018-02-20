@@ -15,7 +15,7 @@ function products_post_type()
         'naturlith_products_category',
         'naturlith_products',
         array(
-            'label' => 'Product Categories',
+            'label' => __('Product Categories', 'naturlith'),
             'query_var' => true,
             'hierarchical' => true, // Если TRUE, таксономия будет аналогом рубрик (категорий). Если FALSE (по умолчанию), то таксономия станет аналогом меток (тегов).
             'rewrite' => array(
@@ -29,19 +29,19 @@ function products_post_type()
         'naturlith_products_filter',
         'naturlith_products',
         array(
-            'label' => 'Product filter',
+            'label' => __('Product filter', 'naturlith'),
             'labels' => array(
-                'name' => 'Filters',
-                'singular_name' => 'Filter',
-                'all_items' => 'All Filters',
-                'view_item ' => 'View Filter',
-                'parent_item' => 'Parent Filter',
-                'parent_item_colon' => 'Parent Filter:',
-                'edit_item' => 'Edit Filter',
-                'update_item' => 'Update Filter',
-                'add_new_item' => 'Add New Filter',
-                'new_item_name' => 'New Filter Name',
-                'menu_name' => 'Filter',
+                'name' => __('Filters', 'naturlith'),
+                'singular_name' => __('Filter', 'naturlith'),
+                'all_items' => __('All Filters', 'naturlith'),
+                'view_item ' => __('View Filter', 'naturlith'),
+                'parent_item' => __('Parent Filter', 'naturlith'),
+                'parent_item_colon' => __('Parent Filter:', 'naturlith'),
+                'edit_item' => __('Edit Filter', 'naturlith'),
+                'update_item' => __('Update Filter', 'naturlith'),
+                'add_new_item' => __('Add New Filter', 'naturlith'),
+                'new_item_name' => __('New Filter Name', 'naturlith'),
+                'menu_name' => __('Filter', 'naturlith'),
             ),
             'show_in_nav_menus' => false, // равен аргументу public
             'show_tagcloud' => false,

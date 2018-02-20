@@ -18,12 +18,12 @@ class ProductsSection extends BaseSection
 
     public function title()
     {
-        return 'Products';
+        return __('Products', 'naturlith');
     }
 
     public function description()
     {
-        return '4 products on Main Page';
+        return __('4 products on Main Page', 'naturlith');
     }
 
     public function settingsControls($customizer)
@@ -33,7 +33,7 @@ class ProductsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Title',
+                'label' => __('Title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -43,7 +43,7 @@ class ProductsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'View all button title',
+                'label' => __('View all button title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -53,7 +53,7 @@ class ProductsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'URL for all button',
+                'label' => __('URL for all button', 'naturlith'),
                 'section' => $this->id()
             )
         );

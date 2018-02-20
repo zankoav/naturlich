@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="card-footer p-0">
-                <a href="<?php the_permalink(); ?>" class="btn">More</a>
+                <a href="<?php the_permalink(); ?>" class="btn"><?php echo __('More', 'naturlith')?></a>
             </div>
         </div>
 

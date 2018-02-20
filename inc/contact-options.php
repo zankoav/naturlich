@@ -11,7 +11,7 @@ function add_contact_meta_box()
 {
     add_meta_box(
         'contact_meta_box', // $id
-        'Contact settings', // $title
+        __('Contact settings', 'naturlith'), // $title
         'show_contact_meta_box', // $callback
         'naturlith_contacts', // $page
         'normal', // $context
@@ -24,20 +24,20 @@ add_action('add_meta_boxes', 'add_contact_meta_box');
 $prefix = 'naturlith_contact_';
 $contact_meta_fields = array(
     array(
-        'label' => 'Role',
-        'desc' => 'Role of contact',
+        'label' => __('Role', 'naturlith'),
+        'desc' => __('Role of contact', 'naturlith'),
         'id' => $prefix . 'role',
         'type' => 'text'
     ),
     array(
-        'label' => 'Email',
-        'desc' => 'Email of contact',
+        'label' => __('Email', 'naturlith'),
+        'desc' => __('Email of contact', 'naturlith'),
         'id' => $prefix . 'email',
         'type' => 'text'
     ),
     array(
-        'label' => 'Phone',
-        'desc' => 'Phone of contact',
+        'label' => __('Phone', 'naturlith'),
+        'desc' => __('Phone of contact', 'naturlith'),
         'id' => $prefix . 'phone',
         'type' => 'text'
     )

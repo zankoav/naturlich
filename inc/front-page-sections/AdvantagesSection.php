@@ -16,12 +16,12 @@ class AdvantagesSection extends BaseSection
 
     public function title()
     {
-        return 'Advantages';
+        return __('Advantages', 'naturlith');
     }
 
     public function description()
     {
-        return 'Here you can  customize advantages section';
+        return __('Here you can  customize advantages section', 'naturlith');
     }
 
     public function settingsControls($customizer)
@@ -31,7 +31,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Title',
+                'label' => __('Title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -41,7 +41,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Sub Title',
+                'label' => __('Sub Title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -52,7 +52,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First item title',
+                'label' => __('First item title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -62,7 +62,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'First item subtitle',
+                'label' => __('First item subtitle', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -75,7 +75,7 @@ class AdvantagesSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'First item icon (200x200 PNG)',
+                    'label' => __('First item icon (200x200 PNG)', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -88,7 +88,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Second item title',
+                'label' => __('Second item title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -98,7 +98,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Second item subtitle',
+                'label' => __('Second item subtitle', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -111,7 +111,7 @@ class AdvantagesSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Second item icon (200x200 PNG)',
+                    'label' => __('Second item icon (200x200 PNG)', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -124,7 +124,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Tried item title',
+                'label' => __('Tried item title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -134,7 +134,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Tried item subtitle',
+                'label' => __('Tried item subtitle', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -147,7 +147,7 @@ class AdvantagesSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Tried item icon (200x200 PNG)',
+                    'label' => __('Tried item icon (200x200 PNG)', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -160,7 +160,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fourth item title',
+                'label' => __('Fourth item title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -170,7 +170,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Fourth item subtitle',
+                'label' => __('Fourth item subtitle', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -183,7 +183,7 @@ class AdvantagesSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Fourth item icon (200x200 PNG)',
+                    'label' => __('Fourth item icon (200x200 PNG)', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -196,7 +196,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Fifth item title',
+                'label' => __('Fifth item title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -206,7 +206,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Fifth item subtitle',
+                'label' => __('Fifth item subtitle', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -219,7 +219,7 @@ class AdvantagesSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Fifth item icon (200x200 PNG)',
+                    'label' => __('Fifth item icon (200x200 PNG)', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -235,7 +235,7 @@ class AdvantagesSection extends BaseSection
                 $customizer,
                 $id,
                 array(
-                    'label' => 'Image right side (1000x1000 PNG)',
+                    'label' => __('Image right side (1000x1000 PNG)', 'naturlith'),
                     'section' => $this->id(),
                     'settings' => $id
                 )
@@ -248,7 +248,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First button title',
+                'label' => __('First button title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -258,7 +258,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'First button url',
+                'label' => __('First button url', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -269,7 +269,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Button second title',
+                'label' => __('Button second title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -279,7 +279,7 @@ class AdvantagesSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Button second url',
+                'label' => __('Button second url', 'naturlith'),
                 'section' => $this->id()
             )
         );

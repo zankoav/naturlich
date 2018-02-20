@@ -83,8 +83,8 @@ class NaturlithSetup extends BaseSetup
     public function menus()
     {
         return array(
-            'main_menu' => $this->lang('Main menu'),
-            'products_menu' => $this->lang('Products menu')
+            'main_menu' => __('Main menu', 'naturlith'),
+            'products_menu' => __('Products menu', 'naturlith')
         );
     }
 
@@ -97,31 +97,31 @@ class NaturlithSetup extends BaseSetup
 
             array(
                 'id' => 'product-left',
-                'name' => $this->lang('Product Page Left')
+                'name' => __('Product Page Left', 'naturlith')
             ),
             array(
                 'id' => 'contacts-page-left',
-                'name' => $this->lang('Contacts Page Left')
+                'name' => __('Contacts Page Left', 'naturlith')
             ),
             array(
                 'id' => 'contacts-page-right',
-                'name' => $this->lang('Contacts Page Right')
+                'name' => __('Contacts Page Right', 'naturlith')
             ),
             array(
                 'id' => 'footer-1',
-                'name' => $this->lang('Footer 1')
+                'name' => __('Footer 1', 'naturlith')
             ),
             array(
                 'id' => 'footer-2',
-                'name' => $this->lang('Footer 2')
+                'name' => __('Footer 2', 'naturlith')
             ),
             array(
                 'id' => 'footer-3',
-                'name' => $this->lang('Footer 3')
+                'name' => __('Footer 3', 'naturlith')
             ),
             array(
                 'id' => 'footer-4',
-                'name' => $this->lang('Footer 4')
+                'name' => __('Footer 4', 'naturlith')
             )
         ];
     }

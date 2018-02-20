@@ -16,12 +16,12 @@ class ContactsSection extends BaseSection
 
     public function title()
     {
-        return 'Contact';
+        return __('Contact', 'naturlith');
     }
 
     public function description()
     {
-        return 'Here you can customize contact section';
+        return __('Here you can customize contact section', 'naturlith');
     }
 
     public function settingsControls($customizer)
@@ -31,7 +31,7 @@ class ContactsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => 'Title',
+                'label' => __('Title', 'naturlith'),
                 'section' => $this->id()
             )
         );
@@ -41,7 +41,7 @@ class ContactsSection extends BaseSection
         $customizer->add_control($id,
             array(
                 'type' => 'textarea',
-                'label' => 'Script yandex map',
+                'label' => __('Script yandex map', 'naturlith'),
                 'section' => $this->id()
             )
         );
