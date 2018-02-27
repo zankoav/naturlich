@@ -27,14 +27,18 @@ if ($sort) {
     $sorts_items = explode('_', $sort);
 
     $queryArgs['meta_query'] = array(
-        'price' => array(
-            'key' => 'naturlith_product_price',
-            'type' => 'DECIMAL'
-        ),
         'mark' => array(
             'key' => 'naturlith_product_mark',
         )
     );
+
+	if ($sorts_items[0] == "price"){
+		$queryArgs['meta_query'][]['price'] = array(
+			'key' => 'naturlith_product_price',
+			'type' => 'DECIMAL'
+		);
+	}
+
     $queryArgs['orderby'] = $sorts_items[0];
     $queryArgs['order'] = 'ASC';
 

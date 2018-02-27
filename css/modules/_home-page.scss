@@ -14,8 +14,13 @@
         }
 
         .carousel-caption {
-            top: 33%;
+            min-height: 480px;
+            padding: 10rem 2rem 4rem 2rem;
+            position: relative;
+            right: inherit;
+            top: inherit;
             bottom: inherit;
+            left: inherit;
             text-shadow: 1px 1px 5px $dark-gray;
 
             h1 {

@@ -27,7 +27,14 @@
         </div>
     </div>
 </footer>
-
 <?php wp_footer(); ?>
+
+<script>
+    jQuery(document).ready(function ($) {
+        $('.widget_media_image img').click(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        });
+    });
+</script>
 </body>
 </html>
