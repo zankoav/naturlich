@@ -28,10 +28,7 @@
                         continue;
                     } ?>
                     <div class="carousel-item <?php echo $isFirstItem ? 'active' : '';
-                    $isFirstItem = false; ?>">
-                        <img class="d-block w-100"
-                             src="<?php echo get_theme_mod('naturlith_banners_slide_' . $i); ?>"
-                             alt="Slide_<?php echo $i; ?>">
+                    $isFirstItem = false; ?>" style="background: url(<?php echo get_theme_mod('naturlith_banners_slide_' . $i);?>) center no-repeat; background-size: cover;">
                         <div class="carousel-caption">
                             <h1><?php echo get_theme_mod('naturlith_banners_title_' . $i); ?></h1>
                             <h2 class="d-none d-md-block"><?php echo get_theme_mod('naturlith_banners_sub_title_' . $i); ?></h2>

@@ -8,10 +8,9 @@ h1 {
     background-color: $light-gray;
     color: $gray;
 
-
-    .sorted{
+    .sorted {
         label {
-            line-height:1.4;
+            line-height: 1.4;
         }
     }
 
@@ -61,10 +60,10 @@ h1 {
         }
     }
 
-    #product-filter{
+    #product-filter {
         color: $dark-gray;
         font-family: LatoRegular, sans-serif;
-        .form-check-input:disabled ~ .form-check-label{
+        .form-check-input:disabled ~ .form-check-label {
             color: $gray;
         }
     }
@@ -72,6 +71,11 @@ h1 {
     .product {
         .card {
             color: $gray;
+
+            .card-body {
+                min-height: 170px;
+            }
+
             &:hover {
                 text-decoration: none;
                 .card-footer div {

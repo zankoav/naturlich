@@ -1,4 +1,4 @@
-<div class="col-12 col-sm-6 col-xl-4 mb-2">
+<div class="col-12 col-sm-6 col-xl-4 mb-4">
     <div class="product text-center">
         <div class="card rounded-0 border-0 text-center p-2 ">
             <div class="img-wrap">
