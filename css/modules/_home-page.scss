@@ -376,3 +376,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    #home-page #carouselExampleIndicators .carousel-caption h1 {
+        font-size: 2rem;
+    }
+
+    #home-page #carouselExampleIndicators .carousel-caption {
+        min-height: 400px;
+    }
+}
