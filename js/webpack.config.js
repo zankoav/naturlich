@@ -1,11 +1,11 @@
 module.exports = {
-    entry: './front-page/front-page.js',
+    entry: './app.js',
     output: {
-        filename: './front-page/bundle.js',
+        filename: './bundle.js',
         library: 'app'
     },
 
-    watch: true,
+    watch: false,
     devtool: 'source-map',
 
     module: {
