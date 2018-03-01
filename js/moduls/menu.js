@@ -4,11 +4,11 @@ export function menu($) {
      */
     let scrollTopY = 300;
 
-    let lastX = 0,
-        lastCloseX = 1000;
-
-    let startMove = false;
-    let isCloseMenu = true;
+    // let lastX = 0,
+    //     lastCloseX = 1000;
+    //
+    // let startMove = false;
+    // let isCloseMenu = true;
 
     $(window).on('scroll', function () {
 
@@ -40,47 +40,47 @@ export function menu($) {
         }
     });
 
-    $('.mobile-menu-left').bind('touchmove', function (e) {
-        var currentX = e.originalEvent.touches[0].clientX || e.originalEvent.changedTouches[0].clientX;
-        touchCloseMenu(currentX);
-    });
+    // $('.mobile-menu-left').bind('touchmove', function (e) {
+    //     var currentX = e.originalEvent.touches[0].clientX || e.originalEvent.changedTouches[0].clientX;
+    //     touchCloseMenu(currentX);
+    // });
+    //
+    // $('.mobile-menu-left').mousedown(function (e) {
+    //     startMove = true;
+    // });
+    //
+    // $('.mobile-menu-left').mousemove(function (e) {
+    //     if (startMove) {
+    //         touchCloseMenu(e.clientX);
+    //     }
+    // });
+    //
+    // $(document).mouseup(function () {
+    //     startMove = false;
+    //     lastX = 0;
+    // });
+    //
+    // $(document).bind('touchend', function () {
+    //     lastX = 0;
+    //     lastCloseX = 1000;
+    // });
+    //
+    // $(document).bind('touchmove', function (e) {
+    //     var currentX = e.originalEvent.touches[0].clientX || e.originalEvent.changedTouches[0].clientX;
+    //     if (isCloseMenu) {
+    //         if (currentX > lastCloseX) {
+    //             openMenu();
+    //         }
+    //         lastCloseX = currentX;
+    //     }
+    // });
 
-    $('.mobile-menu-left').mousedown(function (e) {
-        startMove = true;
-    });
-
-    $('.mobile-menu-left').mousemove(function (e) {
-        if (startMove) {
-            touchCloseMenu(e.clientX);
-        }
-    });
-
-    $(document).mouseup(function () {
-        startMove = false;
-        lastX = 0;
-    });
-
-    $(document).bind('touchend', function () {
-        lastX = 0;
-        lastCloseX = 1000;
-    });
-
-    $(document).bind('touchmove', function (e) {
-        var currentX = e.originalEvent.touches[0].clientX || e.originalEvent.changedTouches[0].clientX;
-        if (isCloseMenu) {
-            if (currentX > lastCloseX) {
-                openMenu();
-            }
-            lastCloseX = currentX;
-        }
-    });
-
-    function touchCloseMenu(currentX) {
-        if (currentX < lastX) {
-            closeMenu();
-        }
-        lastX = currentX;
-    }
+    // function touchCloseMenu(currentX) {
+    //     if (currentX < lastX) {
+    //         closeMenu();
+    //     }
+    //     lastX = currentX;
+    // }
 
     function closeMenu() {
         $("body").removeClass('open-menu');
