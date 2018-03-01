@@ -94,7 +94,7 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
                 </div>
                 <div class="col-md-6 pl-1 pl-md-4 mb-3">
                     <label for="validationMessage">message</label>
-                    <textarea class="form-control" id="validationMessage" name="user_message" rows="5"
+                    <textarea class="form-control" id="validationMessage" name="user_message" rows="4"
                               placeholder="message"></textarea>
                     <div class="valid-feedback">
                         <?php echo __('Message is OK!', 'naturlith'); ?>
@@ -105,7 +105,7 @@ if (isset($_POST['user_sendsubmit'], $_POST['user_name'], $_POST['user_email'], 
                 </div>
             </div>
             <div class="text-center">
-                <button id="send-button" class="btn btn-success rounded-0 px-4 mt-2"
+                <button id="send-button" class="btn rounded-0 px-4 mt-2"
                         type="submit"><?php echo __('Send', 'naturlith'); ?></button>
             </div>
             <input type="hidden" value="user_sendsubmit" name="user_sendsubmit">
