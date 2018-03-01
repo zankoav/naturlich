@@ -48,11 +48,11 @@
                 border-radius: 0;
                 border: none;
                 padding: 0.6rem 1.5rem;
-                background-color: $primary;
+                background-color: $primary-button;
                 text-shadow: none;
 
                 &:hover {
-                    background-color: $primary-hover;
+                    background-color: $primary-button-hover;
                 }
             }
         }
@@ -93,7 +93,7 @@
             border: none;
             padding: 8px 16px;
             line-height: 1;
-            background-color: $primary;
+            background-color: $primary-button;
             text-shadow: none;
             position: absolute;
             right: 15%;
@@ -122,9 +122,9 @@
 
             &:hover {
                 text-decoration: none;
-                background-color: $primary-hover;
+                background-color: $primary-button-hover;
                 &::before {
-                    background-color: $primary-hover;
+                    background-color: $primary-button-hover;
                 }
             }
 
@@ -139,7 +139,7 @@
                 content: '';
                 display: block;
                 height: 2px;
-                background-color: $primary;
+                background-color: $primary-button;
                 width: 100px;
                 transform: rotate(-30deg);
             }
@@ -234,12 +234,12 @@
                             border-radius: 0;
                             border: none;
                             padding: 0.2rem 1rem;
-                            background-color: $primary;
+                            background-color: $primary-button;
                             text-shadow: none;
                             margin-bottom: 0.5rem;
 
                             &:hover {
-                                background-color: $primary-hover;
+                                background-color: $primary-button-hover;
                             }
                         }
 
@@ -320,11 +320,11 @@
                 border: none;
                 color: white;
                 padding: 0.6rem 1.5rem;
-                background-color: $primary;
+                background-color: $primary-button;
                 text-shadow: none;
 
                 &:hover {
-                    background-color: $primary-hover;
+                    background-color: $primary-button-hover;
                 }
             }
         }
