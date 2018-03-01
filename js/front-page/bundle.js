@@ -313,7 +313,7 @@ function advantage($) {
   function showElements(num) {
     if ($('#advantage-items').length > 0) {
       // if target element exists in DOM
-      if (windowHeight + num > advantageTop + advantageHeight / 2 && show) {
+      if (windowHeight + num > advantageTop + advantageHeight / 3 && show) {
         // if target element is visible on screen after DOM loaded
         show = false;
         $('#advantage-items').addClass('animation');
