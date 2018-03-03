@@ -168,7 +168,7 @@
     <?php if (get_theme_mod('naturlith_news_enable')): ?>
         <div id="news">
             <div class="container">
-                <h2 class="text-center text-uppercase my-4"><?php echo get_theme_mod('naturlith_news_title') ?></h2>
+                <h2 class="text-center text-uppercase my-5"><?php echo get_theme_mod('naturlith_news_title') ?></h2>
                 <div class="row">
 
                     <?php
