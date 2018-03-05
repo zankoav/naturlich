@@ -59,7 +59,7 @@
 			$advantagesTitle = get_theme_mod( 'naturlith_advantages_title' );
 			if ( ! empty( $advantagesTitle ) ) { ?>
                 <div class="container pt-5 position-relative">
-                    <h1 class="text-center"><?php echo $advantagesTitle; ?></h1>
+                    <h1 class="text-center pb-2"><?php echo $advantagesTitle; ?></h1>
                     <h2 class="text-center"><?php echo get_theme_mod( 'naturlith_advantages_sub_title' ); ?></h2>
                     <div id="advantage-items" class="row mt-5">
 						<?php for ( $i = 0; $i < 5; $i ++ ) {
@@ -67,12 +67,12 @@
 							if ( ! empty( $itemTitle ) ) { ?>
                                 <div class="col-12 col-lg-7 mb-4 item">
                                     <div class="row">
-                                        <div class="col-sm-3 col-md-2 align-self-center d-none d-sm-block">
+                                        <div class="col-3 col-md-2 align-self-center">
                                             <img class="w-100"
                                                  src="<?php echo get_theme_mod( 'naturlith_advantages_icon_item_' . $i ); ?>"
                                                  alt="Icon must be here">
                                         </div>
-                                        <div class="col-sm-9 col-md-10 align-self-center">
+                                        <div class="col-9 col-md-10 align-self-center">
                                             <h5 class="text-uppercase w-75"><?php echo $itemTitle; ?></h5>
                                             <p class="w-75"><?php echo get_theme_mod( 'naturlith_advantages_subtitle_item_' . $i ); ?></p>
                                         </div>
@@ -124,7 +124,7 @@
                                         <!-- Slides -->
 	                                    <?php while ( $the_query->have_posts() ) : $the_query->the_post();
 		                                    $catId = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->term_id;
-		                                    if ($catId == 5) :
+		                                    if ($catId == 19) :
 			                                    ?>
                                                 <div class="swiper-slide">
                                                     <div class="img-wrap">
@@ -171,7 +171,7 @@
                                         <!-- Slides -->
 				                        <?php while ( $the_query->have_posts() ) : $the_query->the_post();
 				                            $catId = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->term_id;
-				                            if ($catId == 6) :
+				                            if ($catId == 20) :
 				                        ?>
                                             <div class="swiper-slide">
                                                 <div class="img-wrap">

@@ -11,12 +11,12 @@ export function slider($) {
 
     window.onload = updateSlider;
 
-    function updateSlider(type){
+    function updateSlider(type) {
         let tab = '.swiper-container';
         let tabN = '.swiper-button-next';
         let tabP = '.swiper-button-prev';
 
-        if ( !tabConstruction && type === 'construction'){
+        if (!tabConstruction && type === 'construction') {
             tab += '.construction';
             tabN += '.construction';
             tabP += '.construction';
@@ -36,7 +36,8 @@ export function slider($) {
                 breakpoints: {
                     // when window width is <= 320px
                     480: {
-                        slidesPerView: 1,
+                        centeredSlides: true,
+                        slidesPerView: 1.5,
                         spaceBetween: 20
                     },
                     992: {
@@ -46,7 +47,7 @@ export function slider($) {
                 }
             });
 
-        }else if(!tabAcoustic) {
+        } else if (!tabAcoustic) {
             tab += '.acoustic';
             tabN += '.acoustic';
             tabP += '.acoustic';
@@ -65,7 +66,8 @@ export function slider($) {
                 breakpoints: {
                     // when window width is <= 320px
                     480: {
-                        slidesPerView: 1,
+                        centeredSlides: true,
+                        slidesPerView: 1.5,
                         spaceBetween: 20
                     },
                     992: {
@@ -82,9 +84,9 @@ export function slider($) {
 
     $('#pills-tab a').on('shown.bs.tab', function (e) {
         let id = $(this).attr('id');
-        if (id === 'pills-profile-tab'){
+        if (id === 'pills-profile-tab') {
             updateSlider('construction');
-        }else{
+        } else {
             updateSlider('acoustic');
         }
     });

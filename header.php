@@ -65,12 +65,36 @@
             </div>
         </div>
         <div class="row d-md-none">
-            <div class="col-4 pl-md-0 align-self-center">
-                <a class="menu-button" href="#">
+            <div class="col-2 col-sm-4 align-self-center">
+                <a class="menu-button">
                     <i class="fas fa-bars fa-2x"></i>
                 </a>
             </div>
-            <div class="col-4 p-0"><?php the_custom_logo(); ?></div>
+            <div class="col-5 col-sm-4 pt-1 pt-sm-0"><?php the_custom_logo(); ?></div>
+	        <?php if (get_theme_mod('naturlith_languages_enable')): ?>
+                <div class="col-5 col-sm-4 d-flex location-mobile">
+			        <?php if (get_theme_mod('naturlith_languages_dk_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_dk_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/dk.gif'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+			        <?php if (get_theme_mod('naturlith_languages_en_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_en_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/en.png'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+			        <?php if (get_theme_mod('naturlith_languages_de_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_de_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/gr.gif'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+			        <?php if (get_theme_mod('naturlith_languages_it_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_it_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/it.jpg'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+                </div>
+	        <?php endif; ?>
         </div>
     </div>
 </header>
@@ -92,12 +116,36 @@
             </div>
         </div>
         <div class="row d-md-none">
-            <div class="col-4 pl-md-0 align-self-center">
-                <a class="menu-button" href="#">
+            <div class="col-2 col-sm-4 align-self-center">
+                <a class="menu-button">
                     <i class="fas fa-bars fa-2x"></i>
                 </a>
             </div>
-            <div class="col-4 p-0"><?php the_custom_logo(); ?></div>
+            <div class="col-5 col-sm-4 pt-1 pt-sm-0"><?php the_custom_logo(); ?></div>
+	        <?php if (get_theme_mod('naturlith_languages_enable')): ?>
+                <div class="col-5 col-sm-4 d-flex location-mobile">
+			        <?php if (get_theme_mod('naturlith_languages_dk_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_dk_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/dk.gif'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+			        <?php if (get_theme_mod('naturlith_languages_en_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_en_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/en.png'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+			        <?php if (get_theme_mod('naturlith_languages_de_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_de_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/gr.gif'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+			        <?php if (get_theme_mod('naturlith_languages_it_enable')): ?>
+                        <a href="<?php echo get_theme_mod('naturlith_languages_it_url');?>">
+                            <img src="<?php echo get_template_directory_uri() . '/img/it.jpg'; ?>" alt="">
+                        </a>
+			        <?php endif; ?>
+                </div>
+	        <?php endif; ?>
         </div>
     </div>
 </header>
@@ -106,7 +154,7 @@
 
     <div class="mobile-menu-left">
         <div class="menu-header d-flex justify-content-between p-3 mb-2">
-            <a id="back-button" href="#" class="w-100">
+            <a id="back-button" class="w-100">
                 <i class="fas fa-chevron-left fa-2x"></i>
                 <span class="fa-lg ml-3"><?php _e('Menu'); ?></span>
             </a>
@@ -119,30 +167,6 @@
                 'menu_id' => '',
                 'depth' => 2
             )); ?>
-            <?php if (get_theme_mod('naturlith_languages_enable')): ?>
-                <div class="location-mobile mt-3">
-                    <?php if (get_theme_mod('naturlith_languages_dk_enable')): ?>
-                        <a href="<?php echo get_theme_mod('naturlith_languages_dk_url');?>">
-                            <img src="<?php echo get_template_directory_uri() . '/img/dk.gif'; ?>" alt="">
-                        </a>
-                    <?php endif; ?>
-                    <?php if (get_theme_mod('naturlith_languages_en_enable')): ?>
-                        <a href="<?php echo get_theme_mod('naturlith_languages_en_url');?>">
-                            <img src="<?php echo get_template_directory_uri() . '/img/en.png'; ?>" alt="">
-                        </a>
-                    <?php endif; ?>
-                    <?php if (get_theme_mod('naturlith_languages_de_enable')): ?>
-                        <a href="<?php echo get_theme_mod('naturlith_languages_de_url');?>">
-                            <img src="<?php echo get_template_directory_uri() . '/img/gr.gif'; ?>" alt="">
-                        </a>
-                    <?php endif; ?>
-                    <?php if (get_theme_mod('naturlith_languages_it_enable')): ?>
-                        <a href="<?php echo get_theme_mod('naturlith_languages_it_url');?>">
-                            <img src="<?php echo get_template_directory_uri() . '/img/it.jpg'; ?>" alt="">
-                        </a>
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
         </div>
     </div>
 

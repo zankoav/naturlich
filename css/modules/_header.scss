@@ -25,6 +25,17 @@ header {
                 rgba(255, 255, 255, 1.0),
                 rgba(255, 255, 255, 1.0)
         );
+
+        .location-mobile {
+            a {
+                align-self: center;
+                img {
+                    width: 70%;
+                    float: right;
+                }
+            }
+
+        }
     }
 
     .custom-logo {
@@ -140,6 +151,17 @@ header {
 header#header-drop-down {
     display: none;
     background-color: rgba(255, 255, 255, 0.99);
+
+    .location-mobile {
+        a {
+            align-self: center;
+            img {
+                width: 70%;
+                float: right;
+            }
+        }
+
+    }
 }
 
 menu#mobile-menu {
@@ -157,6 +179,7 @@ menu#mobile-menu {
     }
 
     .menu-header {
+
         @include box-shadow(0px 1px 10px 0px rgba(0, 0, 0, 0.2));
 
         #back-button {
@@ -251,15 +274,6 @@ menu#mobile-menu {
                     }
                 }
             }
-        }
-
-        .location-mobile {
-            height: 100px;
-            img {
-                width: 15%;
-                padding-right: 3%;
-            }
-
         }
     }
 
