@@ -6,32 +6,84 @@ import Swiper from 'swiper';
 
 export function slider($) {
 
-    window.onload = function () {
-        //initialize swiper when document ready
-        var mySwiper = new Swiper ('.swiper-container', {
-            // Optional parameters
-            direction: 'horizontal',
-            slidesPerView: 4,
-            spaceBetween: 30,
-            speed: 500,
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            breakpoints: {
-                // when window width is <= 320px
-                480: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
+    let tabAcoustic, tabConstruction;
+
+    window.onload = updateSlider;
+
+    function updateSlider(type = 'acoustic'){
+        let tab = '.swiper-container';
+        let tabN = '.swiper-button-next';
+        let tabP = '.swiper-button-prev';
+
+        if (type === 'construction'){
+            tab += '.construction';
+            tabN += '.construction';
+            tabP += '.construction';
+
+            tabConstruction = new Swiper(tab, {
+                // Optional parameters
+                direction: 'horizontal',
+                slidesPerView: 4,
+                spaceBetween: 30,
+                speed: 500,
+                loop: true,
+                navigation: {
+                    nextEl: tabN,
+                    prevEl: tabP,
                 },
-                992: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
+                breakpoints: {
+                    // when window width is <= 320px
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    }
                 }
-            }
-        });
+            });
+
+        }else {
+            tab += '.acoustic';
+            tabN += '.acoustic';
+            tabP += '.acoustic';
+
+            tabAcoustic = new Swiper(tab, {
+                // Optional parameters
+                direction: 'horizontal',
+                slidesPerView: 4,
+                spaceBetween: 30,
+                speed: 500,
+                loop: true,
+                navigation: {
+                    nextEl: tabN,
+                    prevEl: tabP,
+                },
+                breakpoints: {
+                    // when window width is <= 320px
+                    480: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    },
+                    992: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    }
+                }
+            });
+        }
 
         $('.swiper-container-wrapper').removeClass('invisible');
     }
+
+
+    $('#pills-tab a').on('shown.bs.tab', function (e) {
+        let id = $(this).attr('id');
+        if (id === 'pills-profile-tab'){
+            updateSlider('construction');
+        }else{
+            updateSlider('acoustic');
+        }
+    });
 }

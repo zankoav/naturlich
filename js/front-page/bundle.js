@@ -349,33 +349,83 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Created by alexandrzanko on 2/16/18.
  */
 function slider($) {
-  window.onload = function () {
-    //initialize swiper when document ready
-    var mySwiper = new _swiper.default('.swiper-container', {
-      // Optional parameters
-      direction: 'horizontal',
-      slidesPerView: 4,
-      spaceBetween: 30,
-      speed: 500,
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      },
-      breakpoints: {
-        // when window width is <= 320px
-        480: {
-          slidesPerView: 1,
-          spaceBetween: 20
+  var tabAcoustic, tabConstruction;
+  window.onload = updateSlider;
+
+  function updateSlider() {
+    var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'acoustic';
+    var tab = '.swiper-container';
+    var tabN = '.swiper-button-next';
+    var tabP = '.swiper-button-prev';
+
+    if (type === 'construction') {
+      tab += '.construction';
+      tabN += '.construction';
+      tabP += '.construction';
+      tabConstruction = new _swiper.default(tab, {
+        // Optional parameters
+        direction: 'horizontal',
+        slidesPerView: 4,
+        spaceBetween: 30,
+        speed: 500,
+        loop: true,
+        navigation: {
+          nextEl: tabN,
+          prevEl: tabP
         },
-        992: {
-          slidesPerView: 2,
-          spaceBetween: 20
+        breakpoints: {
+          // when window width is <= 320px
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          }
         }
-      }
-    });
+      });
+    } else {
+      tab += '.acoustic';
+      tabN += '.acoustic';
+      tabP += '.acoustic';
+      tabAcoustic = new _swiper.default(tab, {
+        // Optional parameters
+        direction: 'horizontal',
+        slidesPerView: 4,
+        spaceBetween: 30,
+        speed: 500,
+        loop: true,
+        navigation: {
+          nextEl: tabN,
+          prevEl: tabP
+        },
+        breakpoints: {
+          // when window width is <= 320px
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          }
+        }
+      });
+    }
+
     $('.swiper-container-wrapper').removeClass('invisible');
-  };
+  }
+
+  $('#pills-tab a').on('shown.bs.tab', function (e) {
+    var id = $(this).attr('id');
+
+    if (id === 'pills-profile-tab') {
+      updateSlider('construction');
+    } else {
+      updateSlider('acoustic');
+    }
+  });
 }
 
 /***/ }),

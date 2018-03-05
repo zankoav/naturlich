@@ -5,7 +5,7 @@ module.exports = {
         library: 'app'
     },
 
-    watch: false,
+    watch: true,
     devtool: 'source-map',
 
     module: {
