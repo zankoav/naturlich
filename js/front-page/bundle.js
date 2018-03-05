@@ -349,16 +349,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Created by alexandrzanko on 2/16/18.
  */
 function slider($) {
-  var tabAcoustic, tabConstruction;
+  var tabAcoustic = false,
+      tabConstruction = false;
   window.onload = updateSlider;
 
-  function updateSlider() {
-    var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'acoustic';
+  function updateSlider(type) {
     var tab = '.swiper-container';
     var tabN = '.swiper-button-next';
     var tabP = '.swiper-button-prev';
 
-    if (type === 'construction') {
+    if (!tabConstruction && type === 'construction') {
       tab += '.construction';
       tabN += '.construction';
       tabP += '.construction';
@@ -385,7 +385,7 @@ function slider($) {
           }
         }
       });
-    } else {
+    } else if (!tabAcoustic) {
       tab += '.acoustic';
       tabN += '.acoustic';
       tabP += '.acoustic';
