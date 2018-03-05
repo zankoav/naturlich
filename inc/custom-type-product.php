@@ -6,7 +6,7 @@
  * Time: 8:40 AM
  */
 
-$pageSlugs = ['contacts', 'products'];
+$pageSlugs = ['products']; //'contacts',
 
 function products_post_type()
 {
