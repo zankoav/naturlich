@@ -124,7 +124,7 @@
                                         <!-- Slides -->
 	                                    <?php while ( $the_query->have_posts() ) : $the_query->the_post();
 		                                    $catId = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->term_id;
-		                                    if ($catId == 5) :
+		                                    if ($catId == 19) :
 			                                    ?>
                                                 <div class="swiper-slide">
                                                     <div class="img-wrap">
@@ -171,7 +171,7 @@
                                         <!-- Slides -->
 				                        <?php while ( $the_query->have_posts() ) : $the_query->the_post();
 				                            $catId = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->term_id;
-				                            if ($catId == 6) :
+				                            if ($catId == 20) :
 				                        ?>
                                             <div class="swiper-slide">
                                                 <div class="img-wrap">

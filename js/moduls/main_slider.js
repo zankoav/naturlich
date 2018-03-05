@@ -6,19 +6,21 @@ import Swiper from 'swiper';
 
 export function slider($) {
 
-    let tabAcoustic, tabConstruction;
+    let tabAcoustic = false,
+        tabConstruction = false;
 
     window.onload = updateSlider;
 
-    function updateSlider(type = 'acoustic'){
+    function updateSlider(type){
         let tab = '.swiper-container';
         let tabN = '.swiper-button-next';
         let tabP = '.swiper-button-prev';
 
-        if (type === 'construction'){
+        if ( !tabConstruction && type === 'construction'){
             tab += '.construction';
             tabN += '.construction';
             tabP += '.construction';
+
 
             tabConstruction = new Swiper(tab, {
                 // Optional parameters
@@ -44,7 +46,7 @@ export function slider($) {
                 }
             });
 
-        }else {
+        }else if(!tabAcoustic) {
             tab += '.acoustic';
             tabN += '.acoustic';
             tabP += '.acoustic';
