@@ -376,7 +376,8 @@ function slider($) {
         breakpoints: {
           // when window width is <= 320px
           480: {
-            slidesPerView: 1,
+            centeredSlides: true,
+            slidesPerView: 1.5,
             spaceBetween: 20
           },
           992: {
@@ -403,7 +404,8 @@ function slider($) {
         breakpoints: {
           // when window width is <= 320px
           480: {
-            slidesPerView: 1,
+            centeredSlides: true,
+            slidesPerView: 1.5,
             spaceBetween: 20
           },
           992: {

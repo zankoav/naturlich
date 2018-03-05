@@ -393,11 +393,30 @@
 }
 
 @media (max-width: 768px) {
-    #home-page #carouselExampleIndicators .carousel-caption h1, #home-page #conditions .container h1 {
+
+    #home-page #carouselExampleIndicators .carousel-caption h1,
+    #home-page #conditions .container h1,
+    #home-page #advantages h1,
+    #home-page #products h1,
+    #home-page #news h2{
         font-size: 2rem;
     }
 
+    #home-page #products h1 {
+        padding-top: 0 !important;
+    }
+
+    #home-page #conditions .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .w-75{
+        width: 100% !important;
+    }
+
     #home-page #carouselExampleIndicators .carousel-caption {
-        min-height: 400px;
+        min-height: 330px;
+        padding: 8rem 2rem 0rem 2rem;
     }
 }
