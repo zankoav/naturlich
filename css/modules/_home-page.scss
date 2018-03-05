@@ -207,6 +207,20 @@
 
         background: $light;
 
+        .nav-pills .nav-link {
+            color: $dark-gray;
+
+            &:hover {
+                color: $primary;
+            }
+
+            &.active {
+                text-decoration: underline;
+                color: $primary;
+                background-color: transparent;
+            }
+        }
+
         .swiper-container-wrapper {
             &.invisible {
                 opacity: 0;

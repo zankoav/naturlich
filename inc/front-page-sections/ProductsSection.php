@@ -38,22 +38,22 @@ class ProductsSection extends BaseSection
             )
         );
 
-        $id = $this->id() . 'all';
+        $id = $this->id() . 'acoustic';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => __('View all button title', 'naturlith'),
+                'label' => __('Tab 1', 'naturlith'),
                 'section' => $this->id()
             )
         );
 
-        $id = $this->id() . 'all_url';
+        $id = $this->id() . 'construct';
         $customizer->add_setting($id);
         $customizer->add_control($id,
             array(
                 'type' => 'text',
-                'label' => __('URL for all button', 'naturlith'),
+                'label' => __('Tab 2', 'naturlith'),
                 'section' => $this->id()
             )
         );

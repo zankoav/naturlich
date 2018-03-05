@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Naturlith\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-19 14:59+0000\n"
-"PO-Revision-Date: 2018-02-19 15:10+0000\n"
+"POT-Creation-Date: 2018-03-05 11:15+0000\n"
+"PO-Revision-Date: 2018-03-05 11:15+0000\n"
 "Last-Translator: zanko <zankoav@mail.ru>\n"
 "Language-Team: English (UK)\n"
 "Language: en_GB\n"
@@ -584,12 +584,12 @@ msgid "4 products on Main Page"
 msgstr "4 products on Main Page"
 
 #: inc/front-page-sections/ProductsSection.php:46
-msgid "View all button title"
-msgstr "View all button title"
+msgid "Tab 1"
+msgstr "Tab 1"
 
 #: inc/front-page-sections/ProductsSection.php:56
-msgid "URL for all button"
-msgstr "URL for all button"
+msgid "Tab 2"
+msgstr "Tab 2"
 
 #: inc/front-page-sections/ConditionsSection.php:19
 msgid "Conditions"
@@ -683,7 +683,8 @@ msgstr "Send"
 msgid "More"
 msgstr "More"
 
-#: inc/templates/content-front-page.php:129
+#: inc/templates/content-front-page.php:144
+#: inc/templates/content-front-page.php:191
 msgid "View"
 msgstr "View"
 
