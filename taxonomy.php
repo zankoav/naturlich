@@ -115,7 +115,7 @@ function getIncludeFilters($wp_query){
         <div class="container py-5">
             <div class="row justify-content-between mb-0">
                 <div class="col-12 col-md-9 align-self-center mb-4 mb-md-0">
-                    <h1><?php the_title(); ?></h1>
+                    <h1><?php echo get_queried_object()->name; ?></h1>
                 </div>
                 <div class="col-12 col-md-3 align-self-center">
 
