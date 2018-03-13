@@ -349,85 +349,118 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * Created by alexandrzanko on 2/16/18.
  */
 function slider($) {
-  var tabAcoustic = false,
-      tabConstruction = false;
-  window.onload = updateSlider;
+  var tab = '.swiper-container';
+  var tabN = '.swiper-button-next';
+  var tabP = '.swiper-button-prev';
+  var currentTaxonomy, swiper;
 
-  function updateSlider(type) {
-    var tab = '.swiper-container';
-    var tabN = '.swiper-button-next';
-    var tabP = '.swiper-button-prev';
+  window.onload = function () {
+    updateSlider(tab, tabN, tabP);
+  };
 
-    if (!tabConstruction && type === 'construction') {
-      tab += '.construction';
-      tabN += '.construction';
-      tabP += '.construction';
-      tabConstruction = new _swiper.default(tab, {
-        // Optional parameters
-        direction: 'horizontal',
-        slidesPerView: 4,
-        spaceBetween: 30,
-        speed: 500,
-        loop: true,
-        navigation: {
-          nextEl: tabN,
-          prevEl: tabP
-        },
-        breakpoints: {
-          // when window width is <= 320px
-          480: {
-            centeredSlides: true,
-            slidesPerView: 1.5,
-            spaceBetween: 20
-          },
-          992: {
-            slidesPerView: 2,
-            spaceBetween: 20
+  var products = initSliderData();
+  $('.taxonomy').click(function () {
+    $('.taxonomy').removeClass('active');
+    $(this).addClass('active');
+    var taxonomy = $(this).attr('data-tax');
+
+    if (currentTaxonomy !== taxonomy) {
+      currentTaxonomy = taxonomy;
+      var productsFiltered = products.filter(function (product) {
+        return product.category === currentTaxonomy;
+      });
+      $('.slider').empty();
+      $('.slider').append(getSliderContainer());
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = productsFiltered[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var _product = _step.value;
+          var pH = getProductHtml(_product);
+          $('.swiper-wrapper').append(pH);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator.return != null) {
+            _iterator.return();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
           }
         }
-      });
-    } else if (!tabAcoustic) {
-      tab += '.acoustic';
-      tabN += '.acoustic';
-      tabP += '.acoustic';
-      tabAcoustic = new _swiper.default(tab, {
-        // Optional parameters
-        direction: 'horizontal',
-        slidesPerView: 4,
-        spaceBetween: 30,
-        speed: 500,
-        loop: true,
-        navigation: {
-          nextEl: tabN,
-          prevEl: tabP
-        },
-        breakpoints: {
-          // when window width is <= 320px
-          480: {
-            centeredSlides: true,
-            slidesPerView: 1.5,
-            spaceBetween: 20
-          },
-          992: {
-            slidesPerView: 2,
-            spaceBetween: 20
-          }
-        }
-      });
-    }
+      }
 
-    $('.swiper-container-wrapper').removeClass('invisible');
-  }
-
-  $('#pills-tab a').on('shown.bs.tab', function (e) {
-    var id = $(this).attr('id');
-
-    if (id === 'pills-profile-tab') {
-      updateSlider('construction');
-    } else {
-      updateSlider('acoustic');
+      updateSlider(tab, tabN, tabP);
     }
   });
+
+  function getSliderContainer() {
+    return "<div class=\"swiper-container\">\n                <!-- Additional required wrapper -->\n                    <div class=\"swiper-wrapper\"></div>\n                </div>\n                <div class=\"swiper-button-prev\">\n                    <i class=\"fas fa-2x fa-chevron-left float-right\"></i>\n                </div>\n                <div class=\"swiper-button-next\">\n                    <i class=\"fas fa-2x fa-chevron-right\"></i>\n                </div>";
+  }
+
+  function getProductHtml(product) {
+    return "<div class=\"swiper-slide\">\n                   <div class=\"img-wrap\">\n                        <img class=\"card-img-top rounded-0 img-fluid\" src=\"".concat(product.img, "\" alt=\"").concat(product.title, "\">\n                   </div>\n                   <div class=\"card-body\">\n                        <h5 class=\"product-mark card-title text-uppercase mb-0\">").concat(product.mark, "</h5>\n                        <p class=\"product-category card-text text-lowercase mb-0\">").concat(product.categoryName, "</p>\n                        <hr class=\"my-2\">\n                        <p class=\"product-title card-text\">").concat(product.title, "</p>\n                   </div>\n                   <div class=\"card-footer p-0\">\n                        <a href=\"<?php the_permalink(); ?>\"\n                           class=\"btn btn-success\">").concat(product.btnTitle, "</a>\n                   </div>\n                </div>");
+  }
+
+  function initSliderData() {
+    var products = [];
+    var swiperSlides = document.getElementsByClassName('swiper-slide');
+
+    for (var i = 0; i < swiperSlides.length; i++) {
+      var obj = swiperSlides[i];
+      var imgUrl = $(obj).find('img').attr('src');
+      imgUrl = imgUrl ? imgUrl : '';
+      var mark = $(obj).find('.product-mark').html();
+      var category = $(obj).find('.product-category').attr('data-tax');
+      var categoryName = $(obj).find('.product-category').html();
+      var title = $(obj).find('.product-title').html();
+      var btnTitle = $(obj).find('a').html();
+      products.push({
+        'img': imgUrl,
+        'title': title,
+        'category': category,
+        'categoryName': categoryName,
+        'mark': mark,
+        'btnTitle': btnTitle
+      });
+    }
+
+    return products;
+  }
+
+  function updateSlider(tab, tabN, tabP) {
+    swiper = new _swiper.default(tab, {
+      // Optional parameters
+      direction: 'horizontal',
+      slidesPerView: 4,
+      spaceBetween: 30,
+      speed: 500,
+      loop: true,
+      navigation: {
+        nextEl: tabN,
+        prevEl: tabP
+      },
+      breakpoints: {
+        // when window width is <= 320px
+        480: {
+          centeredSlides: true,
+          slidesPerView: 1.5,
+          spaceBetween: 20
+        },
+        992: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    });
+    $('.slider').removeClass('invisible');
+  }
 }
 
 /***/ }),
