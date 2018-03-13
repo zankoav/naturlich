@@ -95,6 +95,26 @@ class NewsSection extends BaseSection
                 'section' => $this->id()
             )
         );
+
+	    $id = $this->id() . 'all_news_title';
+	    $customizer->add_setting($id);
+	    $customizer->add_control($id,
+		    array(
+			    'type' => 'text',
+			    'label' => __('Button title', 'naturlith'),
+			    'section' => $this->id()
+		    )
+	    );
+
+	    $id = $this->id() . 'all_news_href';
+	    $customizer->add_setting($id);
+	    $customizer->add_control($id,
+		    array(
+			    'type' => 'text',
+			    'label' => __('Url all news', 'naturlith'),
+			    'section' => $this->id()
+		    )
+	    );
     }
 
     public function panel()

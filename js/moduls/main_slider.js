@@ -6,88 +6,134 @@ import Swiper from 'swiper';
 
 export function slider($) {
 
-    let tabAcoustic = false,
-        tabConstruction = false;
+    let tab = '.swiper-container';
+    let tabN = '.swiper-button-next';
+    let tabP = '.swiper-button-prev';
 
-    window.onload = updateSlider;
+    let currentTaxonomy, swiper;
 
-    function updateSlider(type) {
-        let tab = '.swiper-container';
-        let tabN = '.swiper-button-next';
-        let tabP = '.swiper-button-prev';
-
-        if (!tabConstruction && type === 'construction') {
-            tab += '.construction';
-            tabN += '.construction';
-            tabP += '.construction';
+    window.onload = function () {
+        updateSlider(tab, tabN, tabP);
+    };
 
 
-            tabConstruction = new Swiper(tab, {
-                // Optional parameters
-                direction: 'horizontal',
-                slidesPerView: 4,
-                spaceBetween: 30,
-                speed: 500,
-                loop: true,
-                navigation: {
-                    nextEl: tabN,
-                    prevEl: tabP,
-                },
-                breakpoints: {
-                    // when window width is <= 320px
-                    480: {
-                        centeredSlides: true,
-                        slidesPerView: 1.5,
-                        spaceBetween: 20
-                    },
-                    992: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
-                    }
-                }
+    let products = initSliderData();
+
+    $('.taxonomy').click(function () {
+
+        $('.taxonomy').removeClass('active');
+        $(this).addClass('active');
+        let taxonomy = $(this).attr('data-tax');
+
+        if (currentTaxonomy !== taxonomy) {
+            currentTaxonomy = taxonomy;
+
+            let productsFiltered = products.filter(function (product) {
+                return product.category === currentTaxonomy;
             });
 
-        } else if (!tabAcoustic) {
-            tab += '.acoustic';
-            tabN += '.acoustic';
-            tabP += '.acoustic';
+            $('.slider').empty();
+            $('.slider').append(getSliderContainer());
 
-            tabAcoustic = new Swiper(tab, {
-                // Optional parameters
-                direction: 'horizontal',
-                slidesPerView: 4,
-                spaceBetween: 30,
-                speed: 500,
-                loop: true,
-                navigation: {
-                    nextEl: tabN,
-                    prevEl: tabP,
-                },
-                breakpoints: {
-                    // when window width is <= 320px
-                    480: {
-                        centeredSlides: true,
-                        slidesPerView: 1.5,
-                        spaceBetween: 20
-                    },
-                    992: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
-                    }
-                }
-            });
+            for (let product of productsFiltered) {
+                let pH = getProductHtml(product);
+                $('.swiper-wrapper').append(pH);
+            }
+
+            updateSlider(tab, tabN, tabP);
+
         }
+    });
 
-        $('.swiper-container-wrapper').removeClass('invisible');
+    function getSliderContainer() {
+        return `<div class="swiper-container">
+                <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper"></div>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="fas fa-2x fa-chevron-left float-right"></i>
+                </div>
+                <div class="swiper-button-next">
+                    <i class="fas fa-2x fa-chevron-right"></i>
+                </div>`;
     }
 
 
-    $('#pills-tab a').on('shown.bs.tab', function (e) {
-        let id = $(this).attr('id');
-        if (id === 'pills-profile-tab') {
-            updateSlider('construction');
-        } else {
-            updateSlider('acoustic');
+    function getProductHtml(product) {
+        return `<div class="swiper-slide">
+                   <div class="img-wrap">
+                        <img class="card-img-top rounded-0 img-fluid" src="${product.img}" alt="${product.title}">
+                   </div>
+                   <div class="card-body">
+                        <h5 class="product-mark card-title text-uppercase mb-0">${product.mark}</h5>
+                        <p class="product-category card-text text-lowercase mb-0">${product.categoryName}</p>
+                        <hr class="my-2">
+                        <p class="product-title card-text">${product.title}</p>
+                   </div>
+                   <div class="card-footer p-0">
+                        <a href="<?php the_permalink(); ?>"
+                           class="btn btn-success">${product.btnTitle}</a>
+                   </div>
+                </div>`;
+    }
+
+    function initSliderData() {
+        let products = [];
+
+        let swiperSlides = document.getElementsByClassName('swiper-slide');
+
+        for (let i = 0; i < swiperSlides.length; i++) {
+            let obj = swiperSlides[i];
+            let imgUrl = $(obj).find('img').attr('src');
+            imgUrl = imgUrl ? imgUrl : '';
+
+            let mark = $(obj).find('.product-mark').html();
+            let category = $(obj).find('.product-category').attr('data-tax');
+            let categoryName = $(obj).find('.product-category').html();
+            let title = $(obj).find('.product-title').html();
+            let btnTitle = $(obj).find('a').html();
+
+
+            products.push({
+                'img': imgUrl,
+                'title': title,
+                'category': category,
+                'categoryName': categoryName,
+                'mark': mark,
+                'btnTitle': btnTitle,
+            });
         }
-    });
+
+        return products;
+    }
+
+    function updateSlider(tab, tabN, tabP) {
+
+        swiper = new Swiper(tab, {
+            // Optional parameters
+            direction: 'horizontal',
+            slidesPerView: 4,
+            spaceBetween: 30,
+            speed: 500,
+            loop: true,
+            navigation: {
+                nextEl: tabN,
+                prevEl: tabP,
+            },
+            breakpoints: {
+                // when window width is <= 320px
+                480: {
+                    centeredSlides: true,
+                    slidesPerView: 1.5,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                }
+            }
+        });
+
+        $('.slider').removeClass('invisible');
+    }
 }

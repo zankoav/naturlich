@@ -61,157 +61,122 @@
                 <div class="container pt-5 position-relative">
                     <h1 class="text-center pb-2"><?php echo $advantagesTitle; ?></h1>
                     <h2 class="text-center"><?php echo get_theme_mod( 'naturlith_advantages_sub_title' ); ?></h2>
-                    <div id="advantage-items" class="row mt-5">
-						<?php for ( $i = 0; $i < 5; $i ++ ) {
-							$itemTitle = get_theme_mod( 'naturlith_advantages_title_item_' . $i );
-							if ( ! empty( $itemTitle ) ) { ?>
-                                <div class="col-12 col-lg-7 mb-4 item">
-                                    <div class="row">
-                                        <div class="col-3 col-md-2 align-self-center">
-                                            <img class="w-100"
-                                                 src="<?php echo get_theme_mod( 'naturlith_advantages_icon_item_' . $i ); ?>"
-                                                 alt="Icon must be here">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div id="advantage-items" class="mt-5">
+								<?php for ( $i = 0; $i < 5; $i ++ ) {
+									$itemTitle = get_theme_mod( 'naturlith_advantages_title_item_' . $i );
+									if ( ! empty( $itemTitle ) ) { ?>
+                                        <div class="mb-4 item">
+                                            <div class="row">
+                                                <div class="col-3 col-md-2 align-self-center">
+                                                    <img class="w-100"
+                                                         src="<?php echo get_theme_mod( 'naturlith_advantages_icon_item_' . $i ); ?>"
+                                                         alt="Icon must be here">
+                                                </div>
+                                                <div class="col-9 col-md-10 align-self-center">
+                                                    <h5 class="text-uppercase"><?php echo $itemTitle; ?></h5>
+                                                    <p><?php echo get_theme_mod( 'naturlith_advantages_subtitle_item_' . $i ); ?></p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-9 col-md-10 align-self-center">
-                                            <h5 class="text-uppercase w-75"><?php echo $itemTitle; ?></h5>
-                                            <p class="w-75"><?php echo get_theme_mod( 'naturlith_advantages_subtitle_item_' . $i ); ?></p>
-                                        </div>
-                                    </div>
-                                </div>
-							<?php }
-						} ?>
+									<?php }
+								} ?>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img class="banner d-block"
+                                 src="<?php echo get_theme_mod( 'naturlith_advantages_right_image' ); ?>" alt="">
+                            <a href="<?php echo get_theme_mod( 'naturlith_advantages_button_url_1' ); ?>"
+                               class="btn btn-success d-block"><?php echo get_theme_mod( 'naturlith_advantages_button_title_1' ); ?></a>
+                            <a href="<?php echo get_theme_mod( 'naturlith_advantages_button_url_2' ); ?>"
+                               class="btn btn-success d-block second"><?php echo get_theme_mod( 'naturlith_advantages_button_title_2' ); ?></a>
+                        </div>
                     </div>
-                    <img class="position-absolute pt-5 banner d-none d-lg-block"
-                         src="<?php echo get_theme_mod( 'naturlith_advantages_right_image' ); ?>" alt="">
-                    <a href="<?php echo get_theme_mod( 'naturlith_advantages_button_url_1' ); ?>"
-                       class="btn btn-success d-none d-lg-block"><?php echo get_theme_mod( 'naturlith_advantages_button_title_1' ); ?></a>
-                    <a href="<?php echo get_theme_mod( 'naturlith_advantages_button_url_2' ); ?>"
-                       class="btn btn-success d-none d-lg-block second"><?php echo get_theme_mod( 'naturlith_advantages_button_title_2' ); ?></a>
                 </div>
 			<?php } ?>
     </div>
 
 	<?php if ( get_theme_mod( 'naturlith_products_enable' ) ):
-		$args = array( 'post_type' => 'naturlith_products', 'posts_per_page' => - 1 );
-		$the_query = new WP_Query( $args );
 		$productTitle = get_theme_mod( 'naturlith_products_title' );
 
-		if ( ! empty( $productTitle ) and $the_query->have_posts() ): ?>
+		if ( ! empty( $productTitle ) ): ?>
             <div id="products">
 
                 <div class="container py-5">
+
                     <h1 class="text-center mb-3 pt-5"><?php echo $productTitle; ?></h1>
 
-                    <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                               role="tab" aria-controls="pills-home" aria-selected="true"><?php echo get_theme_mod( 'naturlith_products_acoustic' ); ?></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
-                               role="tab" aria-controls="pills-profile" aria-selected="false"><?php echo get_theme_mod( 'naturlith_products_construct' ); ?></a>
-                        </li>
-                    </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                             aria-labelledby="pills-home-tab">
-
-                            <div class="swiper-container-wrapper position-relative invisible">
-                                <!-- Slider main container -->
-                                <div class="swiper-container acoustic">
-                                    <!-- Additional required wrapper -->
-                                    <div class="swiper-wrapper">
-                                        <!-- Slides -->
-	                                    <?php while ( $the_query->have_posts() ) : $the_query->the_post();
-		                                    $catId = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->term_id;
-		                                    if ($catId == 5) :
-			                                    ?>
-                                                <div class="swiper-slide">
-                                                    <div class="img-wrap">
-					                                    <?php the_post_thumbnail( 'medium', array(
-						                                    'class' => "card-img-top rounded-0 img-fluid",
-						                                    'alt'   => the_title( '', '', 0 )
-					                                    ) ); ?>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <h5 class="card-title text-uppercase mb-0"><?php echo get_post_meta( get_the_ID(), 'naturlith_product_mark', true ); ?></h5>
-                                                        <p class="card-text text-lowercase mb-0"><?php echo get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->name; ?></p>
-                                                        <hr class="my-2">
-                                                        <p class="card-text"><?php the_title(); ?></p>
-                                                    </div>
-                                                    <div class="card-footer p-0">
-                                                        <a href="<?php the_permalink(); ?>"
-                                                           class="btn btn-success"><?php echo __( 'View', 'naturlith' ) ?></a>
-                                                    </div>
-                                                </div>
-		                                    <?php
-		                                    endif;
-	                                    endwhile; ?>
+                    <div class="taxonomies">
+						<?php
+							$taxonomies = get_terms( 'naturlith_products_category' );
+							if ( $taxonomies ) {
+								foreach ( $taxonomies as $taxonomy ) : ?>
+                                    <div class="taxonomy" data-tax="<?php echo $taxonomy->slug; ?>">
+										<?php echo $taxonomy->name; ?>
                                     </div>
-                                    <!-- If we need pagination -->
-                                    <div class="swiper-pagination"></div>
-
-                                </div>
-                                <!-- If we need navigation buttons -->
-                                <div class="swiper-button-prev acoustic"><i class="fas fa-2x fa-chevron-left"></i>
-                                </div>
-                                <div class="swiper-button-next acoustic"><i class="fas fa-2x fa-chevron-right"></i>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                             aria-labelledby="pills-profile-tab">
-
-                            <div class="swiper-container-wrapper position-relative invisible">
-                                <!-- Slider main container -->
-                                <div class="swiper-container construction">
-                                    <!-- Additional required wrapper -->
-                                    <div class="swiper-wrapper">
-                                        <!-- Slides -->
-				                        <?php while ( $the_query->have_posts() ) : $the_query->the_post();
-				                            $catId = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->term_id;
-				                            if ($catId == 6) :
-				                        ?>
-                                            <div class="swiper-slide">
-                                                <div class="img-wrap">
-							                        <?php the_post_thumbnail( 'medium', array(
-								                        'class' => "card-img-top rounded-0 img-fluid",
-								                        'alt'   => the_title( '', '', 0 )
-							                        ) ); ?>
-                                                </div>
-                                                <div class="card-body">
-                                                    <h5 class="card-title text-uppercase mb-0"><?php echo get_post_meta( get_the_ID(), 'naturlith_product_mark', true ); ?></h5>
-                                                    <p class="card-text text-lowercase mb-0"><?php echo get_the_terms( get_the_ID(), 'naturlith_products_category' )[0]->name; ?></p>
-                                                    <hr class="my-2">
-                                                    <p class="card-text"><?php the_title(); ?></p>
-                                                </div>
-                                                <div class="card-footer p-0">
-                                                    <a href="<?php the_permalink(); ?>"
-                                                       class="btn btn-success"><?php echo __( 'View', 'naturlith' ) ?></a>
-                                                </div>
-                                            </div>
-                                        <?php
-                                            endif;
-                                            endwhile; ?>
-                                    </div>
-                                    <!-- If we need pagination -->
-                                    <div class="swiper-pagination"></div>
-
-                                </div>
-                                <!-- If we need navigation buttons -->
-                                <div class="swiper-button-prev construction"><i class="fas fa-2x fa-chevron-left"></i>
-                                </div>
-                                <div class="swiper-button-next construction"><i class="fas fa-2x fa-chevron-right"></i>
-                                </div>
-                            </div>
-
-                        </div>
+								<?php endforeach;
+							}
+						?>
                     </div>
 
+                    <div class="slider invisible">
 
+                        <!-- Slider main container -->
+                        <div class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+								<?php
+									$args      = array(
+										'post_type'      => 'naturlith_products',
+										'posts_per_page' => - 1,
+
+									);
+									$the_query = new WP_Query( $args );
+
+									while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                                        <div class="swiper-slide">
+                                            <div class="img-wrap">
+												<?php the_post_thumbnail( 'medium', array(
+													'class' => "card-img-top rounded-0 img-fluid",
+													'alt'   => the_title( '', '', 0 )
+												) ); ?>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="product-mark card-title text-uppercase mb-0"><?php echo get_post_meta( get_the_ID(), 'naturlith_product_mark', true ); ?></h5>
+                                                <?php
+                                                    $productTaxonomy = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0];
+                                                ?>
+                                                <p class="product-category card-text text-lowercase mb-0" data-tax="<?php echo $productTaxonomy->slug; ?>"><?php echo $productTaxonomy->name; ?></p>
+                                                <hr class="my-2">
+                                                <p class="product-title card-text"><?php the_title(); ?></p>
+                                            </div>
+                                            <div class="card-footer p-0">
+                                                <a href="<?php the_permalink(); ?>"
+                                                   class="btn btn-success"><?php echo __( 'View', 'naturlith' ) ?></a>
+                                            </div>
+                                        </div>
+									<?php endwhile;
+									unset( $the_query );
+								?>
+                            </div>
+
+                        </div>
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"><i
+                                    class="fas fa-2x fa-chevron-left float-right"></i>
+                        </div>
+                        <div class="swiper-button-next"><i
+                                    class="fas fa-2x fa-chevron-right"></i>
+                        </div>
+
+                    </div>
                 </div>
-            </div></div>
+
+            </div>
+            </div>
+            </div>
 		<?php endif;
 	endif; ?>
 
@@ -237,7 +202,7 @@
 	<?php if ( get_theme_mod( 'naturlith_news_enable' ) ): ?>
         <div id="news">
             <div class="container">
-                <h2 class="text-center text-uppercase my-5"><?php echo get_theme_mod( 'naturlith_news_title' ) ?></h2>
+                <h1 class="text-center text-uppercase my-5"><?php echo get_theme_mod( 'naturlith_news_title' ) ?></h1>
                 <div class="row">
 
 					<?php
@@ -270,23 +235,29 @@
 						}
 
 						foreach ( $posts as $recent ) { ?>
-                            <div class="col-12 col-sm-6 col-md-3">
-                                <div class="img-wrap mb-2">
-                                    <img class="card-img-top rounded-0 img-fluid"
-                                         src="<?php echo get_the_post_thumbnail_url( $recent["ID"], 'medium' );
-									     ?>"
-                                         alt="">
+                            <div class="new col-12 col-sm-6 col-md-3 mb-3 mb-sm-4">
+                                <div class="row">
+                                    <div class="img-wrap mb-0 mb-sm-2 col-7 col-sm-12">
+                                        <img class="card-img-top rounded-0 img-fluid"
+                                             src="<?php echo get_the_post_thumbnail_url( $recent["ID"], 'medium' );
+										     ?>"
+                                             alt="">
+                                    </div>
+                                    <!--                        20 октября 2017, 12:16-->
+                                    <small class="d-none d-sm-block col-sm-12"><?php echo date( 'd F Y, H:i', strtotime( get_the_date() ) ); ?></small>
+                                    <h4 class="col-5 col-sm-12 align-self-center">
+                                        <a href="<?php echo get_permalink( $recent["ID"] ); ?>"><?php echo $recent["post_title"]; ?></a>
+                                    </h4>
+                                    <p class="d-none d-sm-block col-sm-12"><?php echo wp_trim_words( $recent['post_content'], 16 ); ?></p>
                                 </div>
-                                <!--                        20 октября 2017, 12:16-->
-                                <small><?php echo date( 'd F Y, H:i', strtotime( $recent['post_date'] ) ); ?></small>
-                                <h4>
-                                    <a href="<?php echo get_permalink( $recent["ID"] ); ?>"><?php echo $recent["post_title"]; ?></a>
-                                </h4>
-                                <p><?php echo wp_trim_words( $recent['post_content'], 16 ); ?></p>
                             </div>
 						<?php }
 						wp_reset_query();
 					?>
+                </div>
+                <div class="text-center pb-3 ">
+                    <a class="all-news-button"
+                       href="<?php echo get_theme_mod( 'naturlith_news_all_news_href' ) ?>"><?php echo get_theme_mod( 'naturlith_news_all_news_title' ) ?></a>
                 </div>
             </div>
         </div>

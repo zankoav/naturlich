@@ -1,19 +1,19 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexandrzanko
- * Date: 1/30/18
- * Time: 4:14 PM
- */
-get_header();
+	/**
+	 * Created by PhpStorm.
+	 * User: alexandrzanko
+	 * Date: 1/30/18
+	 * Time: 4:14 PM
+	 */
+	get_header();
 
-// Start the loop.
-while (have_posts()) : the_post();
+	// Start the loop.
+	while ( have_posts() ) : the_post();
 
-    // Include the page content template.
-    get_template_part('inc/templates/content', 'page');
+		// Include the page content template.
+		get_template_part( 'inc/templates/content', 'page' );
+		// End the loop.
 
-    // End the loop.
-endwhile;
+	endwhile;
 
-get_footer();
+	get_footer();
