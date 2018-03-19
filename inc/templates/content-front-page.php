@@ -31,8 +31,8 @@
 							$isFirstItem = false; ?>"
                              style="background: url(<?php echo get_theme_mod( 'naturlith_banners_slide_' . $i ); ?>) center no-repeat; background-size: cover;">
                             <div class="carousel-caption">
-                                <h1><?php echo get_theme_mod( 'naturlith_banners_title_' . $i ); ?></h1>
-                                <h2 class="d-none d-md-block"><?php echo get_theme_mod( 'naturlith_banners_sub_title_' . $i ); ?></h2>
+                                <h2><?php echo get_theme_mod( 'naturlith_banners_title_' . $i ); ?></h2>
+                                <h3 class="d-none d-md-block"><?php echo get_theme_mod( 'naturlith_banners_sub_title_' . $i ); ?></h3>
                                 <p class="d-none d-lg-block"><?php echo get_theme_mod( 'naturlith_banners_description_' . $i ); ?></p>
                                 <a href="<?php echo get_theme_mod( 'naturlith_banners_button_url_' . $i ); ?>"
                                    class="btn btn-success mt-3 mt-lg-4">
@@ -59,8 +59,8 @@
 			$advantagesTitle = get_theme_mod( 'naturlith_advantages_title' );
 			if ( ! empty( $advantagesTitle ) ) { ?>
                 <div class="container pt-5 position-relative">
-                    <h1 class="text-center pb-2"><?php echo $advantagesTitle; ?></h1>
-                    <h2 class="text-center"><?php echo get_theme_mod( 'naturlith_advantages_sub_title' ); ?></h2>
+                    <h2 class="text-center pb-2"><?php echo $advantagesTitle; ?></h2>
+                    <h1 class="text-center"><?php echo get_theme_mod( 'naturlith_advantages_sub_title' ); ?></h1>
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <div id="advantage-items" class="mt-5">
@@ -105,7 +105,7 @@
 
                 <div class="container py-5">
 
-                    <h1 class="text-center mb-3 pt-5"><?php echo $productTitle; ?></h1>
+                    <h2 class="text-center mb-3 pt-5"><?php echo $productTitle; ?></h2>
 
                     <div class="taxonomies">
 						<?php
@@ -187,7 +187,7 @@
 				$conditionsTitle = get_theme_mod( 'naturlith_conditions_title' );
 				if ( ! empty( $conditionsTitle ) ) { ?>
                     <div class="container text-center text-white">
-                        <h1 class="text-uppercase"><?php echo $conditionsTitle; ?></h1>
+                        <h2 class="text-uppercase"><?php echo $conditionsTitle; ?></h2>
 
                         <p class="pt-2 mb-5 w-75 mx-auto"><?php echo get_theme_mod( 'naturlith_conditions_subtitle' ); ?></p>
                         <a class="btn rounded-0 mt-3"
@@ -202,7 +202,7 @@
 	<?php if ( get_theme_mod( 'naturlith_news_enable' ) ): ?>
         <div id="news">
             <div class="container">
-                <h1 class="text-center text-uppercase my-5"><?php echo get_theme_mod( 'naturlith_news_title' ) ?></h1>
+                <h2 class="text-center text-uppercase my-5"><?php echo get_theme_mod( 'naturlith_news_title' ) ?></h2>
                 <div class="row">
 
 					<?php

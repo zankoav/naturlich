@@ -4,7 +4,9 @@
 
     .taxonomy{
         color: $dark-gray;
-        margin-right: 1rem;
+        margin-right: 2rem;
+        font-size: 0.8rem;
+        max-width: 70px;
         cursor: pointer;
 
         &:hover, &.active{
