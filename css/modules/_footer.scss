@@ -11,13 +11,6 @@ footer {
     &#footer-top {
         background-color: $black;
 
-        //.row > div {
-        //    &:first-child {
-        //        border-left: none;
-        //    }
-        //    border-left: 1px solid $light-gray;
-        //}
-
         li {
             list-style-type: none;
             h2 {
@@ -59,4 +52,8 @@ footer {
         color: $light-gray;
         font-size: 0.9rem;
     }
+}
+
+@media (max-width: 768px) {
+
 }
