@@ -8,6 +8,7 @@
         font-size: 0.8rem;
         max-width: 70px;
         cursor: pointer;
+        text-transform: uppercase;
 
         &:hover, &.active{
             color: $primary;
