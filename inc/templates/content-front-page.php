@@ -111,11 +111,15 @@
 						<?php
 							$taxonomies = get_terms( 'naturlith_products_category' );
 							if ( $taxonomies ) {
-								foreach ( $taxonomies as $taxonomy ) : ?>
-                                    <div class="taxonomy" data-tax="<?php echo $taxonomy->slug; ?>">
+								$position = 0;
+								foreach ( $taxonomies as $taxonomy ) :?>
+                                    <div class="taxonomy" data-count="<?php echo $position; ?>"
+                                         data-tax="<?php echo $taxonomy->slug; ?>">
 										<?php echo $taxonomy->name; ?>
                                     </div>
-								<?php endforeach;
+									<?php
+									$position += $taxonomy->count;
+								endforeach;
 							}
 						?>
                     </div>
@@ -130,8 +134,7 @@
 								<?php
 									$args      = array(
 										'post_type'      => 'naturlith_products',
-										'posts_per_page' => - 1,
-
+										'posts_per_page' => - 1
 									);
 									$the_query = new WP_Query( $args );
 
@@ -145,10 +148,11 @@
                                             </div>
                                             <div class="card-body">
                                                 <h5 class="product-mark card-title text-uppercase mb-0"><?php echo get_post_meta( get_the_ID(), 'naturlith_product_mark', true ); ?></h5>
-                                                <?php
-                                                    $productTaxonomy = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0];
-                                                ?>
-                                                <p class="product-category card-text text-lowercase mb-0" data-tax="<?php echo $productTaxonomy->slug; ?>"><?php echo $productTaxonomy->name; ?></p>
+												<?php
+													$productTaxonomy = get_the_terms( get_the_ID(), 'naturlith_products_category' )[0];
+												?>
+                                                <p class="product-category card-text text-lowercase mb-0"
+                                                   data-tax="<?php echo $productTaxonomy->slug; ?>"><?php echo $productTaxonomy->name; ?></p>
                                                 <hr class="my-2">
                                                 <p class="product-title card-text"><?php the_title(); ?></p>
                                             </div>

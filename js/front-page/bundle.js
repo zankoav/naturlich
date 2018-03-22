@@ -352,52 +352,44 @@ function slider($) {
   var tab = '.swiper-container';
   var tabN = '.swiper-button-next';
   var tabP = '.swiper-button-prev';
-  var currentTaxonomy, swiper;
+  var swiper;
+  var products = initSliderData();
 
   window.onload = function () {
+    $('.slider').empty();
+    $('.slider').append(getSliderContainer());
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = products[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _product = _step.value;
+        var pH = getProductHtml(_product);
+        $('.swiper-wrapper').append(pH);
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
     updateSlider(tab, tabN, tabP);
   };
 
-  var products = initSliderData();
-  $('.taxonomy').click(function () {
-    $('.taxonomy').removeClass('active');
-    $(this).addClass('active');
-    var taxonomy = $(this).attr('data-tax');
-
-    if (currentTaxonomy !== taxonomy) {
-      currentTaxonomy = taxonomy;
-      var productsFiltered = products.filter(function (product) {
-        return product.category === currentTaxonomy;
-      });
-      $('.slider').empty();
-      $('.slider').append(getSliderContainer());
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = productsFiltered[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var _product = _step.value;
-          var pH = getProductHtml(_product);
-          $('.swiper-wrapper').append(pH);
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return != null) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
-        }
-      }
-
-      updateSlider(tab, tabN, tabP);
-    }
+  $('.taxonomy').click(function (e) {
+    e.preventDefault();
+    var scrollTo = $(this).attr('data-count');
+    swiper.slideTo(scrollTo, 0);
   });
 
   function getSliderContainer() {
@@ -431,6 +423,17 @@ function slider($) {
       });
     }
 
+    products.sort(function (a, b) {
+      if (a.category > b.category) {
+        return 1;
+      }
+
+      if (a.category < b.category) {
+        return -1;
+      }
+
+      return 0;
+    });
     return products;
   }
 
@@ -441,7 +444,7 @@ function slider($) {
       slidesPerView: 4,
       spaceBetween: 30,
       speed: 500,
-      loop: true,
+      loop: false,
       navigation: {
         nextEl: tabN,
         prevEl: tabP
