@@ -108,18 +108,18 @@
                     <h2 class="text-center mb-3 pt-5"><?php echo $productTitle; ?></h2>
 
                     <div class="taxonomies">
+                        <div class="taxonomy"
+                             data-tax="all">
+							<?php _e( 'All plate' ); ?>
+                        </div>
 						<?php
 							$taxonomies = get_terms( 'naturlith_products_category' );
 							if ( $taxonomies ) {
-								$position = 0;
 								foreach ( $taxonomies as $taxonomy ) :?>
-                                    <div class="taxonomy" data-count="<?php echo $position; ?>"
-                                         data-tax="<?php echo $taxonomy->slug; ?>">
+                                    <div class="taxonomy" data-tax="<?php echo $taxonomy->slug; ?>">
 										<?php echo $taxonomy->name; ?>
                                     </div>
-									<?php
-									$position += $taxonomy->count;
-								endforeach;
+								<?php endforeach;
 							}
 						?>
                     </div>
