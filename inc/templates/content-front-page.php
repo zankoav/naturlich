@@ -110,7 +110,7 @@
                     <div class="taxonomies">
                         <div class="taxonomy"
                              data-tax="all">
-							<?php _e( 'All plate' ); ?>
+							<?php _e( 'All products' ); ?>
                         </div>
 						<?php
 							$taxonomies = get_terms( 'naturlith_products_category' );
