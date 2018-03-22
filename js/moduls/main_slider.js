@@ -10,39 +10,29 @@ export function slider($) {
     let tabN = '.swiper-button-next';
     let tabP = '.swiper-button-prev';
 
-    let currentTaxonomy, swiper;
+    let swiper;
+    let products = initSliderData();
 
     window.onload = function () {
+        $('.slider').empty();
+        $('.slider').append(getSliderContainer());
+        for (let product of products) {
+            let pH = getProductHtml(product);
+            $('.swiper-wrapper').append(pH);
+        }
         updateSlider(tab, tabN, tabP);
     };
 
 
-    let products = initSliderData();
 
-    $('.taxonomy').click(function () {
+    $('.taxonomy').click(function (e) {
 
-        $('.taxonomy').removeClass('active');
-        $(this).addClass('active');
-        let taxonomy = $(this).attr('data-tax');
+        e.preventDefault();
 
-        if (currentTaxonomy !== taxonomy) {
-            currentTaxonomy = taxonomy;
+        let scrollTo = $(this).attr('data-count');
 
-            let productsFiltered = products.filter(function (product) {
-                return product.category === currentTaxonomy;
-            });
+        swiper.slideTo(scrollTo, 0);
 
-            $('.slider').empty();
-            $('.slider').append(getSliderContainer());
-
-            for (let product of productsFiltered) {
-                let pH = getProductHtml(product);
-                $('.swiper-wrapper').append(pH);
-            }
-
-            updateSlider(tab, tabN, tabP);
-
-        }
     });
 
     function getSliderContainer() {
@@ -104,6 +94,16 @@ export function slider($) {
             });
         }
 
+        products.sort(function (a, b) {
+            if (a.category > b.category) {
+                return 1;
+            }
+            if (a.category < b.category) {
+                return -1;
+            }
+            return 0;
+        });
+
         return products;
     }
 
@@ -115,7 +115,7 @@ export function slider($) {
             slidesPerView: 4,
             spaceBetween: 30,
             speed: 500,
-            loop: true,
+            loop: false,
             navigation: {
                 nextEl: tabN,
                 prevEl: tabP,
