@@ -10,7 +10,7 @@ export function slider($) {
     let tabN = '.swiper-button-next';
     let tabP = '.swiper-button-prev';
 
-    let swiper;
+    let currentTaxonomy, swiper;
     let products = initSliderData();
 
     window.onload = function () {
@@ -25,14 +25,38 @@ export function slider($) {
 
 
 
-    $('.taxonomy').click(function (e) {
+    $('.taxonomy').click(function () {
 
-        e.preventDefault();
+        $('.taxonomy').removeClass('active');
+        $(this).addClass('active');
 
-        let scrollTo = $(this).attr('data-count');
+        let taxonomy = $(this).attr('data-tax');
 
-        swiper.slideTo(scrollTo, 0);
 
+        if (currentTaxonomy !== taxonomy) {
+            currentTaxonomy = taxonomy;
+
+            let productsFiltered;
+
+            if( taxonomy === 'all'){
+                productsFiltered = products;
+            }else{
+                productsFiltered = products.filter(function (product) {
+                    return product.category === currentTaxonomy;
+                });
+            }
+
+            $('.slider').empty();
+            $('.slider').append(getSliderContainer());
+
+            for (let product of productsFiltered) {
+                let pH = getProductHtml(product);
+                $('.swiper-wrapper').append(pH);
+            }
+
+            updateSlider(tab, tabN, tabP);
+
+        }
     });
 
     function getSliderContainer() {

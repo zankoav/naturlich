@@ -352,7 +352,7 @@ function slider($) {
   var tab = '.swiper-container';
   var tabN = '.swiper-button-next';
   var tabP = '.swiper-button-prev';
-  var swiper;
+  var currentTaxonomy, swiper;
   var products = initSliderData();
 
   window.onload = function () {
@@ -386,10 +386,52 @@ function slider($) {
     updateSlider(tab, tabN, tabP);
   };
 
-  $('.taxonomy').click(function (e) {
-    e.preventDefault();
-    var scrollTo = $(this).attr('data-count');
-    swiper.slideTo(scrollTo, 0);
+  $('.taxonomy').click(function () {
+    $('.taxonomy').removeClass('active');
+    $(this).addClass('active');
+    var taxonomy = $(this).attr('data-tax');
+
+    if (currentTaxonomy !== taxonomy) {
+      currentTaxonomy = taxonomy;
+      var productsFiltered;
+
+      if (taxonomy === 'all') {
+        productsFiltered = products;
+      } else {
+        productsFiltered = products.filter(function (product) {
+          return product.category === currentTaxonomy;
+        });
+      }
+
+      $('.slider').empty();
+      $('.slider').append(getSliderContainer());
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
+
+      try {
+        for (var _iterator2 = productsFiltered[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          var _product2 = _step2.value;
+          var pH = getProductHtml(_product2);
+          $('.swiper-wrapper').append(pH);
+        }
+      } catch (err) {
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+            _iterator2.return();
+          }
+        } finally {
+          if (_didIteratorError2) {
+            throw _iteratorError2;
+          }
+        }
+      }
+
+      updateSlider(tab, tabN, tabP);
+    }
   });
 
   function getSliderContainer() {
